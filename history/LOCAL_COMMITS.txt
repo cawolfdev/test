@@ -1,0 +1,98 @@
+682dd1c scaffold: independent image workflow, 24 standalone prompts, acceptance gates
+ff49bfe prepare: image_1_1 independent single-image request
+67795f2 submit: image_1_1 independent generation
+ceb65ee target: existing cawolfdev/test repo on isolated branch, add audited rejection and push gates
+e13df3a reject: image_1_1 nonconforming composite generation
+2a21d72 prepare: image_1_1 independent single-image request
+1a0cb0a submit: image_1_1 independent generation
+e58a1ed capture: image_1_1 PNG + SHA256
+7103ce2 approve: image_1_1 reviewed source
+47c093f prepare: image_1_2 independent single-image request
+9dcb64f submit: image_1_2 independent generation
+46148e7 capture: image_1_2 PNG + SHA256
+8f3fe95 approve: image_1_2 reviewed source
+9dffbc3 prepare: image_1_3 independent single-image request
+d77285e submit: image_1_3 independent generation
+ae94f7a reject: image_1_3 nonconforming composite generation
+8b7ce07 revise: M3 prompt adds verifiable absolute silhouette anchors
+7f8fed6 prepare: image_1_3 independent single-image request
+5afd96f submit: image_1_3 independent generation
+b7bb035 reject: image_1_3 nonconforming composite generation
+ac55f2c checkpoint: 2 accepted sources, rejected M3 evidence, safe publish command
+4726fa7 review: user explicitly accepts M1 and M2 visually
+b634739 prepare: image_1_3 independent single-image request
+fcc197c submit: image_1_3 independent generation
+6628c2b reject: image_1_3 failed generation acceptance gate
+ed07275 checkpoint: retain explicit user approval and third M3 rejection
+6fc122c strategy: use standalone spatial image descriptions for pending steps
+5a36f49 delivery: export checkpoint-relative history without old artifacts
+963f5d0 fix: advertise HEAD in thin checkpoint bundle
+214a5b2 prepare: image_1_3 independent single-image request
+38ee4aa submit: image_1_3 independent generation
+ecde423 capture: image_1_3 PNG + SHA256
+57fca93 approve: image_1_3 reviewed source
+f30cfba prepare: image_1_4 independent single-image request
+f575d1e submit: image_1_4 independent generation
+b2545b5 reject: image_1_4 failed generation acceptance gate
+17f3361 fix: exaggerate literal M4 silhouette after failed progression
+cdf14d2 prepare: image_1_4 independent single-image request
+060c662 submit: image_1_4 independent generation
+2526944 reject: image_1_4 failed generation acceptance gate
+33dfc63 strategy: simplify M4 to concrete independent silhouette description
+b48042d prepare: image_1_4 independent single-image request
+e528b00 submit: image_1_4 independent generation
+cf2b46b reject: image_1_4 failed generation acceptance gate
+6e67ce0 checkpoint: record M3 approval, M4 rejections and next incremental base
+183d67f strategy: M4 absolute head-unit anatomy with objective dimensions
+63a80e2 prepare: image_1_4 independent single-image request
+86dd53d submit: image_1_4 independent generation
+8402a1e reject: image_1_4 failed generation acceptance gate
+32ef3c4 prompt: M4 compact measured anatomy without infographic framing
+1032893 prepare: image_1_4 independent single-image request
+2ccc49c submit: image_1_4 independent generation
+bf9301e reject: image_1_4 failed generation acceptance gate
+565919b audit: record head-unit geometry targets and failed visual attempts
+5f7197d protocol: permit annotations; set M4 geometry targets for independent retry
+dee3ad8 prepare: image_1_4 independent single-image request
+51e71c5 submit: image_1_4 independent generation
+50d4ac2 reject: image_1_4 failed generation acceptance gate
+39ef2dc prompt: widen standalone M4 silhouette to 13 face widths
+0efc39a prepare: image_1_4 independent single-image request
+a2e04bf submit: image_1_4 independent generation
+7ce5a52 cancel: unexecuted M4 submission after prompt test mismatch
+b1db69e fix: restore standardized standalone prompt header and tests
+6c518aa prepare: image_1_4 independent single-image request
+195bb96 submit: image_1_4 independent generation
+6247fa8 test: recognize barefoot as complete-foot framing term
+49484ab reject: image_1_4 failed generation acceptance gate
+9b175e4 prompt: M4 landscape framing for silhouette wider than standing height
+0d372f7 prepare: image_1_4 independent single-image request
+871d8b4 submit: image_1_4 independent generation
+286ff89 test: accept case-insensitive black shorts wording
+ab5565b reject: image_1_4 failed generation acceptance gate
+c645525 prepare: image_1_4 independent single-image request
+1ff1678 submit: image_1_4 independent generation
+c3e02eb reject: image_1_4 failed generation acceptance gate
+5842b6a prepare: image_1_4 independent single-image request
+581d9e0 submit: image_1_4 independent generation
+9db15d5 reject: image_1_4 failed generation acceptance gate
+abd9a02 audit: record M4 landscape framing failures and relaxed annotation policy
+45ed19e audit: quantitative head-relative silhouette screen for M4 quality gate
+6c859eb geometry: deterministic M4 scale proxy and canvas feasibility gate
+73eeb3c geometry: separate proxy heading from shoulder measurement guide
+289dde1 docs: isolate geometry QA and reset incremental base to abd9a02
+0d62ace prompt: M4 spatial geometry and wide standalone studio composition
+c635b2f prepare: image_1_4 independent single-image request
+3611154 submit: image_1_4 independent generation
+8f65be0 audit: record M4 image head-relative plateau
+404a6f5 reject: image_1_4 failed generation acceptance gate
+3ef6fea prompt: M4 horizontal sculptural silhouette independent portrait
+76e301c prepare: image_1_4 independent single-image request
+325dc99 submit: image_1_4 independent generation
+9a058f7 fix: protect customized image prompts from test regeneration; cancel unexecuted request
+830d24c prompt: standalone M4 panoramic physique with explicit silhouette
+58c7ac9 prepare: image_1_4 independent single-image request
+19592df submit: image_1_4 independent generation
+bcd96e8 audit: second M4 silhouette screening under progression threshold
+1e1acfc reject: image_1_4 failed generation acceptance gate
+a10739f state: record latest M4 rejected generations and remote audit limitations
