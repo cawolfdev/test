@@ -1,0 +1,85 @@
+{
+  "target": "image_1_4",
+  "measurement_status": "design targets only, not achieved or measurable from current failed generations",
+  "reference": {
+    "name": "front-facing face width",
+    "cm": 20,
+    "normalized_unit": "H"
+  },
+  "front_view_geometry": {
+    "total_height_cm": {
+      "cm": 200,
+      "head_width_units": 10.0
+    },
+    "face_width_cm": {
+      "cm": 20,
+      "head_width_units": 1.0
+    },
+    "head_height_cm": {
+      "cm": 25,
+      "head_width_units": 1.25
+    },
+    "neck_width_cm": {
+      "cm": 30,
+      "head_width_units": 1.5
+    },
+    "shoulder_span_cm": {
+      "cm": 180,
+      "head_width_units": 9.0
+    },
+    "deltoid_width_cm": {
+      "cm": 44,
+      "head_width_units": 2.2
+    },
+    "chest_width_cm": {
+      "cm": 120,
+      "head_width_units": 6.0
+    },
+    "individual_pectoral_width_cm": {
+      "cm": 55,
+      "head_width_units": 2.75
+    },
+    "upper_arm_diameter_cm": {
+      "cm": 39,
+      "head_width_units": 1.95
+    },
+    "forearm_diameter_cm": {
+      "cm": 34,
+      "head_width_units": 1.7
+    },
+    "wrist_diameter_cm": {
+      "cm": 22,
+      "head_width_units": 1.1
+    },
+    "waist_width_cm": {
+      "cm": 70,
+      "head_width_units": 3.5
+    },
+    "pelvis_width_cm": {
+      "cm": 72,
+      "head_width_units": 3.6
+    },
+    "thigh_width_cm": {
+      "cm": 56,
+      "head_width_units": 2.8
+    },
+    "calf_width_cm": {
+      "cm": 42,
+      "head_width_units": 2.1
+    },
+    "ankle_width_cm": {
+      "cm": 20,
+      "head_width_units": 1.0
+    }
+  },
+  "not_directly_observable_in_front_view": {
+    "chest_forward_projection_cm": 40
+  },
+  "constraints": [
+    "Exactly one adult figure",
+    "Full head to toe visible",
+    "No labels, annotations, overlays or measurement graphics",
+    "Standalone original generation, no crop or reference-image derivation"
+  ],
+  "generation_observation": "2026-10-24: two numerical prompts produced labeled diagrams, including one eight-figure panel. Both rejected. The model did not reliably honor the cm values."
+}
