@@ -1,0 +1,8 @@
+.env
+.env.*
+__pycache__/
+*.pyc
+.charflow.lock
+*.tmp
+*.partial
+.DS_Store
