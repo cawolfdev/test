@@ -1,0 +1,8 @@
+{
+  "rejected_at": "2026-10-24T05:56:51.004877+00:00",
+  "expected_output": "images/image_1_3.png",
+  "rejected_output": "rejected/image_1_3_20261024T055651.png",
+  "file_sha256": "161361174a3611288aee0bc0d8206331b777591d4ea937a36d9784d21a7137f3",
+  "reason": "Rejected at visual monotonicity gate: valid single-character render, but muscle bulk appears nearly the same as image_1_2 instead of clearly increasing to M=3. Do not accept numeric M=3 label without a visible increase.",
+  "classification": "not a valid independently generated one-character source"
+}
