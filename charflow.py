@@ -44,7 +44,16 @@ def git_commit(files, message):
     if s.returncode == 0:
         return '(no new changes)'
     subprocess.run(['git','commit','-m',message],cwd=ROOT,check=True)
-    return subprocess.check_output(['git','rev-parse','--short','HEAD'],cwd=ROOT,text=True).strip()
+    commit = subprocess.check_output(['git','rev-parse','--short','HEAD'],cwd=ROOT,text=True).strip()
+    if os.environ.get('CHARFLOW_PUSH') == '1':
+        # Remote synchronization is a hard gate in CI/manual runs where requested.
+        # A failed push raises immediately, before any next generation step.
+        env = os.environ.copy()
+        env['GIT_TERMINAL_PROMPT'] = '0'
+        subprocess.run(['git','push','-u','origin',
+            'HEAD:refs/heads/charflow/independent-images'],
+            cwd=ROOT,env=env,check=True)
+    return commit
 
 
 def codes():
@@ -134,6 +143,41 @@ def import_image(code, source, provenance, model='unspecified'):
     atomic_json(ff['result'],result)
     print('IMAGE COMMIT:',git_commit([ff['image'],ff['result']],f'capture: image_{code} PNG + SHA256'))
     print('SHA256:',result['file_sha256'])
+
+
+
+def void_submission(code, source, notes):
+    """Preserve a nonconforming generation as rejected evidence, then reset the step.
+
+    This NEVER imports the supplied file as an individual source image.
+    """
+    ff=files_for(code)
+    if ff['image'].exists():
+        raise SystemExit('An accepted source image exists. Use reject-next instead.')
+    if not ff['submission'].exists():
+        raise SystemExit('No submitted attempt to reject.')
+    source=Path(source)
+    if not source.is_file():
+        raise SystemExit('Rejected output not found; nothing was changed.')
+    stem=f'image_{code}_{datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")}'
+    target=ROOT/'rejected'/f'{stem}{source.suffix.lower()}'
+    shutil.copy2(source,target)
+    data={'rejected_at':utc(), 'expected_output':f'images/image_{code}.png',
+        'rejected_output':str(target.relative_to(ROOT)),
+        'file_sha256':digest(target), 'reason':notes,
+        'classification':'not a valid independently generated one-character source'}
+    report=target.with_suffix('.json')
+    atomic_json(report,data)
+    ff['submission'].unlink()
+    ff['request'].unlink(missing_ok=True)
+    subprocess.run(['git','add','-A','--','rejected','submissions','requests'],cwd=ROOT,check=True)
+    subprocess.run(['git','commit','-m',f'reject: image_{code} nonconforming composite generation'],cwd=ROOT,check=True)
+    commit=subprocess.check_output(['git','rev-parse','--short','HEAD'],cwd=ROOT,text=True).strip()
+    if os.environ.get('CHARFLOW_PUSH') == '1':
+        env=os.environ.copy();env['GIT_TERMINAL_PROMPT']='0'
+        subprocess.run(['git','push','-u','origin',
+            'HEAD:refs/heads/charflow/independent-images'],cwd=ROOT,env=env,check=True)
+    print('REJECTION COMMIT:',commit,'| preserved',target.name)
 
 
 def approve(code, verdict, notes):
@@ -246,6 +290,7 @@ def main():
     ii=sub.add_parser('import-next');ii.add_argument('path');ii.add_argument('--source',required=True);ii.add_argument('--model',default='unknown')
     aa=sub.add_parser('approve-next');aa.add_argument('--notes',required=True)
     rr=sub.add_parser('reject-next');rr.add_argument('--notes',required=True)
+    vv=sub.add_parser('void-next');vv.add_argument('path');vv.add_argument('--notes',required=True)
     cc=sub.add_parser('compose');cc.add_argument('--attribute',type=int,choices=[1,2,3],required=True)
     args=p.parse_args()
     if args.cmd=='status':return status()
@@ -257,6 +302,7 @@ def main():
     if args.cmd=='prepare-next':return prepare(code)
     if args.cmd=='submit-next':return submit(code,'ChatGPT image_gen (manual import required)','ChatGPT image generation')
     if args.cmd=='generate-next':return generate_one(code)
+    if args.cmd=='void-next':return void_submission(code,args.path,args.notes)
     if args.cmd=='import-next':return import_image(code,args.path,args.source,args.model)
     if args.cmd=='approve-next':return approve(code,'approve',args.notes)
     if args.cmd=='reject-next':return approve(code,'reject',args.notes)

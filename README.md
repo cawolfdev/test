@@ -46,17 +46,40 @@ python charflow.py compose --attribute 1
 
 `compose` produces `composites/image_1.png`, etc., from *approved* full source images. It never calls an image generation model or modifies `images/image_#_#.png`. Composites are disabled until all eight individual source files for their attribute have been approved.
 
-## Publish to GitHub
+## Publish to existing GitHub repository
 
-The ChatGPT GitHub connector **must be independently connected** before account operations can occur in chat. You can publish the exact local Git history yourself with [GitHub CLI](https://cli.github.com/manual/gh_repo_create). In this directory:
+**Remote:** `https://github.com/cawolfdev/test.git`  
+**Isolated remote branch:** `charflow/independent-images`  
+**Do not overwrite** `main`, another branch or unrelated repository files. 
+
+The `origin` remote is configured in the local Git clone. This is only a URL setting,
+**not proof of GitHub authentication or that anything has been uploaded**. Verify
+GitHub permissions, then run:
 
 ```bash
-gh auth login
-# Private repository by default, then push all local commits:
-gh repo create hypermasculine-character-system --private --source=. --remote=origin --push
+git remote -v
+git ls-remote origin HEAD      # verify readable (may be private)
+git push -u origin HEAD:refs/heads/charflow/independent-images
 ```
 
-For later updates, `git push origin main` after commits (or configure `CHARFLOW_PUSH=1` to push after successful step commits; remote and credentials must already exist). Prefer manual review before public disclosure. The included `.git` history and a downloadable Git bundle preserve the local audit trail until you publish it.
+If the remote branch already exists, non-fast-forward pushes will fail instead of
+silently overwriting anything. Do not use `--force`. The local workflow keeps its
+complete history in the downloadable Git bundle until GitHub access is restored.
+
+Once the first push succeeds, set `CHARFLOW_PUSH=1` **before running each generation
+step** if replication is mandatory. With this flag, every state-changing `charflow.py`
+commit pushes to the above branch. A failed push aborts the command and requires
+resynchronization before continuing. Do not set `CHARFLOW_PUSH` to a personal token;
+use your normal Git authentication instead.
+
+To audit a generated chart that violates the one-character contract (without ever
+putting it in `images/`):
+
+```bash
+python charflow.py void-next /path/to/bad_chart.png --notes "Eight figures; reject"
+python charflow.py prepare-next
+```
+
 
 ## Auditing
 

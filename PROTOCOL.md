@@ -14,3 +14,5 @@ For each `image_attribute_level`, strictly sequentially:
 Independent calls provide procedural independence, **not guaranteed** perfect numerical muscular-volume scaling or identical facial identity. Reviewers must inspect visual consistency and re-run rejected steps with recorded attempts. No model can objectively validate fictional hormone or conceptual masculinity multipliers.
 
 GitHub state is acknowledged only after authenticated remote create/push; local commits and zip/bundle are distinct from GitHub persistence. No personal tokens are printed, committed or transmitted by the scripts except in the authenticated HTTP header to the official API endpoint.
+
+**GitHub destination:** cawolfdev/test, dedicated branch `charflow/independent-images`. Per-commit remote replication must be confirmed; `CHARFLOW_PUSH=1` enforces fail-closed pushing when authenticated Git access is available.
