@@ -1,0 +1,8 @@
+{
+  "rejected_at": "2026-10-24T05:52:51.995077+00:00",
+  "expected_output": "images/image_1_1.png",
+  "rejected_output": "rejected/image_1_1_20261024T055251.png",
+  "file_sha256": "f0f0d54fd7700698cbd1e9f9422ac64cec26c208bd58c918e0ca6ec00f64ba26",
+  "reason": "Rejected: image generator returned one eight-character comparison composite with title/labels, not one independently generated source character. Violates n=1 person, no titles, no composites, source-image independence. Preserve only as failure evidence.",
+  "classification": "not a valid independently generated one-character source"
+}
