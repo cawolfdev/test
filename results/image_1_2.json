@@ -1,0 +1,14 @@
+{
+  "output": "images/image_1_2.png",
+  "captured_at": "2026-10-24T05:55:39.784577+00:00",
+  "file_sha256": "01261d9651aa32afa57f3d7fcb6ab298be91c68c859a52a66cc49c55c1e85b23",
+  "byte_count": 2198495,
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "source_file": "/mnt/data/a_studio_portrait_scene_with_a_single_extremely_m.png",
+  "claimed_provenance": "ChatGPT image_gen, single-character fresh render, no explicit source-image attachments; full resolved prompt unobservable",
+  "model": "ChatGPT image generation",
+  "provenance_warning": "Manually imported image; this metadata cannot independently prove text-only generation."
+}
