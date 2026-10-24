@@ -1,0 +1,10 @@
+{
+  "output": "images/image_1_2.png",
+  "submitted_at": "2026-10-24T05:54:55.145927+00:00",
+  "generator": "ChatGPT image_gen (manual import required)",
+  "model": "ChatGPT image generation",
+  "n": 1,
+  "input_prompt_sha256": "1cf107ba2afd57b4368af30e2f95592f550957e6be5b812b5a36b887e79f2ddd",
+  "no_input_images": true,
+  "no_batch": true
+}
