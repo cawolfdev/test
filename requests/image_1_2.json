@@ -1,0 +1,15 @@
+{
+  "output": "images/image_1_2.png",
+  "prepared_at": "2026-10-24T05:54:54.534545+00:00",
+  "input": "standalone text prompt only; do not attach another image",
+  "prompt_file": "prompts/image_1_2.txt",
+  "prompt_sha256": "1cf107ba2afd57b4368af30e2f95592f550957e6be5b812b5a36b887e79f2ddd",
+  "generation": {
+    "n": 1,
+    "batching": false,
+    "image_references": [],
+    "source_image": null,
+    "format": "PNG"
+  },
+  "state": "prepared"
+}
