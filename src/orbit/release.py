@@ -61,8 +61,12 @@ def generate_report(repository:Path,version:str)->dict:
     current_file=repository/'reports/current.json'
     if current_file.is_file():
         previous=read_json(current_file)
-        for name in ('photographic_attempts_current','github_sync'):
+        for name in ('photographic_attempts_current', 'github_sync', 'hd_definition',
+                     'photo_orbit_angles', 'photographic_viewpoints_0_30_60_90_120',
+                     'last_generation', 'accepted_photographs', 'release_status'):
             if name in previous:report[name]=previous[name]
+        if 'goal' in previous:report['goal']=previous['goal']
+        if 'next_action' in previous:report['next_action']=previous['next_action']
     return report
 
 

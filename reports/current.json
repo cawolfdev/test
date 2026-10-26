@@ -189,15 +189,15 @@
   ],
   "photographic_attempts_current": {
     "accepted_native_1080x1920": 0,
-    "frontal_candidate": "evidence/rejected/attempt_015.png",
+    "frontal_candidate": "evidence/rejected/unverified/attempt_015.png",
     "independent_new_attempts": 3,
     "issues": [
       "native photos are 1024x1536 below required 1080x1920",
       "60-degree requests did not rotate camera",
       "not geometrically registered"
     ],
-    "last_attempt": "evidence/rejected/attempt_017.png",
-    "nominal_60_candidate": "evidence/rejected/attempt_016.png"
+    "last_attempt": "evidence/rejected/viewpoint/attempt_017.png",
+    "nominal_60_candidate": "evidence/rejected/viewpoint/attempt_016.png"
   },
   "photographic_viewpoints_0_30_60_90_120": "NOT_COMPLETE",
   "project": "wildlife-bodybuilder",
@@ -282,5 +282,5 @@
     "0": "approximate historical photographic reference, replacement not accepted",
     "60": "approximate historical photographic reference, replacement not accepted"
   },
-  "version": "v0004"
+  "version": "v0005"
 }

@@ -64,4 +64,7 @@ def test_report_embedded_and_quality_gates_truthful():
     assert not report['quality_gates']['silhouette_gate_060_passed']
     # Reporting is pure: calculating diagnostics must not overwrite human-reviewed status.
     assert read_json(REPO/'reports/current.json')['github_sync']['status']=='PARTIAL'
+    assert report['hd_definition']['native_width_gt']==1000
+    assert report['photo_orbit_angles']==[0,30,60,90,120]
+    assert report['last_generation']['status']=='REJECTED'
     assert not (REPO/'reports/report-v0002.json').exists()
