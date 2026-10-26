@@ -1,6 +1,8 @@
 {
-  "title": "Fixed-pose human-wolf camera orbit, reuse-first project",
-  "camera_angles_degrees": [
+  "title": "Wolf bodybuilder fixed-pose orbital views",
+  "source_0": "references/00_front_reference.png",
+  "source_60": "references/60_intermediate_reference.png",
+  "azimuth_degrees": [
     0,
     15,
     30,
@@ -11,84 +13,16 @@
     105,
     120
   ],
-  "camera_positions": {
-    "0": [
-      0.0,
-      5.0,
-      1.5
-    ],
-    "15": [
-      1.2940952,
-      4.8296291,
-      1.5
-    ],
-    "30": [
-      2.5,
-      4.330127,
-      1.5
-    ],
-    "45": [
-      3.5355339,
-      3.5355339,
-      1.5
-    ],
-    "60": [
-      4.330127,
-      2.5,
-      1.5
-    ],
-    "75": [
-      4.8296291,
-      1.2940952,
-      1.5
-    ],
-    "90": [
-      5.0,
-      0.0,
-      1.5
-    ],
-    "105": [
-      4.8296291,
-      -1.2940952,
-      1.5
-    ],
-    "120": [
-      4.330127,
-      -2.5,
-      1.5
-    ]
-  },
-  "fixed_subject_front_vector": [
-    0.0,
-    1.0,
-    0.0
-  ],
-  "origins": {
-    "0": "unaltered source reference",
-    "60": "unaltered existing intermediate",
-    "other": "cropped views from reused generative atlas"
-  },
+  "coordinate_definition": "Camera clockwise in overhead plan, subject always facing 0-degree camera position in world coordinates.",
+  "pose": "World-fixed front axis, no independent head/neck rotation intended.",
   "limitations": [
-    "Seven atlas extracts have lower spatial resolution than the anchors.",
-    "Visual azimuth cannot be calibrated from an AI image atlas. A real 3D model is required for physically accurate camera rotation.",
-    "Identity, exact anatomy and pose cannot be verified across generated photographic views."
+    "Photographs are generative approximations, not calibrated 3D renders.",
+    "The generated atlas was cropped into individual files; these seven views were not independently generated at full resolution.",
+    "0 and 60 are copied earlier high-resolution references and differ subtly in anatomy/appearance from the generated atlas sequence.",
+    "Angles printed in the atlas are labels rather than calibrated measured camera positions.",
+    "Parallax and photographic consistency have not been geometrically verified."
   ],
   "files": [
-    {
-      "path": ".gitignore",
-      "size_bytes": 44,
-      "sha256": "a4c557bd1ba24f0f72056ff0a54e8c6dfdb86430eb781a9f9ca91f44e952e18e"
-    },
-    {
-      "path": "README.md",
-      "size_bytes": 3582,
-      "sha256": "96820125f95d4ff936e934d04a7232eb8fe1add95c5efbb6cd8f4f03f57869cb"
-    },
-    {
-      "path": "atlas_layout.json",
-      "size_bytes": 296,
-      "sha256": "c6133ddd35ae145efe433fa18ef6f81f2be9f30da054914c138b951edcd40137"
-    },
     {
       "path": "images/000_clockwise.png",
       "size_bytes": 2587764,
@@ -116,23 +50,23 @@
     },
     {
       "path": "images/075_clockwise.png",
-      "size_bytes": 255463,
-      "sha256": "d39d817647bfda64dd651285849b5253474be08ded309bd7fc2e993afc01f3f0"
+      "size_bytes": 255550,
+      "sha256": "538ad223395305270fa1192f83ed9684b0ab1883ed7d17a039091157ddc24311"
     },
     {
       "path": "images/090_clockwise.png",
-      "size_bytes": 255390,
-      "sha256": "6eb91d8e6c98d886ad81e5524217a44542cf2f9f72c0cfbddf688503328582e0"
+      "size_bytes": 255581,
+      "sha256": "dc71f9751832a14368871f9c4c020704518cc2ebf9ef8015c84f914323183f7a"
     },
     {
       "path": "images/105_clockwise.png",
-      "size_bytes": 253439,
-      "sha256": "de33106624befe1f1aecb2b1564a0276f83abff62e31834e31c587ffb43d3a6d"
+      "size_bytes": 253588,
+      "sha256": "db7c473764835fec7a7e240dd8434321e3d20072ab5a01e1f488f6a74bf8b736"
     },
     {
       "path": "images/120_clockwise.png",
-      "size_bytes": 248843,
-      "sha256": "2f420db3ae95d04eb1d1c8515cd88ca641e97ac9d6f59da5def71472fd94378a"
+      "size_bytes": 248977,
+      "sha256": "29d30a9e0b2389c779149f6b183b46e44b368bc585aa4857e4c27b17f8cc32ad"
     },
     {
       "path": "mocks/000_camera_mock.png",
@@ -185,51 +119,6 @@
       "sha256": "71c3651eddc0123d1b723e71a7fc6d8adeb7952b6cc15269cad8f66b3d6a1e13"
     },
     {
-      "path": "mocks/proxy_3d/000_pose_proxy.png",
-      "size_bytes": 60836,
-      "sha256": "b8d1f7bafc2d424fcb5bfddf3c58a2528df6669e91e49a762c352ef05ebfed9a"
-    },
-    {
-      "path": "mocks/proxy_3d/015_pose_proxy.png",
-      "size_bytes": 61118,
-      "sha256": "bfe6491f965a74ec6b2393b15891f5634a0413dbfca7fa0863bfed4c85e9594f"
-    },
-    {
-      "path": "mocks/proxy_3d/030_pose_proxy.png",
-      "size_bytes": 58013,
-      "sha256": "6974dce8c4f08e441c7ea7a5b9c7eaa3c0cfc43875c5053f24f4aec5d54cfe30"
-    },
-    {
-      "path": "mocks/proxy_3d/045_pose_proxy.png",
-      "size_bytes": 55115,
-      "sha256": "460aac8419970565e6730bc04d99d4a5132bc3afb547007fb51fe448f454dd45"
-    },
-    {
-      "path": "mocks/proxy_3d/060_pose_proxy.png",
-      "size_bytes": 47903,
-      "sha256": "5478c559fcd27a3862644dcbea0b85ef39431d0a57e2f0747f75017f0f4d6069"
-    },
-    {
-      "path": "mocks/proxy_3d/075_pose_proxy.png",
-      "size_bytes": 39890,
-      "sha256": "19169d4ffe3d26e55987b937de7b7c2086088448d19e4d5c54de1d8a560612ee"
-    },
-    {
-      "path": "mocks/proxy_3d/090_pose_proxy.png",
-      "size_bytes": 30427,
-      "sha256": "34b852ad6926b38851f9d86e52d764727bf0861de6a22e977117fa5919fd848f"
-    },
-    {
-      "path": "mocks/proxy_3d/105_pose_proxy.png",
-      "size_bytes": 27261,
-      "sha256": "e40bd52c9c8dd7969b718f66b19fbc93b37d15c1d6ddfb7a65153bfaa2b3cf53"
-    },
-    {
-      "path": "mocks/proxy_3d/120_pose_proxy.png",
-      "size_bytes": 23120,
-      "sha256": "1a657d9d02a0a4f9de7f0b0eecf5a8cf218dc6d1b7dd5c5c5ae2a9daa53e4ba0"
-    },
-    {
       "path": "notes/extract_frames.py",
       "size_bytes": 3997,
       "sha256": "f685ed07c83da63a569d1c7097032be860a98c0abae28604c476b19b672db855"
@@ -238,26 +127,6 @@
       "path": "notes/orbit_specification.md",
       "size_bytes": 1639,
       "sha256": "f6ae86020da06cd700d9c07a4e1be4e035029ac728ab86ce1786ed455124e255"
-    },
-    {
-      "path": "notes/quality_review.md",
-      "size_bytes": 1532,
-      "sha256": "a7fec8bb4dbdf1e851ad2d9b21cff1cd222490f2acb1ab778004075ea836581d"
-    },
-    {
-      "path": "previews/all_angles_contact_sheet.png",
-      "size_bytes": 1861114,
-      "sha256": "5b82d6cac9ab5c78a4ff5d1a1f000d2f364051040f6e9a4d1416bc4fa47bf58f"
-    },
-    {
-      "path": "previews/fixed_pose_geometry_proxies.png",
-      "size_bytes": 399637,
-      "sha256": "fdd38275abacd4f20190cd41e24d716db1933bcabec75c63dec38ddd7200c0d3"
-    },
-    {
-      "path": "pyproject.toml",
-      "size_bytes": 426,
-      "sha256": "5c5fd06489878aff367025f5ded029e4393531cfd657054110d8bf7f20b7cb8c"
     },
     {
       "path": "references/00_front_reference.png",
@@ -353,56 +222,6 @@
       "path": "references/rejected_atlas_01.png",
       "size_bytes": 2737572,
       "sha256": "1709718947528c0fbb5fd5891b73eb276e0adf5f919fa963d2596d824cf50e2f"
-    },
-    {
-      "path": "src/wolf_orbit/__init__.py",
-      "size_bytes": 103,
-      "sha256": "47e37a78bc509b2f8ecc0a9167e43c3f83b85c9ac82006c5ba77fa3374a3db65"
-    },
-    {
-      "path": "src/wolf_orbit/archive.py",
-      "size_bytes": 796,
-      "sha256": "baa7379f356711e454e96702d0643c2fa7280bebce6a20024139b54a78ee64f1"
-    },
-    {
-      "path": "src/wolf_orbit/assets.py",
-      "size_bytes": 2389,
-      "sha256": "09935d7acda0768dc4a740145f93ceb16178a28ad6e475ea9df7bed876f1d9df"
-    },
-    {
-      "path": "src/wolf_orbit/cli.py",
-      "size_bytes": 1577,
-      "sha256": "901f557b79974f199a827d8128d1bb560c1e83a3cb6a923bf50f0516bfb6d604"
-    },
-    {
-      "path": "src/wolf_orbit/geometry.py",
-      "size_bytes": 962,
-      "sha256": "f043171b743200c1353867a47dab554aa12c0ad18a9b33bebab00ac063edb2e9"
-    },
-    {
-      "path": "src/wolf_orbit/manifest.py",
-      "size_bytes": 1473,
-      "sha256": "ad040e1c66220b0b4f4e05a9b38feb88add059f61d823a15ce9d6c498bae8891"
-    },
-    {
-      "path": "src/wolf_orbit/preview.py",
-      "size_bytes": 2083,
-      "sha256": "20857480327b0147837c6671526b7ba00028ff731a750efbff3255523abf5326"
-    },
-    {
-      "path": "src/wolf_orbit/proxy.py",
-      "size_bytes": 4283,
-      "sha256": "00fb3ea14bf60c32893414bd2ec0e29290f1273599c76478d5432fae8b7d1079"
-    },
-    {
-      "path": "src/wolf_orbit/validation.py",
-      "size_bytes": 2320,
-      "sha256": "eeea727b8a0239b485945c46dcf7fcc444b6b31f7ca1f0801a10b7f9af2f6892"
-    },
-    {
-      "path": "tests/test_orbit.py",
-      "size_bytes": 1819,
-      "sha256": "c06b555e6a37dd0e011e9b53c53b666c972aa393963395aa1b35ace7f1dbe028"
     }
   ]
 }

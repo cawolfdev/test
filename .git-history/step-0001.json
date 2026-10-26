@@ -1,0 +1,235 @@
+{
+  "original_sha": "6e90fbfed0ad00be2341b97027c499a2483aa630",
+  "original_message": "checkpoint: preserve source references, candidate views and geometry mocks",
+  "original_position": 1,
+  "excluded_asset_changes": [
+    {
+      "path": "images/000_clockwise.png",
+      "original_blob_sha": "bb0e84588c9cf1544bb81724071ee82d28e7c75e",
+      "bytes": 2587764,
+      "reason": "binary or large"
+    },
+    {
+      "path": "images/015_clockwise.png",
+      "original_blob_sha": "9f6a25c58bd9fe1e0e4323f3fc97b8cf06687e9d",
+      "bytes": 169298,
+      "reason": "binary or large"
+    },
+    {
+      "path": "images/030_clockwise.png",
+      "original_blob_sha": "3e1e8a491c505d0b9511ab7326488c6af0c78c9b",
+      "bytes": 170677,
+      "reason": "binary or large"
+    },
+    {
+      "path": "images/045_clockwise.png",
+      "original_blob_sha": "fc7d9a85717a8ed9c7444dfe94e2adff77755c50",
+      "bytes": 173557,
+      "reason": "binary or large"
+    },
+    {
+      "path": "images/060_clockwise.png",
+      "original_blob_sha": "49c4ad735b2949415e54b7ea338772c67a42d935",
+      "bytes": 2471472,
+      "reason": "binary or large"
+    },
+    {
+      "path": "images/075_clockwise.png",
+      "original_blob_sha": "4dfba233ad6a61cadb792e6a8ebc4b557bb041e3",
+      "bytes": 255550,
+      "reason": "binary or large"
+    },
+    {
+      "path": "images/090_clockwise.png",
+      "original_blob_sha": "362346cf70b120412700f5d00112819cbb102850",
+      "bytes": 255581,
+      "reason": "binary or large"
+    },
+    {
+      "path": "images/105_clockwise.png",
+      "original_blob_sha": "fcb583bd5b3cfb71ad5fc89b6e1313d94cbb1412",
+      "bytes": 253588,
+      "reason": "binary or large"
+    },
+    {
+      "path": "images/120_clockwise.png",
+      "original_blob_sha": "85dc2c73e349311a6b2a6ad4b3dbbb6cae6a9b37",
+      "bytes": 248977,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/000_camera_mock.png",
+      "original_blob_sha": "decf6e1b3362beb81bae4175d5bf463466dc3b8a",
+      "bytes": 19347,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/015_camera_mock.png",
+      "original_blob_sha": "ed98da0c1f5d2beb310aa1198601e41c9222d9d1",
+      "bytes": 19725,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/030_camera_mock.png",
+      "original_blob_sha": "712712a2c57f89d37fc14ff0eb348a84c93f089d",
+      "bytes": 20191,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/045_camera_mock.png",
+      "original_blob_sha": "8be4cf91bfe5605f34cdd6716ce0c590f67e59f4",
+      "bytes": 20089,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/060_camera_mock.png",
+      "original_blob_sha": "9ab8764ef12c5507467941a11a8151b07b5d0c90",
+      "bytes": 20325,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/075_camera_mock.png",
+      "original_blob_sha": "955c5b851e48f475412e2029f1ab49065b8a85e5",
+      "bytes": 20107,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/090_camera_mock.png",
+      "original_blob_sha": "ef9d6f8b5e7d4bb5106bcffea3f78da82dc3af5f",
+      "bytes": 19258,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/105_camera_mock.png",
+      "original_blob_sha": "502c5b51a4e1e9b92b8b3efa1a51834ee5865a53",
+      "bytes": 19801,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/120_camera_mock.png",
+      "original_blob_sha": "4831bb9ab59c77881ff49d9ef2afb904b47a306b",
+      "bytes": 19916,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/all_angles_geometry_overview.png",
+      "original_blob_sha": "a278953a896369be73e33bf695dd083504d7ce1b",
+      "bytes": 100967,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/00_front_reference.png",
+      "original_blob_sha": "bb0e84588c9cf1544bb81724071ee82d28e7c75e",
+      "bytes": 2587764,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/60_intermediate_reference.png",
+      "original_blob_sha": "49c4ad735b2949415e54b7ea338772c67a42d935",
+      "bytes": 2471472,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generated_atlas_candidate.png",
+      "original_blob_sha": "cc0417c2653b3d4a7e32cdd9b80b024f8add4efc",
+      "bytes": 2492448,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/a_high_resolution_grid_atlas_style_image_overall.png",
+      "original_blob_sha": "3535d68fd010919d1654c610383e7f9fc2ce4046",
+      "bytes": 2737572,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/a_highly_detailed_realistic_photoreal_cg_like_ou.png",
+      "original_blob_sha": "1f6924fdd8246bba908a901573cf1c8906b8eb79",
+      "bytes": 2808993,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/a_highly_detailed_realistic_photorealistic_ultra.png",
+      "original_blob_sha": "fea6fc70bc2131f9bea1b24c9fa19729198a302e",
+      "bytes": 2653894,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/a_hyper_detailed_photorealistic_cgi_style_portrai.png",
+      "original_blob_sha": "6219ea36ab9f59d2f2e6564288d61e6051607a0b",
+      "bytes": 2545603,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/a_hyper_realistic_high_detail_photoreal_cgi_styl.png",
+      "original_blob_sha": "f33e1438fd97eec32708f6105c97c52f213049f7",
+      "bytes": 2594691,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/a_hyper_realistic_high_resolution_close_up_mediu.png",
+      "original_blob_sha": "f9660ce68802684fd2a15a6c7a55bf5a3211d566",
+      "bytes": 2582370,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/furry_titan_in_the_alpine_wilderness.png",
+      "original_blob_sha": "49c4ad735b2949415e54b7ea338772c67a42d935",
+      "bytes": 2471472,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/outdoor_mountain_landscape_portrait_dramatic_real.png",
+      "original_blob_sha": "bb0e84588c9cf1544bb81724071ee82d28e7c75e",
+      "bytes": 2587764,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/stoic_wolf_man_in_the_alpine_wilderness.png",
+      "original_blob_sha": "1ecfbd7d966f600ab3d5d4c51b39fed7cb600733",
+      "bytes": 2501395,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/wide_naturalistic_outdoor_portrait_scene_a_highl.png",
+      "original_blob_sha": "0b1f216ab7000d1a2e0321e775eb2b0e64278597",
+      "bytes": 2874349,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/generation_history/wide_outdoor_portrait_scene_of_a_hyper_muscular_s.png",
+      "original_blob_sha": "43621f48422696fe9c35827454cb071a80cc043d",
+      "bytes": 2642311,
+      "reason": "binary or large"
+    },
+    {
+      "path": "references/identity_photos/1000036557.jpg",
+      "original_blob_sha": "7b8f8c008ac7f8d970f2da9733693febf88f0867",
+      "bytes": 760249,
+      "reason": "personal photo"
+    },
+    {
+      "path": "references/identity_photos/1000036558.jpg",
+      "original_blob_sha": "3285283ca1305fd7ea0553ebde40081fa8451afd",
+      "bytes": 259788,
+      "reason": "personal photo"
+    },
+    {
+      "path": "references/identity_photos/1000036559.jpg",
+      "original_blob_sha": "883a94dc590734e141f3d74c0ddf89adad2a8fb2",
+      "bytes": 176485,
+      "reason": "personal photo"
+    },
+    {
+      "path": "references/identity_photos/1000036560.jpg",
+      "original_blob_sha": "cd8c7ee473dbe38c24eb305984976c7cf813e625",
+      "bytes": 472401,
+      "reason": "personal photo"
+    },
+    {
+      "path": "references/rejected_atlas_01.png",
+      "original_blob_sha": "3535d68fd010919d1654c610383e7f9fc2ce4046",
+      "bytes": 2737572,
+      "reason": "binary or large"
+    }
+  ]
+}
