@@ -1,0 +1,20 @@
+{
+  "degree": 15,
+  "photo_sha256": "9b15f4ca59c994d5c42e5e48f12e8b10b296ae253060c7a9d97b74e00b377521",
+  "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+  "previous_checkpoint_sha256": "6409637d2414711fd212c24f198650f55cc82f843117cb975789db1c299f57fc",
+  "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+  "geometric_evidence": "fixed 3D proxy ray intersections",
+  "completion_method": "UV paint previously unseen surface texels only",
+  "new_texels": 40410,
+  "visible_pixels": 252406,
+  "total_texels": 218160,
+  "state_sha256": "86f434250cc960ee54a2cb66b5e968911f9b097f3e63c56057c065fedb28755d",
+  "render_sha256": "8b9814d8b01d6d20c784a83276d7108d6a785570411506f0db0920b992fd2873",
+  "geometry_sha256": "6387820cad6b5a96027051eb7cb7e6fedbd89d294c09e301436082b927f69466",
+  "novelty_sha256": "31ea184e1f792b76ed703d292d6cce2206cf424b25653987aa4e3a9e362693a1",
+  "size": [
+    640,
+    576
+  ]
+}

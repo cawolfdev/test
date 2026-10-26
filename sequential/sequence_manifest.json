@@ -1,0 +1,191 @@
+[
+  {
+    "degree": 0,
+    "photo_sha256": "0c6edf8c909f6db8b98355e2f6011ed00f8b2855a3113698a6d0117c2a1e1447",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "previous_checkpoint_sha256": null,
+    "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+    "geometric_evidence": "fixed 3D proxy ray intersections",
+    "completion_method": "UV paint previously unseen surface texels only",
+    "new_texels": 177750,
+    "visible_pixels": 253080,
+    "total_texels": 177750,
+    "state_sha256": "6409637d2414711fd212c24f198650f55cc82f843117cb975789db1c299f57fc",
+    "render_sha256": "9b53458c5d70e32f482e130d93707e9f6346d16a13d743dbd2c6012438a51a1b",
+    "geometry_sha256": "70f0562cb1f2cb503957664d319c73a82391c497086dc24bd45fe69a7cb8c14b",
+    "novelty_sha256": "e140c5b6f5983ddeca5134ec616181b998538fabf724384576de9be3db58d361",
+    "size": [
+      640,
+      576
+    ],
+    "cache": "reused"
+  },
+  {
+    "degree": 15,
+    "photo_sha256": "9b15f4ca59c994d5c42e5e48f12e8b10b296ae253060c7a9d97b74e00b377521",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "previous_checkpoint_sha256": "6409637d2414711fd212c24f198650f55cc82f843117cb975789db1c299f57fc",
+    "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+    "geometric_evidence": "fixed 3D proxy ray intersections",
+    "completion_method": "UV paint previously unseen surface texels only",
+    "new_texels": 40410,
+    "visible_pixels": 252406,
+    "total_texels": 218160,
+    "state_sha256": "86f434250cc960ee54a2cb66b5e968911f9b097f3e63c56057c065fedb28755d",
+    "render_sha256": "8b9814d8b01d6d20c784a83276d7108d6a785570411506f0db0920b992fd2873",
+    "geometry_sha256": "6387820cad6b5a96027051eb7cb7e6fedbd89d294c09e301436082b927f69466",
+    "novelty_sha256": "31ea184e1f792b76ed703d292d6cce2206cf424b25653987aa4e3a9e362693a1",
+    "size": [
+      640,
+      576
+    ],
+    "cache": "reused"
+  },
+  {
+    "degree": 30,
+    "photo_sha256": "529ba9febdcbccc70c83e9efd05455e26371c596e7086d243a4ea7e61ba43794",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "previous_checkpoint_sha256": "86f434250cc960ee54a2cb66b5e968911f9b097f3e63c56057c065fedb28755d",
+    "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+    "geometric_evidence": "fixed 3D proxy ray intersections",
+    "completion_method": "UV paint previously unseen surface texels only",
+    "new_texels": 24733,
+    "visible_pixels": 242436,
+    "total_texels": 242893,
+    "state_sha256": "8a0486dba60980a861557b427007a2ac8fa9055b37d533d19e895674124fd1e8",
+    "render_sha256": "41c2d6d123a71c367608f5282c02ac503858d5ee8f0ecdb349ba9469b9945764",
+    "geometry_sha256": "3419c768256d1e2ddf124b0e15572cffac2cc37f1d1e6d59b6b09bc3073b21ac",
+    "novelty_sha256": "179110884e8093c4f90d01e451fe9b23e0fec617375c4fc4ca946273bf5eaf86",
+    "size": [
+      640,
+      576
+    ],
+    "cache": "reused"
+  },
+  {
+    "degree": 45,
+    "photo_sha256": "583fccfabce139f5745393aeab1ff8613cb8f594f6bc5ad8af192bbae16291bc",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "previous_checkpoint_sha256": "8a0486dba60980a861557b427007a2ac8fa9055b37d533d19e895674124fd1e8",
+    "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+    "geometric_evidence": "fixed 3D proxy ray intersections",
+    "completion_method": "UV paint previously unseen surface texels only",
+    "new_texels": 15583,
+    "visible_pixels": 213214,
+    "total_texels": 258476,
+    "state_sha256": "6d9742d0bc951d5674a60a7866cca5d6eeeae39e077858ac491dc6fab8d6f6ce",
+    "render_sha256": "49e4def971994470d86a8b2e8e77ad8b09c9c8ed7ebc1e58ff20fe8148b1ff66",
+    "geometry_sha256": "7e060aa5dad98053df0083ef9fc16988565f770dcee228e5b7a44069f15c3a82",
+    "novelty_sha256": "f565b8bbd9730df6a7e275d1a449358355665b2f5a1271c2e4f872c3c5c07e62",
+    "size": [
+      640,
+      576
+    ],
+    "cache": "reused"
+  },
+  {
+    "degree": 60,
+    "photo_sha256": "a169256138d6a8bad7814368cb70c40a0a593cb3b607bd5cc51289a222eb90d2",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "previous_checkpoint_sha256": "6d9742d0bc951d5674a60a7866cca5d6eeeae39e077858ac491dc6fab8d6f6ce",
+    "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+    "geometric_evidence": "fixed 3D proxy ray intersections",
+    "completion_method": "UV paint previously unseen surface texels only",
+    "new_texels": 14004,
+    "visible_pixels": 177951,
+    "total_texels": 272480,
+    "state_sha256": "c88cfb7eb7327c8a0078b3d6b06b700fb9c89d48a3d484540437c56f55590dbf",
+    "render_sha256": "0c9c9d2e88a2bef00ecada51823b2f401057e57cf378c21469cf00a782a89b38",
+    "geometry_sha256": "bfd51a903e12540550402900f1f8e245148fec418fedc47ef494a9e61f3d318c",
+    "novelty_sha256": "5c8c769ca761d13746a8c022c511012d70d5218ad441653c58fd8c140ee88082",
+    "size": [
+      640,
+      576
+    ],
+    "cache": "reused"
+  },
+  {
+    "degree": 75,
+    "photo_sha256": "d39d817647bfda64dd651285849b5253474be08ded309bd7fc2e993afc01f3f0",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "previous_checkpoint_sha256": "c88cfb7eb7327c8a0078b3d6b06b700fb9c89d48a3d484540437c56f55590dbf",
+    "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+    "geometric_evidence": "fixed 3D proxy ray intersections",
+    "completion_method": "UV paint previously unseen surface texels only",
+    "new_texels": 16791,
+    "visible_pixels": 145448,
+    "total_texels": 289271,
+    "state_sha256": "76c18323ff7425914baeb42ba7600b1a9ea6d4cc623b5ee74a4f344ac17bc188",
+    "render_sha256": "62b936949102151621d416a1d7251ccbe6b1a71c47d37be5aa4bc17c8b956b51",
+    "geometry_sha256": "2f2d48a562e11ec36d0032b20bea62df41cf562e54de6b835291df817165398c",
+    "novelty_sha256": "d2999f36c386ec385ed701d1a4fbb9d2f9435be887ab7b0c560e779e0d3d1177",
+    "size": [
+      640,
+      576
+    ],
+    "cache": "reused"
+  },
+  {
+    "degree": 90,
+    "photo_sha256": "6eb91d8e6c98d886ad81e5524217a44542cf2f9f72c0cfbddf688503328582e0",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "previous_checkpoint_sha256": "76c18323ff7425914baeb42ba7600b1a9ea6d4cc623b5ee74a4f344ac17bc188",
+    "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+    "geometric_evidence": "fixed 3D proxy ray intersections",
+    "completion_method": "UV paint previously unseen surface texels only",
+    "new_texels": 22075,
+    "visible_pixels": 124740,
+    "total_texels": 311346,
+    "state_sha256": "4f6f152c23015ede8bc351cc3c8225856b9cbf677a0436e3e157d98c66f7f587",
+    "render_sha256": "1936dbb45ed8ffaa31bc0acee52d68971923bec9e4b2dfc0f0c407ca15c624f4",
+    "geometry_sha256": "9162acc7bd60e883c24cb00a7ceb4e7ad0948ace572681d7a1eaf0cb85dcaac1",
+    "novelty_sha256": "2ac0e1a63fdf7b44c4aa339cf5a977a5445872c1d51317662cd80b500690bb78",
+    "size": [
+      640,
+      576
+    ],
+    "cache": "reused"
+  },
+  {
+    "degree": 105,
+    "photo_sha256": "de33106624befe1f1aecb2b1564a0276f83abff62e31834e31c587ffb43d3a6d",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "previous_checkpoint_sha256": "4f6f152c23015ede8bc351cc3c8225856b9cbf677a0436e3e157d98c66f7f587",
+    "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+    "geometric_evidence": "fixed 3D proxy ray intersections",
+    "completion_method": "UV paint previously unseen surface texels only",
+    "new_texels": 36874,
+    "visible_pixels": 145447,
+    "total_texels": 348220,
+    "state_sha256": "a2c84e3e46121ef44da90e286e997253d3fa14444b3602cfd025faa119c8baeb",
+    "render_sha256": "01e0786d730051c43cd914524357216ff0d00d40007deae922e9b49c340ead20",
+    "geometry_sha256": "72f457ab8b8d6bd6cf9f2507be04942979a4fd500bcd7bd52472f35b62dadd04",
+    "novelty_sha256": "f0b07160c14356c75aad41dd556390a996da309fdf3ebe01695c2fd7d472e988",
+    "size": [
+      640,
+      576
+    ],
+    "cache": "reused"
+  },
+  {
+    "degree": 120,
+    "photo_sha256": "2f420db3ae95d04eb1d1c8515cd88ca641e97ac9d6f59da5def71472fd94378a",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "previous_checkpoint_sha256": "a2c84e3e46121ef44da90e286e997253d3fa14444b3602cfd025faa119c8baeb",
+    "photographic_evidence": "existing source photo at this nominal angle, uncalibrated",
+    "geometric_evidence": "fixed 3D proxy ray intersections",
+    "completion_method": "UV paint previously unseen surface texels only",
+    "new_texels": 39404,
+    "visible_pixels": 177950,
+    "total_texels": 387624,
+    "state_sha256": "1c98ca550c69d3067f5af9f654af742554bee95e3e39996e4d7e7ec63a7e650e",
+    "render_sha256": "36b27b76b5eada9a6f9b5cb5173123398ccf671343885dd4dc1d8e3eca30e00f",
+    "geometry_sha256": "1907ca73991163d302af4cfed839058e59bd010b68f4270f332f97cf196dec3e",
+    "novelty_sha256": "af94bbd795fee5351601a602ea16596486ca291b339438ce69d0a92349ef1daa",
+    "size": [
+      640,
+      576
+    ],
+    "cache": "reused"
+  }
+]
