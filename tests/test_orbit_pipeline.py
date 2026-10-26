@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from PIL import Image
-from wolf_orbit.orbit_pipeline import RunSpec, prepare, progress, next_request
+from wolf_orbit.orbit_pipeline import RunSpec, prepare, progress, next_request, record_rejection, audit
 from wolf_orbit.assets import sha256
 
 
@@ -44,6 +44,15 @@ class PipelineTests(unittest.TestCase):
         Image.new('RGB',(1312,1199),(55,66,77)).save(self.source)
         with self.assertRaisesRegex(ValueError,'Immutable'):
             prepare(self.project,self.source,self.model,self.spec)
+
+    def test_failed_generation_is_retained_and_cannot_advance(self):
+        prepare(self.project,self.source,self.model,self.spec)
+        candidate=self.project/'failed.png'
+        Image.new('RGB',(1312,1199),(99,88,77)).save(candidate)
+        rejected=record_rejection(self.project,15,candidate,('wrong camera azimuth',),self.spec)
+        self.assertEqual(rejected['status'],'rejected')
+        self.assertEqual(progress(self.project,self.spec)['next_angle'],15)
+        self.assertEqual(len(audit(self.project,self.spec)['rejected_attempts']),1)
 
     def test_prepare_is_idempotent(self):
         prepare(self.project,self.source,self.model,self.spec)

@@ -1,0 +1,18 @@
+{
+  "attempts": [
+    {
+      "angle": 15,
+      "height": 1199,
+      "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+      "path": "rejected/015_attempt_0001.png",
+      "reasons": [
+        "native width below 1920px",
+        "view rotates too far relative to specified 15-degree step"
+      ],
+      "sha256": "0105683dfa02b57bd8aee63a290038ce3a46fd7325acabbee00a0243a33f86ee",
+      "source_sha256": "cf3eec368ccccde1ddd1063a1d4d81a054c7776493eed0e48526b5bce2c1a371",
+      "status": "rejected",
+      "width": 1312
+    }
+  ]
+}

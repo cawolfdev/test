@@ -7,6 +7,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 import json
 from .assets import copy_if_different, sha256
+from .hd_orbit import frame_requirements
 from .hd_orbit import OrbitJob, angles, dependencies, load_records, register_frame, status, task_request
 from .surface import View
 from .preview import contact_sheet
@@ -106,12 +107,40 @@ def audit(project: Path, spec: RunSpec) -> dict:
             'photographic_review': frame.get('visual_review') if frame else 'missing',
             'camera_registration': 'unverified',
         })
-    document = {'run': spec.version, 'source_sha256': sha256(root / 'source.png'),
+    failures = root / 'rejected' / 'rejections.json'
+    rejected = json.loads(failures.read_text())['attempts'] if failures.exists() else []
+    document = {'rejected_attempts': rejected, 'run': spec.version, 'source_sha256': sha256(root / 'source.png'),
                 'model_sha256': sha256(root / 'proxy.glb'), 'checkpoints': records,
                 'photo_complete': all(x['photographic_review'] in ('accepted','anchor') for x in records),
                 'model_fitted_to_source': False}
     _write_json_if_changed(root / 'report.json', document)
     return document
+
+
+def record_rejection(project: Path, angle: int, candidate: Path, reasons: tuple[str, ...], spec: RunSpec) -> dict:
+    """Retain failed generations as evidence, never advance accepted checkpoints."""
+    if not reasons:
+        raise ValueError('Explicit rejection reasons required')
+    root = run_root(project, spec)
+    if angle not in angles(job_for(root, spec)) or angle == 0:
+        raise ValueError('Reject only scheduled nonzero-angle candidates')
+    folder = root / 'rejected'
+    folder.mkdir(parents=True, exist_ok=True)
+    number = 1
+    while (folder / f'{angle:03d}_attempt_{number:04d}.png').exists():
+        number += 1
+    destination = folder / f'{angle:03d}_attempt_{number:04d}.png'
+    copy_if_different(candidate, destination)
+    details = frame_requirements(destination, 1)
+    record = {'angle': angle, 'status': 'rejected',
+              'path': str(destination.relative_to(root)),
+              'source_sha256': sha256(root / 'source.png'),
+              'model_sha256': sha256(root / 'proxy.glb'),
+              'reasons': list(reasons), **details}
+    registry = folder / 'rejections.json'
+    previous = json.loads(registry.read_text()) if registry.exists() else {'attempts': []}
+    _write_json_if_changed(registry, {'attempts': [*previous.get('attempts', []), record]})
+    return record
 
 
 def next_request(project: Path, spec: RunSpec) -> dict:

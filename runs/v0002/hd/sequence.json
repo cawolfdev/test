@@ -1,0 +1,15 @@
+[
+  {
+    "angle": 0,
+    "provenance": "anchor",
+    "previous_sha256": null,
+    "derived_from_crop": false,
+    "visual_review": "anchor",
+    "source_sha256": "cf3eec368ccccde1ddd1063a1d4d81a054c7776493eed0e48526b5bce2c1a371",
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "width": 1312,
+    "height": 1199,
+    "sha256": "cf3eec368ccccde1ddd1063a1d4d81a054c7776493eed0e48526b5bce2c1a371",
+    "path": "hd/frames/000.png"
+  }
+]

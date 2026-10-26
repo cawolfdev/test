@@ -1,0 +1,106 @@
+{
+  "checkpoints": [
+    {
+      "angle": 0,
+      "camera_registration": "unverified",
+      "geometry_guide": "hd/guides/000.png",
+      "geometry_sha256": "77b0b958fec369baccd39c61c044926a30a861b62dec3aebc630af9bed69ed58",
+      "image_sha256": "cf3eec368ccccde1ddd1063a1d4d81a054c7776493eed0e48526b5bce2c1a371",
+      "native_photograph": "hd/frames/000.png",
+      "photographic_review": "anchor"
+    },
+    {
+      "angle": 15,
+      "camera_registration": "unverified",
+      "geometry_guide": "hd/guides/015.png",
+      "geometry_sha256": "791daeababe24afe82a0a2baa3de612a752a4a6683f98c58c003af2e7070212e",
+      "image_sha256": null,
+      "native_photograph": null,
+      "photographic_review": "missing"
+    },
+    {
+      "angle": 30,
+      "camera_registration": "unverified",
+      "geometry_guide": "hd/guides/030.png",
+      "geometry_sha256": "a58cb85ae4c948fd373c514fc52902449cca64e41f15eb2bf2a5892f12064644",
+      "image_sha256": null,
+      "native_photograph": null,
+      "photographic_review": "missing"
+    },
+    {
+      "angle": 45,
+      "camera_registration": "unverified",
+      "geometry_guide": "hd/guides/045.png",
+      "geometry_sha256": "994063c166d65c8efb41b05e029bfceebeb85750aa76bbbe526557497fc48033",
+      "image_sha256": null,
+      "native_photograph": null,
+      "photographic_review": "missing"
+    },
+    {
+      "angle": 60,
+      "camera_registration": "unverified",
+      "geometry_guide": "hd/guides/060.png",
+      "geometry_sha256": "3cd420aed523aa1cd8548bbdcacab4698e62ae95061541cb1a2219c9954cd531",
+      "image_sha256": null,
+      "native_photograph": null,
+      "photographic_review": "missing"
+    },
+    {
+      "angle": 75,
+      "camera_registration": "unverified",
+      "geometry_guide": "hd/guides/075.png",
+      "geometry_sha256": "9165970f5803f8ed4da78574c8fceb4b97b99edceef46189142764383146a003",
+      "image_sha256": null,
+      "native_photograph": null,
+      "photographic_review": "missing"
+    },
+    {
+      "angle": 90,
+      "camera_registration": "unverified",
+      "geometry_guide": "hd/guides/090.png",
+      "geometry_sha256": "c6936cac05ee12edc24d4e5dd7fcec34f9547505aec9b907b5f58f07e4bb5f66",
+      "image_sha256": null,
+      "native_photograph": null,
+      "photographic_review": "missing"
+    },
+    {
+      "angle": 105,
+      "camera_registration": "unverified",
+      "geometry_guide": "hd/guides/105.png",
+      "geometry_sha256": "fe938ea937ae10b8ee10c8d6bcc2d52961fc1af8ef1c4e785b9573c74534fd82",
+      "image_sha256": null,
+      "native_photograph": null,
+      "photographic_review": "missing"
+    },
+    {
+      "angle": 120,
+      "camera_registration": "unverified",
+      "geometry_guide": "hd/guides/120.png",
+      "geometry_sha256": "6b99bb2ce400b6ab8a0490928fcc73c77d95972276e5ce492543d9ffe9a5da83",
+      "image_sha256": null,
+      "native_photograph": null,
+      "photographic_review": "missing"
+    }
+  ],
+  "model_fitted_to_source": false,
+  "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+  "photo_complete": false,
+  "rejected_attempts": [
+    {
+      "angle": 15,
+      "height": 1199,
+      "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+      "path": "rejected/015_attempt_0001.png",
+      "reasons": [
+        "native width below 1920px",
+        "view rotates too far relative to specified 15-degree step"
+      ],
+      "sha256": "0105683dfa02b57bd8aee63a290038ce3a46fd7325acabbee00a0243a33f86ee",
+      "source_sha256": "cf3eec368ccccde1ddd1063a1d4d81a054c7776493eed0e48526b5bce2c1a371",
+      "status": "rejected",
+      "width": 1312
+    }
+  ],
+  "run": "v0002",
+  "source_sha256": "cf3eec368ccccde1ddd1063a1d4d81a054c7776493eed0e48526b5bce2c1a371"
+}

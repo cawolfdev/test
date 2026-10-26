@@ -1,0 +1,33 @@
+{
+  "anchor_is_native": true,
+  "anchor_meets_generated_full_hd_width": false,
+  "angles": [
+    0,
+    15,
+    30,
+    45,
+    60,
+    75,
+    90,
+    105,
+    120
+  ],
+  "geometry_status": "coarse proxy; unregistered to uploaded source",
+  "goal": "nine independent camera views at 15-degree intervals",
+  "inputs": {
+    "model_sha256": "f76c7aaf60d0124e668c81cce2206212dfc2e941c3c22d2642a5df092ab991ac",
+    "source_sha256": "cf3eec368ccccde1ddd1063a1d4d81a054c7776493eed0e48526b5bce2c1a371"
+  },
+  "photographic_status": "anchor only, other angles awaiting independent native-HD render",
+  "safety": "no atlas crops, no upscaled guides substituted for photographs",
+  "spec": {
+    "guide_height": 1755,
+    "guide_width": 1920,
+    "native_min_height": 1080,
+    "native_min_width": 1920,
+    "step_angle": 15,
+    "target_angle": 120,
+    "version": "v0002"
+  },
+  "version": "v0002"
+}

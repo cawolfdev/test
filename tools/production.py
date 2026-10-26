@@ -3,15 +3,16 @@ import argparse
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
-from wolf_orbit.orbit_pipeline import RunSpec, geometry_guide, geometry_sequence, audit, next_request, prepare, progress
+from wolf_orbit.orbit_pipeline import RunSpec, geometry_guide, geometry_sequence, audit, next_request, prepare, progress, record_rejection
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=('prepare', 'guide', 'all-guides', 'audit', 'next', 'status'))
+    parser.add_argument('command', choices=('prepare', 'guide', 'all-guides', 'audit', 'next', 'reject', 'status'))
     parser.add_argument('--project', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--source', type=Path)
     parser.add_argument('--model', type=Path)
+    parser.add_argument('--image', type=Path)
     parser.add_argument('--angle', type=int, default=15)
     args = parser.parse_args()
     spec = RunSpec()
@@ -23,6 +24,10 @@ def main():
         result = str(geometry_guide(args.project, args.angle, spec))
     elif args.command == 'all-guides':
         result = tuple(map(str, geometry_sequence(args.project, spec)))
+    elif args.command == 'reject':
+        if args.image is None: parser.error('reject needs --image')
+        result = record_rejection(args.project, args.angle, args.image,
+                    ('native width below 1920px', 'view rotates too far relative to specified 15-degree step'), spec)
     elif args.command == 'audit':
         result = audit(args.project, spec)
     elif args.command == 'next':
