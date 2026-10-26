@@ -1,8 +1,6 @@
 {
-  "title": "Wolf bodybuilder fixed-pose orbital views",
-  "source_0": "references/00_front_reference.png",
-  "source_60": "references/60_intermediate_reference.png",
-  "azimuth_degrees": [
+  "title": "Fixed-pose human-wolf camera orbit, reuse-first project",
+  "camera_angles_degrees": [
     0,
     15,
     30,
@@ -13,16 +11,84 @@
     105,
     120
   ],
-  "coordinate_definition": "Camera clockwise in overhead plan, subject always facing 0-degree camera position in world coordinates.",
-  "pose": "World-fixed front axis, no independent head/neck rotation intended.",
+  "camera_positions": {
+    "0": [
+      0.0,
+      5.0,
+      1.5
+    ],
+    "15": [
+      1.2940952,
+      4.8296291,
+      1.5
+    ],
+    "30": [
+      2.5,
+      4.330127,
+      1.5
+    ],
+    "45": [
+      3.5355339,
+      3.5355339,
+      1.5
+    ],
+    "60": [
+      4.330127,
+      2.5,
+      1.5
+    ],
+    "75": [
+      4.8296291,
+      1.2940952,
+      1.5
+    ],
+    "90": [
+      5.0,
+      0.0,
+      1.5
+    ],
+    "105": [
+      4.8296291,
+      -1.2940952,
+      1.5
+    ],
+    "120": [
+      4.330127,
+      -2.5,
+      1.5
+    ]
+  },
+  "fixed_subject_front_vector": [
+    0.0,
+    1.0,
+    0.0
+  ],
+  "origins": {
+    "0": "unaltered source reference",
+    "60": "unaltered existing intermediate",
+    "other": "cropped views from reused generative atlas"
+  },
   "limitations": [
-    "Photographs are generative approximations, not calibrated 3D renders.",
-    "The generated atlas was cropped into individual files; these seven views were not independently generated at full resolution.",
-    "0 and 60 are copied earlier high-resolution references and differ subtly in anatomy/appearance from the generated atlas sequence.",
-    "Angles printed in the atlas are labels rather than calibrated measured camera positions.",
-    "Parallax and photographic consistency have not been geometrically verified."
+    "Seven atlas extracts have lower spatial resolution than the anchors.",
+    "Visual azimuth cannot be calibrated from an AI image atlas. A real 3D model is required for physically accurate camera rotation.",
+    "Identity, exact anatomy and pose cannot be verified across generated photographic views."
   ],
   "files": [
+    {
+      "path": ".gitignore",
+      "size_bytes": 44,
+      "sha256": "a4c557bd1ba24f0f72056ff0a54e8c6dfdb86430eb781a9f9ca91f44e952e18e"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 1016,
+      "sha256": "a61644b2715f49025dd37c8c79684a2c9c2669800ba09b0ed510894297d14b5f"
+    },
+    {
+      "path": "atlas_layout.json",
+      "size_bytes": 296,
+      "sha256": "c6133ddd35ae145efe433fa18ef6f81f2be9f30da054914c138b951edcd40137"
+    },
     {
       "path": "images/000_clockwise.png",
       "size_bytes": 2587764,
@@ -50,23 +116,23 @@
     },
     {
       "path": "images/075_clockwise.png",
-      "size_bytes": 255550,
-      "sha256": "538ad223395305270fa1192f83ed9684b0ab1883ed7d17a039091157ddc24311"
+      "size_bytes": 255463,
+      "sha256": "d39d817647bfda64dd651285849b5253474be08ded309bd7fc2e993afc01f3f0"
     },
     {
       "path": "images/090_clockwise.png",
-      "size_bytes": 255581,
-      "sha256": "dc71f9751832a14368871f9c4c020704518cc2ebf9ef8015c84f914323183f7a"
+      "size_bytes": 255390,
+      "sha256": "6eb91d8e6c98d886ad81e5524217a44542cf2f9f72c0cfbddf688503328582e0"
     },
     {
       "path": "images/105_clockwise.png",
-      "size_bytes": 253588,
-      "sha256": "db7c473764835fec7a7e240dd8434321e3d20072ab5a01e1f488f6a74bf8b736"
+      "size_bytes": 253439,
+      "sha256": "de33106624befe1f1aecb2b1564a0276f83abff62e31834e31c587ffb43d3a6d"
     },
     {
       "path": "images/120_clockwise.png",
-      "size_bytes": 248977,
-      "sha256": "29d30a9e0b2389c779149f6b183b46e44b368bc585aa4857e4c27b17f8cc32ad"
+      "size_bytes": 248843,
+      "sha256": "2f420db3ae95d04eb1d1c8515cd88ca641e97ac9d6f59da5def71472fd94378a"
     },
     {
       "path": "mocks/000_camera_mock.png",
@@ -127,6 +193,16 @@
       "path": "notes/orbit_specification.md",
       "size_bytes": 1639,
       "sha256": "f6ae86020da06cd700d9c07a4e1be4e035029ac728ab86ce1786ed455124e255"
+    },
+    {
+      "path": "previews/all_angles_contact_sheet.png",
+      "size_bytes": 1861114,
+      "sha256": "5b82d6cac9ab5c78a4ff5d1a1f000d2f364051040f6e9a4d1416bc4fa47bf58f"
+    },
+    {
+      "path": "pyproject.toml",
+      "size_bytes": 426,
+      "sha256": "5c5fd06489878aff367025f5ded029e4393531cfd657054110d8bf7f20b7cb8c"
     },
     {
       "path": "references/00_front_reference.png",
@@ -222,6 +298,46 @@
       "path": "references/rejected_atlas_01.png",
       "size_bytes": 2737572,
       "sha256": "1709718947528c0fbb5fd5891b73eb276e0adf5f919fa963d2596d824cf50e2f"
+    },
+    {
+      "path": "src/wolf_orbit/__init__.py",
+      "size_bytes": 103,
+      "sha256": "47e37a78bc509b2f8ecc0a9167e43c3f83b85c9ac82006c5ba77fa3374a3db65"
+    },
+    {
+      "path": "src/wolf_orbit/assets.py",
+      "size_bytes": 2389,
+      "sha256": "09935d7acda0768dc4a740145f93ceb16178a28ad6e475ea9df7bed876f1d9df"
+    },
+    {
+      "path": "src/wolf_orbit/cli.py",
+      "size_bytes": 1119,
+      "sha256": "dbde9115c3e6d62165cc6cf031bef3d227555bd79a809d20cade168fd6e65937"
+    },
+    {
+      "path": "src/wolf_orbit/geometry.py",
+      "size_bytes": 962,
+      "sha256": "f043171b743200c1353867a47dab554aa12c0ad18a9b33bebab00ac063edb2e9"
+    },
+    {
+      "path": "src/wolf_orbit/manifest.py",
+      "size_bytes": 1473,
+      "sha256": "ad040e1c66220b0b4f4e05a9b38feb88add059f61d823a15ce9d6c498bae8891"
+    },
+    {
+      "path": "src/wolf_orbit/preview.py",
+      "size_bytes": 1195,
+      "sha256": "fc4999b67e12b1b657be85e39d4ef4b88c2a847ca4a63304d50917461b988617"
+    },
+    {
+      "path": "src/wolf_orbit/validation.py",
+      "size_bytes": 2320,
+      "sha256": "eeea727b8a0239b485945c46dcf7fcc444b6b31f7ca1f0801a10b7f9af2f6892"
+    },
+    {
+      "path": "tests/test_orbit.py",
+      "size_bytes": 1109,
+      "sha256": "9db4966a1e457103e7a8073c758d4e51ef670c625665ce67cb370eceaf6b84d1"
     }
   ]
 }
