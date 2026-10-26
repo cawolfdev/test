@@ -1,42 +1,34 @@
-# Fixed-pose wolf bodybuilder camera-orbit workspace
+# wildlife-bodybuilder
 
-## Results
+Create **nine independent photographic views** at 0°, 15°, 30°, 45°, 60°, 75°, 90°, 105° and 120° around **one stationary subject**. The input portrait is a **character and pose reference**, not the generated 0° frame. New image-generation results require visual review before advancing. HD means **both dimensions strictly exceed 1000 pixels**. The proxy model is an anatomical approximation, not a fitted human scan; its geometry guides do not count as photos.
 
-Nine **separate** files appear in `images/`, named `000_clockwise.png` to `120_clockwise.png` at 15° intervals. `000` and `060` are **byte-identical** copies of the earlier user-approved 0° frontal and 60° oblique source references. The other seven views are **crops of an existing generated atlas**, rather than independent physically calibrated renderings. The unedited atlas is in `references/generated_atlas_candidate.png`.
+## Root directory: file paths and ownership
 
-`previews/all_angles_contact_sheet.png` makes the photographic sequence easy to inspect. `previews/fixed_pose_geometry_proxies.png` is an independently rendered 3D proxy built from consistent geometry, used to check camera orbit conventions and pose locking. Original plan-view diagrams live in `mocks/`.
+| Path | Meaning |
+| --- | --- |
+| `reference/character.png` | **Single canonical character/pose reference**. Never counted as a generated angle. |
+| `model/subject.glb` | Reusable **coarse** 3D anatomical proxy shared by all viewpoints. |
+| `output/frames/000.png` ... `120.png` | **Only accepted** independently generated photos, one for each 15° checkpoint. `000.png` is generated, not copied from the reference. |
+| `output/guides/000.png` ... `120.png` | Reusable reused native 1920×1755 3D camera guides. Distinct from photos. |
+| `output/state.json` | **Only current run**: schedule, accepted frames, SHA provenance, current rejection and next angle. No per-run archives. |
+| `generatedat.txt` | UTC ISO-8601 timestamp when the current run was initialized. |
+| `src/wolf_orbit/` | Reusable core geometry, storage, rendering, and orbit workflow. |
+| `tools/production.py` | Thin CLI adapter, no duplicated core logic. |
+| `tests/` | Behavioral/unit tests. No concrete image comparisons, pixel-equality or source immutability assertions. |
+| `docs/architecture.md` | Architecture, quality gates, and outstanding fidelity limitations. |
 
-**Critical limitation:** The images are visually illustrative. The 60° reference looks closer to a shallower three-quarter view than a metrically calibrated 60°, and the atlas's nominal 90° photograph still reveals too much frontal anatomy to be a precise side profile. The 120° atlas crop is a plausible rear three-quarter composition, not a geometrically verified camera view. Identity, facial morphology, anatomy, fur direction, pose and lighting may drift. The proxy resolves the *coordinate-system* problem, not the unobserved 3D surface of the original image. A true locked-pose orbit requires a consistent 3D asset, stable rig and camera calibration.
+Everything under `output/` belongs to the latest run. Use `prepare --reset` to discard it and initialize a new run. **Git commits retain history**. No versioned run directories, duplicated references, atlas crops or per-attempt files.
 
-## Repeatable, reuse-first commands
-
-From the project root (Python 3.10+, Pillow, NumPy):
+## Process
 
 ```bash
-PYTHONPATH=src python -m wolf_orbit.cli validate --root .
-PYTHONPATH=src python -m wolf_orbit.cli all --root .
+PYTHONPATH=src python tools/production.py prepare
+PYTHONPATH=src python tools/production.py guides
+PYTHONPATH=src python tools/production.py next
+# After independently generating and visually reviewing the requested 0° image:
+PYTHONPATH=src python tools/production.py accept --angle 0 --image /path/to/generated-photo.png --reviewed
+PYTHONPATH=src python tools/production.py next  # now requests 15°
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
-Running `all` reuses extracted source images and existing generated previews by default. It extracts from the atlas only when a view is missing. `--replace` explicitly re-extracts photographic atlas crops and recomputes geometry mocks, without regenerating images with AI. Source anchors are always copied unmodified from `references/` when necessary.
-
-- `src/wolf_orbit/geometry.py`: camera coordinates, front-axis and fixed world pose.
-- `src/wolf_orbit/assets.py`: content hashing, source reuse, atlas extraction.
-- `src/wolf_orbit/proxy.py`: reusable independent ray-cast ellipsoid model with real geometric occlusion for angle-validation mocks.
-- `src/wolf_orbit/preview.py`: shared gallery maker for photographs and geometry models.
-- `src/wolf_orbit/validation.py`: programmatic invariants, pixel equality checks and known limitations.
-- `src/wolf_orbit/manifest.py`: SHA256 inventory and validation report.
-- `tests/`: unit/regression tests, including 120° back/pectorals occlusion and immutability of source photos.
-- `notes/extract_frames.py`: retained legacy one-shot script, **superseded by the modular code**. Do not run it to update the project.
-
-`manifest.json` indexes deliverable files and their hashes; `validation_report.json` separates automated test successes from unresolved photographic accuracy limitations. Git history records the baseline import, extraction/validation refactor, 3D proxy, and packaging pass.
-
-## Provenance and data handling
-
-`references/` includes all contributing prior model-generated images and four selfies provided for facial identity, because the request was to capture all workspace files. This archive is therefore personal and should be stored or shared accordingly. Git is initialized locally with discrete commits. No remote URL is configured and nothing is pushed to a remote repository.
-
-## New: 3D-backed sequential 15-degree material states
-
-Run `python tools/run_sequential.py` to reuse the existing images/model and calculate or load cumulative surface-state checkpoints for 0, 15, 30, 45, 60, 75, 90, 105 and 120 degrees. It saves fixed-pose 3D renders, newly exposed surface diagrams, texture projections, a GLB proxy and SHA-256 linked NPZ checkpoints. The original source images are never overwritten.
-
-Read `notes/incremental_results.md` **before interpreting outputs**. Geometric angle/state tests pass, but the photo-textured final has significant ghosting and a source human mesh was never available. The atlas-derived 120° photo is separate from the geometry-backed output.
+For rejected images, use `reject --angle N --reason "..."`. This records only the current failure explanation in `output/state.json`. Never advance from unreviewed frames, or mistake a 3D geometric guide for a photo. Always commit the current project state and **binary outputs**, and sync the branch `wildlife_anthrowolf` on `cawolfdev/test` after an accepted step. The project does not silently discard large assets.

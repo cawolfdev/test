@@ -27,16 +27,8 @@ class SurfaceFrame:
 
 
 def human_faced_proxy():
-    """Reuse original stationary physique while correcting canine-only cranial primitives.
-
-    Human head and ears are deliberately approximate ellipsoids; preserving original
-    facial identity requires a real head scan/registered mesh not available here.
-    """
-    parts=list(scene_parts())
-    parts[13]=((0,.345,2.41),(.105,.115,.095),'head') # human nose
-    parts[14]=((-.335,.015,2.42),(.075,.105,.135),'head') # human ears
-    parts[15]=((+.335,.015,2.42),(.075,.105,.135),'head')
-    return tuple(parts)
+    """Compatibility alias for the one fixed subject specification."""
+    return scene_parts()
 
 
 def camera_axes(degrees):

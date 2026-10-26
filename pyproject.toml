@@ -1,12 +1,9 @@
 [project]
-name = "wolf-camera-orbit"
-version = "0.1.0"
-description = "Reproducible preservation-first camera-orbit view extraction and validation"
+name = "wildlife-bodybuilder"
+version = "0.3.0"
+description = "Single-state wildlife bodybuilder camera orbit with geometry-backed guidance"
 requires-python = ">=3.10"
-dependencies = ["Pillow>=9", "numpy>=1.20", "matplotlib>=3.5"]
-
-[project.scripts]
-wolf-orbit = "wolf_orbit.cli:main"
+dependencies = ["Pillow>=9", "numpy>=1.20", "trimesh>=4"]
 
 [build-system]
 requires = ["setuptools>=65"]

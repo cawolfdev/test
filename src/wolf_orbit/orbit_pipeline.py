@@ -1,172 +1,118 @@
-"""Domain-level composition for source-locked, native-HD camera orbit runs.
+"""Orbit application service: compose generic storage, geometric rendering and domain policy.
 
-This module deliberately delegates hashing, file copying, ray casting and image
-validation to existing lower layers. Geometric guides are not photographic frames.
+One working state under output/. Git, not per-run directories, retains revisions.
+The source character photograph is a REFERENCE, never copied as frame 000.
 """
-from dataclasses import asdict, dataclass
+from datetime import datetime, timezone
 from pathlib import Path
-import json
-from .assets import copy_if_different, sha256
-from .hd_orbit import frame_requirements
-from .hd_orbit import OrbitJob, angles, dependencies, load_records, register_frame, status, task_request
-from .surface import View
-from .preview import contact_sheet
+from PIL import Image
+from .assets import copy_file, image_size, read_json, sha256, write_json
+from .hd_orbit import OrbitSpec, angles, camera_request, next_angle, validate_candidate
+from .render import render_geometry
+from .surface import View, cast_visible_surface
 
 
-@dataclass(frozen=True)
-class RunSpec:
-    version: str = 'v0002'
-    target_angle: int = 120
-    step_angle: int = 15
-    native_min_width: int = 1920
-    native_min_height: int = 1080
-    guide_width: int = 1920
-    guide_height: int = 1755
+DEFAULT_SPEC = OrbitSpec()
 
 
-def run_root(project: Path, spec: RunSpec) -> Path:
-    return Path(project) / 'runs' / spec.version
-
-
-def job_for(run: Path, spec: RunSpec) -> OrbitJob:
-    return OrbitJob(source=run / 'source.png', target_angle=spec.target_angle,
-                    step_angle=spec.step_angle, model=run / 'proxy.glb',
-                    min_generated_width=spec.native_min_width,
-                    min_generated_height=spec.native_min_height)
-
-
-def prepare(project: Path, source: Path, model: Path, spec: RunSpec) -> dict:
-    """Copy immutable inputs and register true source as checkpoint zero only."""
-    root = run_root(project, spec)
-    root.mkdir(parents=True, exist_ok=True)
-    for existing, expected in [(root / 'source.png', source), (root / 'proxy.glb', model)]:
-        if existing.exists() and sha256(existing) != sha256(expected):
-            raise ValueError(f'Immutable run input changed: {existing}')
-        copy_if_different(expected, existing)
-    job = job_for(root, spec)
-    image_record = (load_records(root) or (None,))[0]
-    if image_record is None:
-        register_frame(root, job, 0, job.source, 'anchor')
-    evidence = dependencies(job)
-    plan = {
-        'version': spec.version, 'goal': 'nine independent camera views at 15-degree intervals',
-        'spec': asdict(spec), 'angles': angles(job), 'inputs': evidence,
-        'anchor_is_native': True,
-        'anchor_meets_generated_full_hd_width': False,
-        'geometry_status': 'coarse proxy; unregistered to uploaded source',
-        'photographic_status': 'anchor only, other angles awaiting independent native-HD render',
-        'safety': 'no atlas crops, no upscaled guides substituted for photographs',
+def paths(root: Path) -> dict[str, Path]:
+    base = Path(root)
+    return {
+        'reference': base / 'reference' / 'character.png',
+        'model': base / 'model' / 'subject.glb',
+        'state': base / 'output' / 'state.json',
+        'frames': base / 'output' / 'frames',
+        'guides': base / 'output' / 'guides',
+        'generatedat': base / 'generatedat.txt',
     }
-    _write_json_if_changed(root / 'plan.json', plan)
-    return plan
 
 
-def geometry_guide(project: Path, angle: int, spec: RunSpec) -> Path:
-    """Render one selected full-size geometric guide; never synthesize a photo."""
-    root = run_root(project, spec)
-    job = job_for(root, spec)
-    if angle not in angles(job):
-        raise ValueError(f'Angle not in fixed schedule: {angle}')
-    # Existing geometric raycaster reused; each requested angle is independently rasterized.
-    from .surface import human_faced_proxy, cast_visible_surface
-    from .texture_orbit import render_geometry
-    from PIL import Image
-    path = root / 'hd' / 'guides' / f'{angle:03d}.png'
-    if not path.exists():
-        path.parent.mkdir(parents=True, exist_ok=True)
-        frame = cast_visible_surface(angle, View(width=spec.guide_width, height=spec.guide_height), human_faced_proxy())
-        Image.fromarray(render_geometry(frame, human_faced_proxy())).save(path)
-    return path
+def timestamp() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
 
 
-def geometry_sequence(project: Path, spec: RunSpec) -> tuple[Path, ...]:
-    """Domain composition: reuse single-angle renderer and common preview adapter."""
-    images = tuple(geometry_guide(project, angle, spec)
-                   for angle in angles(job_for(run_root(project, spec), spec)))
-    root = run_root(project, spec)
-    contact_sheet(images, root / 'preview' / 'geometry.png',
-                  columns=3, cell=(380, 345),
-                  caption=lambda index, _path: f'{index * spec.step_angle:03d}° [3D GUIDE, NOT PHOTO]')
-    return images
+def state_for(root: Path, spec: OrbitSpec = DEFAULT_SPEC) -> dict:
+    p = paths(root)
+    if not p['reference'].is_file() or not p['model'].is_file():
+        raise FileNotFoundError('Provide reference/character.png and model/subject.glb')
+    return {
+        'reference_sha256': sha256(p['reference']),
+        'model_sha256': sha256(p['model']),
+        'angles': list(angles(spec)), 'frames': [], 'rejection': None,
+    }
 
 
-def audit(project: Path, spec: RunSpec) -> dict:
-    """A machine-readable inventory: no preview is counted as a photograph."""
-    root = run_root(project, spec)
-    frames = {r['angle']: r for r in load_records(root)}
-    records = []
-    for angle in angles(job_for(root, spec)):
-        guide = root / 'hd' / 'guides' / f'{angle:03d}.png'
-        frame = frames.get(angle)
-        records.append({
-            'angle': angle,
-            'geometry_guide': str(guide.relative_to(root)) if guide.exists() else None,
-            'geometry_sha256': sha256(guide) if guide.exists() else None,
-            'native_photograph': frame.get('path') if frame else None,
-            'image_sha256': frame.get('sha256') if frame else None,
-            'photographic_review': frame.get('visual_review') if frame else 'missing',
-            'camera_registration': 'unverified',
-        })
-    failures = root / 'rejected' / 'rejections.json'
-    rejected = json.loads(failures.read_text())['attempts'] if failures.exists() else []
-    document = {'rejected_attempts': rejected, 'run': spec.version, 'source_sha256': sha256(root / 'source.png'),
-                'model_sha256': sha256(root / 'proxy.glb'), 'checkpoints': records,
-                'photo_complete': all(x['photographic_review'] in ('accepted','anchor') for x in records),
-                'model_fitted_to_source': False}
-    _write_json_if_changed(root / 'report.json', document)
-    return document
+def prepare(root: Path, spec: OrbitSpec = DEFAULT_SPEC, *, reset: bool = False) -> dict:
+    p = paths(root)
+    expected = state_for(root, spec)
+    if reset and p['state'].exists():
+        import shutil
+        shutil.rmtree(p['state'].parent)
+    current = read_json(p['state'])
+    if current and any(current.get(k) != expected[k]
+                       for k in ('reference_sha256', 'model_sha256', 'angles')):
+        raise ValueError('Reference/model or orbit spec changed; use prepare --reset')
+    if not current:
+        write_json(p['state'], expected)
+        p['generatedat'].write_text(timestamp() + '\n', encoding='utf-8')
+        current = expected
+    return current
 
 
-def record_rejection(project: Path, angle: int, candidate: Path, reasons: tuple[str, ...], spec: RunSpec) -> dict:
-    """Retain failed generations as evidence, never advance accepted checkpoints."""
-    if not reasons:
-        raise ValueError('Explicit rejection reasons required')
-    root = run_root(project, spec)
-    if angle not in angles(job_for(root, spec)) or angle == 0:
-        raise ValueError('Reject only scheduled nonzero-angle candidates')
-    folder = root / 'rejected'
-    folder.mkdir(parents=True, exist_ok=True)
-    number = 1
-    while (folder / f'{angle:03d}_attempt_{number:04d}.png').exists():
-        number += 1
-    destination = folder / f'{angle:03d}_attempt_{number:04d}.png'
-    copy_if_different(candidate, destination)
-    details = frame_requirements(destination, 1)
-    record = {'angle': angle, 'status': 'rejected',
-              'path': str(destination.relative_to(root)),
-              'source_sha256': sha256(root / 'source.png'),
-              'model_sha256': sha256(root / 'proxy.glb'),
-              'reasons': list(reasons), **details}
-    registry = folder / 'rejections.json'
-    previous = json.loads(registry.read_text()) if registry.exists() else {'attempts': []}
-    _write_json_if_changed(registry, {'attempts': [*previous.get('attempts', []), record]})
+def render_guide(root: Path, angle: int, spec: OrbitSpec = DEFAULT_SPEC) -> Path:
+    p = paths(root)
+    if angle not in angles(spec):
+        raise ValueError('Angle outside configured schedule')
+    target = p['guides'] / f'{angle:03d}.png'
+    if target.exists():
+        return target
+    frame = cast_visible_surface(angle, View(width=spec.guide_size[0], height=spec.guide_size[1]))
+    target.parent.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(render_geometry(frame)).save(target)
+    return target
+
+
+def guides(root: Path, spec: OrbitSpec = DEFAULT_SPEC) -> tuple[Path, ...]:
+    prepare(root, spec)
+    return tuple(render_guide(root, angle, spec) for angle in angles(spec))
+
+
+def next_request(root: Path, spec: OrbitSpec = DEFAULT_SPEC) -> dict:
+    data = prepare(root, spec)
+    return camera_request(spec, data['frames'])
+
+
+def accept(root: Path, angle: int, image: Path, *, reviewed: bool,
+           spec: OrbitSpec = DEFAULT_SPEC, origin: str = 'independent_generation') -> dict:
+    data = prepare(root, spec)
+    size = image_size(image)
+    validate_candidate(spec, data['frames'], angle, size, origin, reviewed)
+    target = paths(root)['frames'] / f'{angle:03d}.png'
+    if target.exists():
+        raise FileExistsError(f'Already accepted: {target}')
+    copy_file(image, target)
+    record = {'angle': angle, 'path': str(target.relative_to(root)),
+              'size': list(size), 'sha256': sha256(target),
+              'review': 'accepted', 'origin': origin}
+    data['frames'].append(record)
+    data['rejection'] = None
+    write_json(paths(root)['state'], data)
     return record
 
 
-def next_request(project: Path, spec: RunSpec) -> dict:
-    root = run_root(project, spec)
-    job = job_for(root, spec)
-    history = load_records(root)
-    deps = dependencies(job)
-    request = task_request(job, history, source_digest=deps['source_sha256'], model_digest=deps['model_sha256'])
-    request.update(native_min_width=spec.native_min_width,
-                   native_min_height=spec.native_min_height,
-                   source_coordinate_angle=0,
-                   geometry_guide_quality='unregistered coarse ellipsoid proxy; geometric conditioning only',
-                   full_resolution='No crop, no synthetic upscale, independent render')
-    return request
+def reject(root: Path, angle: int, reason: str, spec: OrbitSpec = DEFAULT_SPEC) -> dict:
+    data = prepare(root, spec)
+    if angle != next_angle(spec, data['frames']):
+        raise ValueError('Can only reject the currently requested angle')
+    data['rejection'] = {'angle': angle, 'reason': reason}
+    write_json(paths(root)['state'], data)
+    return data['rejection']
 
 
-def _write_json_if_changed(path: Path, document: dict) -> None:
-    content = json.dumps(document, indent=2, sort_keys=True) + '\n'
-    if not path.exists() or path.read_text() != content:
-        path.write_text(content)
-
-
-def progress(project: Path, spec: RunSpec) -> dict:
-    root = run_root(project, spec)
-    st = status(root, job_for(root, spec))
-    st['version'] = spec.version
-    st['geometry_guide_count'] = len(tuple((root / 'hd' / 'guides').glob('*.png'))) if (root / 'hd' / 'guides').exists() else 0
-    st['photographic_result_count'] = len(st['registered'])
-    return st
+def status(root: Path, spec: OrbitSpec = DEFAULT_SPEC) -> dict:
+    data = prepare(root, spec)
+    next_item = camera_request(spec, data['frames'])
+    return {'accepted_angles': [frame['angle'] for frame in data['frames']],
+            'next': next_item, 'complete': next_item.get('complete', False),
+            'last_rejection': data['rejection'],
+            'geometry_is_proxy_only': True}
