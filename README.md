@@ -34,3 +34,9 @@ Running `all` reuses extracted source images and existing generated previews by 
 ## Provenance and data handling
 
 `references/` includes all contributing prior model-generated images and four selfies provided for facial identity, because the request was to capture all workspace files. This archive is therefore personal and should be stored or shared accordingly. Git is initialized locally with discrete commits. No remote URL is configured and nothing is pushed to a remote repository.
+
+## New: 3D-backed sequential 15-degree material states
+
+Run `python tools/run_sequential.py` to reuse the existing images/model and calculate or load cumulative surface-state checkpoints for 0, 15, 30, 45, 60, 75, 90, 105 and 120 degrees. It saves fixed-pose 3D renders, newly exposed surface diagrams, texture projections, a GLB proxy and SHA-256 linked NPZ checkpoints. The original source images are never overwritten.
+
+Read `notes/incremental_results.md` **before interpreting outputs**. Geometric angle/state tests pass, but the photo-textured final has significant ghosting and a source human mesh was never available. The atlas-derived 120° photo is separate from the geometry-backed output.
