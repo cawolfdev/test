@@ -57,3 +57,7 @@ Using the supported GitHub Git Data blob API, base64-encoded file bytes were upl
 ## v0004 measured release
 
 The remote GitHub branch was inspected and compared to the local SHA-1 Git blob hashes: **94/98 tracked paths match exactly**, with no mismatches or extra files. The four absent blobs are the prior three paths plus `evidence/rejected/attempt_017.png`, blocked during connector upload. Local ZIP retains all files and full Git history; remote history and files are incomplete. Two new standalone 0-degree-like photographs and another 0-degree result (17 total attempts) are retained without approval; all are native 1024×1536 below project 1080×1920 native photo gate and none constitutes a fixed 60-degree viewpoint.
+
+## Current five-angle image-generation outcome
+
+The latest 0°/30°/60°/90°/120° generation returned a single composite and was rejected. Its exact bytes and SHA-256 are saved under `evidence/rejected/montage/current.png` and documented by `evidence/rejected/current.json`. Individual photographs are still missing. Native 1024×1536 source pictures satisfy the user’s new **strictly >1000×1000** resolution criterion, but have not passed geometric alignment. Current five independently rendered 1080×1920 geometries are linked from `output/README.md`.

@@ -1,0 +1,19 @@
+{
+  "category": "montage",
+  "each_angle_independently_generated": false,
+  "native_canvas": [
+    2172,
+    724
+  ],
+  "reason": "Tool returned one 5-panel composite, not five independent native photos.",
+  "requested_degrees": [
+    0,
+    30,
+    60,
+    90,
+    120
+  ],
+  "sha256": "02784f82570f127fc9e52aec438ccf61aef87eaa67cc11a33feecdc9f48e0497",
+  "source": "a_wide_composite_strip_image_showing_five_separate.png",
+  "status": "REJECTED"
+}

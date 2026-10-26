@@ -1,4 +1,5 @@
 {
+  "accepted_photographs": 0,
   "evidence": {
     "all_digests_checked": true,
     "historical_attempts": 17,
@@ -32,6 +33,25 @@
     "native_height_gt": 1000,
     "native_width_gt": 1000,
     "no_crops_or_upscales": true
+  },
+  "last_generation": {
+    "category": "montage",
+    "each_angle_independently_generated": false,
+    "native_canvas": [
+      2172,
+      724
+    ],
+    "reason": "Tool returned one 5-panel composite, not five independent native photos.",
+    "requested_degrees": [
+      0,
+      30,
+      60,
+      90,
+      120
+    ],
+    "sha256": "02784f82570f127fc9e52aec438ccf61aef87eaa67cc11a33feecdc9f48e0497",
+    "source": "a_wide_composite_strip_image_showing_five_separate.png",
+    "status": "REJECTED"
   },
   "mesh_quality": {
     "anatomical_coverage_review": "upper thighs only; calves, ankles and feet are not modeled",
@@ -178,6 +198,7 @@
     "last_attempt": "evidence/rejected/attempt_017.png",
     "nominal_60_candidate": "evidence/rejected/attempt_016.png"
   },
+  "photographic_viewpoints_0_30_60_90_120": "NOT_COMPLETE",
   "project": "wildlife-bodybuilder",
   "quality_gates": {
     "accepted_native_hd_photographic_checkpoints": 0,
