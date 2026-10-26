@@ -81,8 +81,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 1016,
-      "sha256": "a61644b2715f49025dd37c8c79684a2c9c2669800ba09b0ed510894297d14b5f"
+      "size_bytes": 3582,
+      "sha256": "96820125f95d4ff936e934d04a7232eb8fe1add95c5efbb6cd8f4f03f57869cb"
     },
     {
       "path": "atlas_layout.json",
@@ -240,6 +240,11 @@
       "sha256": "f6ae86020da06cd700d9c07a4e1be4e035029ac728ab86ce1786ed455124e255"
     },
     {
+      "path": "notes/quality_review.md",
+      "size_bytes": 1532,
+      "sha256": "a7fec8bb4dbdf1e851ad2d9b21cff1cd222490f2acb1ab778004075ea836581d"
+    },
+    {
       "path": "previews/all_angles_contact_sheet.png",
       "size_bytes": 1861114,
       "sha256": "5b82d6cac9ab5c78a4ff5d1a1f000d2f364051040f6e9a4d1416bc4fa47bf58f"
@@ -355,14 +360,19 @@
       "sha256": "47e37a78bc509b2f8ecc0a9167e43c3f83b85c9ac82006c5ba77fa3374a3db65"
     },
     {
+      "path": "src/wolf_orbit/archive.py",
+      "size_bytes": 796,
+      "sha256": "baa7379f356711e454e96702d0643c2fa7280bebce6a20024139b54a78ee64f1"
+    },
+    {
       "path": "src/wolf_orbit/assets.py",
       "size_bytes": 2389,
       "sha256": "09935d7acda0768dc4a740145f93ceb16178a28ad6e475ea9df7bed876f1d9df"
     },
     {
       "path": "src/wolf_orbit/cli.py",
-      "size_bytes": 1355,
-      "sha256": "bc669e9e5ae4695c009e3508978f37a4774db70306e55b5bf9be9bf9328b9557"
+      "size_bytes": 1567,
+      "sha256": "3916b400f50555822feb9e448e87f00b2922b65253f397beccf09b2d6b70c0cf"
     },
     {
       "path": "src/wolf_orbit/geometry.py",
@@ -376,13 +386,13 @@
     },
     {
       "path": "src/wolf_orbit/preview.py",
-      "size_bytes": 1895,
-      "sha256": "036730fa34ec63da760e972f55abbd2ac99debecaff69261273d3b9ae32b2447"
+      "size_bytes": 2083,
+      "sha256": "20857480327b0147837c6671526b7ba00028ff731a750efbff3255523abf5326"
     },
     {
       "path": "src/wolf_orbit/proxy.py",
-      "size_bytes": 4176,
-      "sha256": "4013fccddcc05e5da4d1e970df1aea3b1b22361b1cfd76d484787b8da2fa37c7"
+      "size_bytes": 4283,
+      "sha256": "00fb3ea14bf60c32893414bd2ec0e29290f1273599c76478d5432fae8b7d1079"
     },
     {
       "path": "src/wolf_orbit/validation.py",

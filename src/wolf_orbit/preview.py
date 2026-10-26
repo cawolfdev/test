@@ -10,6 +10,9 @@ def contact_sheet(image_files, output, columns=3, cell=(380,420), caption=None):
     pad, heading=18,35
     rows=(len(image_files)+columns-1)//columns
     output=Path(output)
+    # Reuse a finished contact sheet if all input images are older.
+    if output.exists() and all(output.stat().st_mtime >= p.stat().st_mtime for p in image_files):
+        return output
     out=Image.new('RGB',(columns*(cell[0]+pad)+pad,rows*(cell[1]+heading+pad)+pad),(240,241,243))
     draw=ImageDraw.Draw(out)
     font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',17)

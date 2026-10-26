@@ -88,19 +88,22 @@ def raycast_proxy(angle, resolution=(480,540)):
     return rgb,ids
 
 
-def render_proxy(root, angles=ANGLES):
+def render_proxy(root, angles=ANGLES, force=False):
     from PIL import Image, ImageDraw, ImageFont
     root=Path(root)
     target=root/'mocks'/'proxy_3d'
     target.mkdir(parents=True,exist_ok=True)
     outputs=[]
     for a in angles:
+        path=target/f'{a:03d}_pose_proxy.png'
+        if path.exists() and not force:
+            outputs.append(path)
+            continue
         rgb,_=raycast_proxy(a)
         output=Image.new('RGB',(480,584),'#f3f4f5')
         output.paste(Image.fromarray(rgb),(0,44))
         draw=ImageDraw.Draw(output)
         draw.text((15,16),f'{a:03d}° CAMERA  •  FIXED HEAD/BODY',fill=(24,31,39))
-        path=target/f'{a:03d}_pose_proxy.png'
         output.save(path)
         outputs.append(path)
     return outputs
