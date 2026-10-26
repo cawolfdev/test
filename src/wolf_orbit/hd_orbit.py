@@ -23,6 +23,8 @@ class OrbitJob:
     step_angle: int = 15
     min_edge: int = 1024
     model: Path | None = None
+    min_generated_width: int = 0
+    min_generated_height: int = 0
 
 
 def angles(job: OrbitJob) -> tuple[int, ...]:
@@ -55,7 +57,10 @@ def check_stage(records: tuple[dict, ...], angle: int, metadata: dict, job: Orbi
     if metadata.get('derived_from_crop', False):
         raise ValueError('Atlas crops and thumbnails cannot serve as orbit frames')
     if min(metadata['width'], metadata['height']) < job.min_edge:
-        raise ValueError('Image is not native HD size')
+        raise ValueError('Image is below minimum native pixel edge')
+    if angle > 0 and (metadata['width'] < job.min_generated_width or
+                      metadata['height'] < job.min_generated_height):
+        raise ValueError('Independent image is below requested full-HD dimensions')
     if records:
         if metadata['previous_sha256'] != records[-1]['sha256']:
             raise ValueError('Checkpoint must depend on immediate predecessor')
