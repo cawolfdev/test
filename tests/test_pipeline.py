@@ -4,6 +4,8 @@ import unittest
 from pathlib import Path
 from PIL import Image
 from wolf_orbit.hd_orbit import OrbitSpec, angles, camera_request, validate_candidate
+from wolf_orbit.geometry import Orbit
+from wolf_orbit.surface import camera_axes
 from wolf_orbit.orbit_pipeline import prepare, next_request, accept, reject, status
 
 
@@ -16,6 +18,15 @@ class OrbitTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_candidate(spec, [], 0, (1000, 1200), 'independent_generation', True)
         validate_candidate(spec, [], 0, (1001, 1001), 'independent_generation', True)
+
+    def test_one_camera_convention(self):
+        self.assertAlmostEqual(Orbit(0).position[0], 0.0)
+        self.assertGreater(Orbit(0).position[1], 0)
+        self.assertGreater(Orbit(90).position[0], 0)
+        self.assertLess(Orbit(120).position[1], 0)
+        camera, right = camera_axes(15)
+        self.assertAlmostEqual(float(camera[0]**2 + camera[1]**2), 1.0, places=5)
+        self.assertAlmostEqual(float((camera * right).sum()), 0.0, places=5)
 
     def test_zero_must_be_generated(self):
         request = camera_request(OrbitSpec(), [])

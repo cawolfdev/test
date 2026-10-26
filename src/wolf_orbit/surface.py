@@ -4,9 +4,10 @@ Reuses the audited anatomical primitive specification of proxy.py. The primitive
 are a *coarse proxy*, not a human scan or calibrated anatomical mesh.
 """
 from dataclasses import dataclass
-from math import sin, cos, radians, pi
+from math import pi
 import numpy as np
 from .proxy import scene_parts
+from .geometry import Orbit
 
 @dataclass(frozen=True)
 class View:
@@ -26,15 +27,12 @@ class SurfaceFrame:
     hit_distance: np.ndarray
 
 
-def human_faced_proxy():
-    """Compatibility alias for the one fixed subject specification."""
-    return scene_parts()
-
-
 def camera_axes(degrees):
-    t=radians(degrees)
-    toward=np.array((sin(t),cos(t),0.), dtype=np.float32)
-    right=np.array((cos(t),-sin(t),0.), dtype=np.float32)
+    """Reuse the domain-independent camera convention from geometry.Orbit."""
+    orbit = Orbit(degrees)
+    x, y, _height = orbit.position
+    toward = np.asarray((x / orbit.radius, y / orbit.radius, 0.), dtype=np.float32)
+    right = np.asarray((toward[1], -toward[0], 0.), dtype=np.float32)
     return toward, right
 
 
@@ -44,7 +42,7 @@ def cast_visible_surface(degrees, view=View(), parts=None):
     Output positions and UVs are actual geometry intersections, not hallucinated 2D
     rotations. All camera views share the same part centers and dimensions.
     """
-    if parts is None: parts=human_faced_proxy()
+    if parts is None: parts=scene_parts()
     w,h=view.width,view.height
     toward,right=camera_axes(degrees)
     # Orthographic screen extent with world-unit aspect ratio enforced.
@@ -92,7 +90,7 @@ def cast_visible_surface(degrees, view=View(), parts=None):
 def build_mesh(parts=None, subdivisions=3):
     """Exportable 3-D model assembled from the immutable existing anatomy proxy."""
     import trimesh
-    if parts is None: parts=human_faced_proxy()
+    if parts is None: parts=scene_parts()
     scene=trimesh.Scene()
     for i,(center,axes,kind) in enumerate(parts):
         sphere=trimesh.creation.icosphere(subdivisions=subdivisions)

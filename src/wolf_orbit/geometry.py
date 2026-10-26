@@ -2,7 +2,6 @@
 from dataclasses import dataclass
 from math import radians, sin, cos
 
-ANGLES = tuple(range(0, 121, 15))
 FRONT = (0.0, 1.0, 0.0)
 
 @dataclass(frozen=True)
@@ -27,6 +26,3 @@ class Orbit:
         # Matplotlib azimuth zero looks along +x and 90 along +y.
         return 90 - self.angle
 
-
-def all_orbits():
-    return [Orbit(a) for a in ANGLES]
