@@ -185,6 +185,51 @@
       "sha256": "71c3651eddc0123d1b723e71a7fc6d8adeb7952b6cc15269cad8f66b3d6a1e13"
     },
     {
+      "path": "mocks/proxy_3d/000_pose_proxy.png",
+      "size_bytes": 60836,
+      "sha256": "b8d1f7bafc2d424fcb5bfddf3c58a2528df6669e91e49a762c352ef05ebfed9a"
+    },
+    {
+      "path": "mocks/proxy_3d/015_pose_proxy.png",
+      "size_bytes": 61118,
+      "sha256": "bfe6491f965a74ec6b2393b15891f5634a0413dbfca7fa0863bfed4c85e9594f"
+    },
+    {
+      "path": "mocks/proxy_3d/030_pose_proxy.png",
+      "size_bytes": 58013,
+      "sha256": "6974dce8c4f08e441c7ea7a5b9c7eaa3c0cfc43875c5053f24f4aec5d54cfe30"
+    },
+    {
+      "path": "mocks/proxy_3d/045_pose_proxy.png",
+      "size_bytes": 55115,
+      "sha256": "460aac8419970565e6730bc04d99d4a5132bc3afb547007fb51fe448f454dd45"
+    },
+    {
+      "path": "mocks/proxy_3d/060_pose_proxy.png",
+      "size_bytes": 47903,
+      "sha256": "5478c559fcd27a3862644dcbea0b85ef39431d0a57e2f0747f75017f0f4d6069"
+    },
+    {
+      "path": "mocks/proxy_3d/075_pose_proxy.png",
+      "size_bytes": 39890,
+      "sha256": "19169d4ffe3d26e55987b937de7b7c2086088448d19e4d5c54de1d8a560612ee"
+    },
+    {
+      "path": "mocks/proxy_3d/090_pose_proxy.png",
+      "size_bytes": 30427,
+      "sha256": "34b852ad6926b38851f9d86e52d764727bf0861de6a22e977117fa5919fd848f"
+    },
+    {
+      "path": "mocks/proxy_3d/105_pose_proxy.png",
+      "size_bytes": 27261,
+      "sha256": "e40bd52c9c8dd7969b718f66b19fbc93b37d15c1d6ddfb7a65153bfaa2b3cf53"
+    },
+    {
+      "path": "mocks/proxy_3d/120_pose_proxy.png",
+      "size_bytes": 23120,
+      "sha256": "1a657d9d02a0a4f9de7f0b0eecf5a8cf218dc6d1b7dd5c5c5ae2a9daa53e4ba0"
+    },
+    {
       "path": "notes/extract_frames.py",
       "size_bytes": 3997,
       "sha256": "f685ed07c83da63a569d1c7097032be860a98c0abae28604c476b19b672db855"
@@ -198,6 +243,11 @@
       "path": "previews/all_angles_contact_sheet.png",
       "size_bytes": 1861114,
       "sha256": "5b82d6cac9ab5c78a4ff5d1a1f000d2f364051040f6e9a4d1416bc4fa47bf58f"
+    },
+    {
+      "path": "previews/fixed_pose_geometry_proxies.png",
+      "size_bytes": 399637,
+      "sha256": "fdd38275abacd4f20190cd41e24d716db1933bcabec75c63dec38ddd7200c0d3"
     },
     {
       "path": "pyproject.toml",
@@ -311,8 +361,8 @@
     },
     {
       "path": "src/wolf_orbit/cli.py",
-      "size_bytes": 1119,
-      "sha256": "dbde9115c3e6d62165cc6cf031bef3d227555bd79a809d20cade168fd6e65937"
+      "size_bytes": 1355,
+      "sha256": "bc669e9e5ae4695c009e3508978f37a4774db70306e55b5bf9be9bf9328b9557"
     },
     {
       "path": "src/wolf_orbit/geometry.py",
@@ -326,8 +376,13 @@
     },
     {
       "path": "src/wolf_orbit/preview.py",
-      "size_bytes": 1195,
-      "sha256": "fc4999b67e12b1b657be85e39d4ef4b88c2a847ca4a63304d50917461b988617"
+      "size_bytes": 1895,
+      "sha256": "036730fa34ec63da760e972f55abbd2ac99debecaff69261273d3b9ae32b2447"
+    },
+    {
+      "path": "src/wolf_orbit/proxy.py",
+      "size_bytes": 4176,
+      "sha256": "4013fccddcc05e5da4d1e970df1aea3b1b22361b1cfd76d484787b8da2fa37c7"
     },
     {
       "path": "src/wolf_orbit/validation.py",
@@ -336,8 +391,8 @@
     },
     {
       "path": "tests/test_orbit.py",
-      "size_bytes": 1109,
-      "sha256": "9db4966a1e457103e7a8073c758d4e51ef670c625665ce67cb370eceaf6b84d1"
+      "size_bytes": 1819,
+      "sha256": "c06b555e6a37dd0e011e9b53c53b666c972aa393963395aa1b35ace7f1dbe028"
     }
   ]
 }

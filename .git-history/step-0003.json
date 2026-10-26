@@ -1,0 +1,67 @@
+{
+  "original_sha": "50231c57afcefdfee45b41a55782e9c3a9f756f6",
+  "original_message": "validate: fixed-pose raycast proxy, shared preview function, occlusion regression",
+  "original_position": 3,
+  "excluded_asset_changes": [
+    {
+      "path": "mocks/proxy_3d/000_pose_proxy.png",
+      "original_blob_sha": "b115819edf554c782a98a3d4cfa9a0232b6b8475",
+      "bytes": 60836,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/proxy_3d/015_pose_proxy.png",
+      "original_blob_sha": "440b65ad217f7e06db55c049a1d6304de1f1b5b8",
+      "bytes": 61118,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/proxy_3d/030_pose_proxy.png",
+      "original_blob_sha": "1c9bd8c4f968b198197dddce975d081934cdbbd4",
+      "bytes": 58013,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/proxy_3d/045_pose_proxy.png",
+      "original_blob_sha": "d99645c550dca664b52f3660825d472c0c6545b2",
+      "bytes": 55115,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/proxy_3d/060_pose_proxy.png",
+      "original_blob_sha": "2eec986abbcff69e4fc29a762383597abd55cb15",
+      "bytes": 47903,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/proxy_3d/075_pose_proxy.png",
+      "original_blob_sha": "a1cb37cc2a6197b2cbc01c12ecfd71f7b8324330",
+      "bytes": 39890,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/proxy_3d/090_pose_proxy.png",
+      "original_blob_sha": "30aab41d6eef0bad8c64beeef89fa2953b0932ca",
+      "bytes": 30427,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/proxy_3d/105_pose_proxy.png",
+      "original_blob_sha": "669397f35c9f80fac6946317ed98414facbb6596",
+      "bytes": 27261,
+      "reason": "binary or large"
+    },
+    {
+      "path": "mocks/proxy_3d/120_pose_proxy.png",
+      "original_blob_sha": "0e9f6df806e9e83112d6a9ad11177ec44d15151f",
+      "bytes": 23120,
+      "reason": "binary or large"
+    },
+    {
+      "path": "previews/fixed_pose_geometry_proxies.png",
+      "original_blob_sha": "a7c90ba144524b4146e27b733066e2c16a411882",
+      "bytes": 399637,
+      "reason": "binary or large"
+    }
+  ]
+}
