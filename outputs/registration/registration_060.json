@@ -1,0 +1,30 @@
+{
+  "alignment": {
+    "geometry_coverage": 0.8452775202013512,
+    "iou": 0.7603921854208181,
+    "reference_coverage": 0.8833396140801526,
+    "scale": 1.24355596379062,
+    "shift_x": -18.389265542625388,
+    "shift_y": -1.316375011768112
+  },
+  "angle": 60,
+  "geometry_sha256": "71fc77bacf20e67483b60e4045a536e59130637161bcba54460c9fa33750ee3b",
+  "image": "registration_060_1080x1920.png",
+  "quality_gate": {
+    "interpretation": "Diagnostic only; passing a silhouette IoU alone cannot prove anatomical identity or pose",
+    "minimum_iou": 0.82,
+    "passed": false
+  },
+  "segmentation": {
+    "foreground_fraction": 0.376236,
+    "foreground_pixels": 130027,
+    "mask_scope": "estimated subject silhouette in letterboxed reference",
+    "method": "color_seeds_grabcut_largest_component",
+    "reviewed": false,
+    "working_size": [
+      480,
+      720
+    ]
+  },
+  "source_sha256": "c527c381afd102e15b743b5d6206bfe1e2e6d2adc20303e50b57081f96736cbe"
+}

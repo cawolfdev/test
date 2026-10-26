@@ -1,0 +1,179 @@
+{
+  "attempts": [
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_001.png",
+      "height": 1199,
+      "id": "attempt_001",
+      "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
+      "sha256": "a3c39155bd62b7f1960af6551fa3d33deb620a7c236b14e3a84a6e19bb707738",
+      "source_filename": "a_highly_realistic_photoreal_portrait_style_outdo.png",
+      "width": 1312
+    },
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_002.png",
+      "height": 1024,
+      "id": "attempt_002",
+      "reason": "Multi-view labeled collage rather than independent full-frame image",
+      "sha256": "b3f634417580ae2116a0b05642cccb8698a2b0472b2eef31e04851b8c408e3c0",
+      "source_filename": "a_large_high_resolution_collage_montage_image_of.png",
+      "width": 1536
+    },
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_003.png",
+      "height": 1199,
+      "id": "attempt_003",
+      "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
+      "sha256": "45be0edec9ef1700e593cf7feaed0be9bfa2cccd11a16b727b4455c300aa5509",
+      "source_filename": "a_photorealistic_high_resolution_centered_waist.png",
+      "width": 1312
+    },
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_004.png",
+      "height": 1312,
+      "id": "attempt_004",
+      "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
+      "sha256": "3997354a1dd5d0db8825fca94d45f94e4f776367b0b951f95a75ebfafda16dbe",
+      "source_filename": "a_realistic_high_resolution_outdoor_portrait_scen.png",
+      "width": 1199
+    },
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_005.png",
+      "height": 1402,
+      "id": "attempt_005",
+      "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
+      "sha256": "e0f861f6f6d29cf5fc88d5946fff05cfdb4c913fd781f396b629a9dbce0e6cc2",
+      "source_filename": "bearded_bodybuilder_in_misty_mountains.png",
+      "width": 1122
+    },
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_006.png",
+      "height": 1536,
+      "id": "attempt_006",
+      "reason": "Unconstrained rear perspective/head turn; camera-only pose not confirmed",
+      "sha256": "81ac3a726d0534e875aad2c002a8de74ef33ba600faabe6550b3024c7698a986",
+      "source_filename": "outdoor_landscape_photo_with_a_muscular_bodybuilde.png",
+      "width": 1024
+    },
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_007.png",
+      "height": 1536,
+      "id": "attempt_007",
+      "reason": "Unconstrained rear perspective/head turn; camera-only pose not confirmed",
+      "sha256": "da7b698c23ad17f0c88732545ea7fb79c0faedafb163aa9d927a620ff2601891",
+      "source_filename": "outdoor_landscape_portrait_photo_wide_vertical_fr.png",
+      "width": 1024
+    },
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_008.png",
+      "height": 1536,
+      "id": "attempt_008",
+      "reason": "Unconstrained rear perspective/head turn; camera-only pose not confirmed",
+      "sha256": "0f62ca17543b8a0e2d5e255276ec5618a76905b0277e15fd96ce93f93822c3dc",
+      "source_filename": "outdoor_landscape_scene_with_a_single_muscular_adu.png",
+      "width": 1024
+    },
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_009.png",
+      "height": 1199,
+      "id": "attempt_009",
+      "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
+      "sha256": "c5004a13d0b695782bd34a9acb821b43939206a511bfd7f5e8f66bbccea4cc28",
+      "source_filename": "outdoor_portrait_scene_a_realistic_high_resoluti.png",
+      "width": 1312
+    },
+    {
+      "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
+      "evidence_path": "attempts/attempt_010.png",
+      "height": 1199,
+      "id": "attempt_010",
+      "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
+      "sha256": "464419ce692f7071a3903b5628a7ae98f758e69e111c695b1fda6f5def0531da",
+      "source_filename": "outdoor_portrait_style_scene_a_hypermuscular_rea.png",
+      "width": 1312
+    },
+    {
+      "disposition": "REJECTED_NON_INDEPENDENT",
+      "evidence_path": "attempts/attempt_011.png",
+      "height": 1024,
+      "id": "attempt_011",
+      "reason": "0deg/60deg composite, not independent native images",
+      "sha256": "cd7d6fa608ab19977e71e6d3bff24b50a1438e73d8687862ad1b8b3a56a77826",
+      "source_filename": "a_wide_split_panel_photo_composition_outdoors_show.png",
+      "width": 1536
+    },
+    {
+      "disposition": "REJECTED_NON_INDEPENDENT",
+      "evidence_path": "attempts/attempt_012.png",
+      "height": 1024,
+      "id": "attempt_012",
+      "reason": "0deg/60deg composite, not independent native images",
+      "sha256": "d3691abef70ce671733abdec33e0c0dbed0df7dd55cfa44e28bd40d149d7c57b",
+      "source_filename": "a_split_composite_photo_style_image_with_two_side.png",
+      "width": 1536
+    },
+    {
+      "disposition": "REJECTED_NON_INDEPENDENT",
+      "evidence_path": "attempts/attempt_013.png",
+      "height": 1024,
+      "id": "attempt_013",
+      "reason": "0-120deg composite, not independent native images",
+      "sha256": "b0c825a85d323c987ab1e22de13955045bacf1d486c588636ea3b2f79a4c043e",
+      "source_filename": "a_high_resolution_composite_portfolio_image_showin.png",
+      "width": 1536
+    },
+    {
+      "disposition": "REJECTED_NON_INDEPENDENT",
+      "evidence_path": "attempts/attempt_014.png",
+      "height": 1024,
+      "id": "attempt_014",
+      "reason": "Nine-plus-panel montage including extra 150 degree angle; not a single full-HD photograph",
+      "sha256": "bc0350ce38329ca131617e53f712ac366179eced67b1ab083da341e95b7c688b",
+      "source_filename": "a_wide_high_resolution_composite_infographic_port.png",
+      "width": 1536
+    },
+    {
+      "id": "attempt_015",
+      "source_filename": "outdoor_landscape_portrait_a_hyper_detailed_real.png",
+      "evidence_path": "attempts/attempt_015.png",
+      "sha256": "5e93d75c08514e3b7a46e68862e0b720ef3d80197c1daf3af9dab81b610f83cd",
+      "width": 1024,
+      "height": 1536,
+      "disposition": "REJECTED_PHOTOGRAPHIC_CHECKPOINT",
+      "reason": "Independent frontal photographic candidate; native 1024x1536 below 1080x1920 full-HD portrait gate; not fitted to the 3D model"
+    },
+    {
+      "id": "attempt_016",
+      "source_filename": "outdoor_landscape_portrait_a_highly_detailed_rea.png",
+      "evidence_path": "attempts/attempt_016.png",
+      "sha256": "bcc8de188eeff5705df3c954815c3ca9b878bc1a0ba5c007d811cbf43e31e462",
+      "width": 1024,
+      "height": 1536,
+      "disposition": "REJECTED_PHOTOGRAPHIC_CHECKPOINT",
+      "reason": "Independent native 1024x1536 image but shows near-frontal not required camera 60 degrees; also below full-HD portrait gate and not geometry-registered"
+    },
+    {
+      "id": "attempt_017",
+      "source_filename": "outdoor_landscape_portrait_photo_full_body_shot.png",
+      "evidence_path": "attempts/attempt_017.png",
+      "sha256": "a252fea72b630d3f197ebac9e250876910b45d104d4a9974897683b442642da0",
+      "width": 1024,
+      "height": 1536,
+      "disposition": "REJECTED_PHOTOGRAPHIC_CHECKPOINT",
+      "reason": "New standalone 0-degree image despite requested independent 60-degree view; native dimensions below required 1080x1920 portrait; no fixed-mesh registration"
+    }
+  ],
+  "classification": "unaccepted checkpoint attempts; some useful as visual explorations",
+  "count": 17,
+  "original_bytes_preserved": true,
+  "project": "wildlife-bodybuilder",
+  "source": "available historical generation files"
+}

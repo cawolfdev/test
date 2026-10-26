@@ -1,0 +1,97 @@
+{
+  "count": 9,
+  "images": [
+    {
+      "angle": 0,
+      "image": "evidence/visibility/angle_000_1080x1920.png",
+      "newly_visible_vertex_samples": 41551,
+      "sha256": "8bd36a3750b716f6848609d158e173aa450e173e04f9f9e53eda2ea188c3041e",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "angle": 15,
+      "image": "evidence/visibility/angle_015_1080x1920.png",
+      "newly_visible_vertex_samples": 4254,
+      "sha256": "552184ea7c889e79b98ada74af80578c4425ca60cfed6248e448a82a3fb6dbd8",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "angle": 30,
+      "image": "evidence/visibility/angle_030_1080x1920.png",
+      "newly_visible_vertex_samples": 2640,
+      "sha256": "86546f77d81ab27160a7238b839c390f8b0c27b90f28afe9dac8e581361dc234",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "angle": 45,
+      "image": "evidence/visibility/angle_045_1080x1920.png",
+      "newly_visible_vertex_samples": 1989,
+      "sha256": "8341b4926fa80e66d1ea6b4abe5db81495d9f2d5649145ca3309d3eddc811799",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "angle": 60,
+      "image": "evidence/visibility/angle_060_1080x1920.png",
+      "newly_visible_vertex_samples": 2015,
+      "sha256": "89a4b07780635736fc1d6032c4e5657ee03cabb8b040abf12f02ea1cb4b06f78",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "angle": 75,
+      "image": "evidence/visibility/angle_075_1080x1920.png",
+      "newly_visible_vertex_samples": 2137,
+      "sha256": "0e3334d94bbd973d59f5d4f6f145fc03d5f2239efaeea256c44acca647b56989",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "angle": 90,
+      "image": "evidence/visibility/angle_090_1080x1920.png",
+      "newly_visible_vertex_samples": 3664,
+      "sha256": "071bfe2f7d0398ed36d6d4a0cc9682bbb65a0f14404888d5bf20e387fa4417e5",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "angle": 105,
+      "image": "evidence/visibility/angle_105_1080x1920.png",
+      "newly_visible_vertex_samples": 9774,
+      "sha256": "a569b46595b21a5308fc79a01cc350079980cdc308cece192ca91a32f6d26791",
+      "size": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "angle": 120,
+      "image": "evidence/visibility/angle_120_1080x1920.png",
+      "newly_visible_vertex_samples": 6874,
+      "sha256": "8df00455c4c190debec81671ed27854d9d702e4b772b3c30213c86b56e1b72fb",
+      "size": [
+        1080,
+        1920
+      ]
+    }
+  ],
+  "method": "occlusion-aware sampled vertex visibility",
+  "not_a_photographic_output": true
+}

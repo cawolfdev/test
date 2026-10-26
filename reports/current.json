@@ -1,51 +1,245 @@
 {
-  "project": "wildlife-bodybuilder",
-  "branch": "wildlife-bodybuilder-portrait",
-  "local_head": "9d9f321",
-  "remote_sync": "PARTIAL",
-  "publication_verified": false,
-  "geometry": {
-    "checkpoints": 9,
-    "dimensions": [
+  "evidence": {
+    "all_digests_checked": true,
+    "historical_attempts": 17,
+    "registration_diagnostics": 2,
+    "visibility_diagnostics": 9
+  },
+  "goal": "Geometry-constrained native-HD independent photographs every 15 degrees around one stationary subject",
+  "mesh_quality": {
+    "anatomical_coverage_review": "upper thighs only; calves, ankles and feet are not modeled",
+    "boundary_edges": 60,
+    "limitations": [
+      "Non-watertight geometry has open mesh boundaries",
+      "Face/hair shapes are not fitted against facial identity references",
+      "Incomplete legs prevent a full-body anatomically valid camera orbit",
+      "Original head/arm arrangement differs from photographic reference pose"
+    ],
+    "model_extent_units": [
+      2.27283,
+      1.16984,
+      2.93988
+    ],
+    "nonmanifold_edges": 0,
+    "photo_ready": false,
+    "triangles": 185808,
+    "vertices": 92930,
+    "watertight": false
+  },
+  "next_action": "Fit a complete, rigged 3D body and head against both reference silhouettes; rerun registration before attempting image synthesis",
+  "orbit": {
+    "assessment": "Geometric camera and sampled visibility verified; anatomical fit and photorealistic image generation NOT verified.",
+    "geometry_checkpoints": 9,
+    "independent_full_hd_photographs": 0,
+    "mesh_sha256": "5a92f8d9c2b1654fb8c629bf71de2bfdd9b1fc1d6fd7e190c4eb0fd0bdee80d7",
+    "model": "historical_unfitted_proxy",
+    "native_image_dimensions": [
       1080,
       1920
     ],
-    "mesh_photo_ready": false,
-    "boundary_edges": 60
-  },
-  "registration": {
-    "angles": [
-      0,
-      60
-    ],
-    "silhouette_iou": [
-      0.715,
-      0.76
-    ],
-    "threshold": 0.82,
-    "passed": [
-      false,
-      false
+    "project": "wildlife-bodybuilder",
+    "vertex_count": 92930,
+    "viewpoints": [
+      {
+        "angle": 0,
+        "cumulative_visible_vertices": 41551,
+        "geometry_height": 1920,
+        "geometry_sha256": "f2b155c4848a1d657586615f6cc0fd12b7d04d863285bc4f987dcf7893991082",
+        "geometry_width": 1080,
+        "newly_visible_vertices": 41551,
+        "photo_status": "NOT_GENERATED",
+        "visible_vertices": 41551
+      },
+      {
+        "angle": 15,
+        "cumulative_visible_vertices": 45805,
+        "geometry_height": 1920,
+        "geometry_sha256": "95cb0785ff8010b8e49e109f9e6b62227d340c46aa8d05df83851f8ae8668357",
+        "geometry_width": 1080,
+        "newly_visible_vertices": 4254,
+        "photo_status": "NOT_GENERATED",
+        "visible_vertices": 42453
+      },
+      {
+        "angle": 30,
+        "cumulative_visible_vertices": 48445,
+        "geometry_height": 1920,
+        "geometry_sha256": "ebfe86b46094d969698a76c9aa0460b30b1a5263e92e694f640b85e72d6e864d",
+        "geometry_width": 1080,
+        "newly_visible_vertices": 2640,
+        "photo_status": "NOT_GENERATED",
+        "visible_vertices": 40970
+      },
+      {
+        "angle": 45,
+        "cumulative_visible_vertices": 50434,
+        "geometry_height": 1920,
+        "geometry_sha256": "5ddfea2615193d8fd710311b1a0d37adc4d55178c4a34fdf79e44da94621eacc",
+        "geometry_width": 1080,
+        "newly_visible_vertices": 1989,
+        "photo_status": "NOT_GENERATED",
+        "visible_vertices": 38246
+      },
+      {
+        "angle": 60,
+        "cumulative_visible_vertices": 52449,
+        "geometry_height": 1920,
+        "geometry_sha256": "71fc77bacf20e67483b60e4045a536e59130637161bcba54460c9fa33750ee3b",
+        "geometry_width": 1080,
+        "newly_visible_vertices": 2015,
+        "photo_status": "NOT_GENERATED",
+        "visible_vertices": 34554
+      },
+      {
+        "angle": 75,
+        "cumulative_visible_vertices": 54586,
+        "geometry_height": 1920,
+        "geometry_sha256": "97559df27e89aac06ff964998ba9d055688fa6ea529beca1b0d806b9898edd77",
+        "geometry_width": 1080,
+        "newly_visible_vertices": 2137,
+        "photo_status": "NOT_GENERATED",
+        "visible_vertices": 29657
+      },
+      {
+        "angle": 90,
+        "cumulative_visible_vertices": 58250,
+        "geometry_height": 1920,
+        "geometry_sha256": "a9ec41a5fac0f9e38203b001118e8247d3171ea35b1e7c75a8c6cb93bc4af915",
+        "geometry_width": 1080,
+        "newly_visible_vertices": 3664,
+        "photo_status": "NOT_GENERATED",
+        "visible_vertices": 24638
+      },
+      {
+        "angle": 105,
+        "cumulative_visible_vertices": 68024,
+        "geometry_height": 1920,
+        "geometry_sha256": "86265dc80f905143f8914566a5585d21384340de102d93125ca23df7442f99b1",
+        "geometry_width": 1080,
+        "newly_visible_vertices": 9774,
+        "photo_status": "NOT_GENERATED",
+        "visible_vertices": 32589
+      },
+      {
+        "angle": 120,
+        "cumulative_visible_vertices": 74898,
+        "geometry_height": 1920,
+        "geometry_sha256": "f28866b8250e8bfbc3a564235c3fad2df9c40dc038d926d78ed8cc1dc33d8ef3",
+        "geometry_width": 1080,
+        "newly_visible_vertices": 6874,
+        "photo_status": "NOT_GENERATED",
+        "visible_vertices": 37706
+      }
     ]
   },
-  "source_photos": {
-    "0": "APPROXIMATE_ONLY",
-    "60": "APPROXIMATE_ONLY",
-    "independently_generated_new_references": 0
+  "project": "wildlife-bodybuilder",
+  "quality_gates": {
+    "accepted_native_hd_photographic_checkpoints": 0,
+    "anatomical_mesh_photo_ready": false,
+    "nine_geometry_checkpoints_verified": true,
+    "reference_masks_independently_reviewed": false,
+    "silhouette_gate_000_passed": false,
+    "silhouette_gate_060_passed": false
   },
-  "photorealistic": {
-    "accepted_orbit_checkpoints": 0,
-    "rejected_attempts": 14,
-    "latest_failures": 4,
-    "reason": "Montage instead of single independent full-HD image"
-  },
-  "remote": {
-    "repository": "cawolfdev/test",
+  "registrations": [
+    {
+      "alignment": {
+        "geometry_coverage": 0.9363844549633763,
+        "iou": 0.7152207503602493,
+        "reference_coverage": 0.7517483953084155,
+        "scale": 1.2495890543104609,
+        "shift_x": -8.819357214730653,
+        "shift_y": -19.511128544937822
+      },
+      "angle": 0,
+      "geometry_sha256": "f2b155c4848a1d657586615f6cc0fd12b7d04d863285bc4f987dcf7893991082",
+      "image": "registration_000_1080x1920.png",
+      "quality_gate": {
+        "interpretation": "Diagnostic only; passing a silhouette IoU alone cannot prove anatomical identity or pose",
+        "minimum_iou": 0.82,
+        "passed": false
+      },
+      "segmentation": {
+        "foreground_fraction": 0.634262,
+        "foreground_pixels": 219201,
+        "mask_scope": "estimated subject silhouette in letterboxed reference",
+        "method": "color_seeds_grabcut_largest_component",
+        "reviewed": false,
+        "working_size": [
+          480,
+          720
+        ]
+      },
+      "source_sha256": "e48d904978039470e836762e9dfefe934af3dca66bbc3b30e256372ec774b5bf"
+    },
+    {
+      "alignment": {
+        "geometry_coverage": 0.8452775202013512,
+        "iou": 0.7603921854208181,
+        "reference_coverage": 0.8833396140801526,
+        "scale": 1.24355596379062,
+        "shift_x": -18.389265542625388,
+        "shift_y": -1.316375011768112
+      },
+      "angle": 60,
+      "geometry_sha256": "71fc77bacf20e67483b60e4045a536e59130637161bcba54460c9fa33750ee3b",
+      "image": "registration_060_1080x1920.png",
+      "quality_gate": {
+        "interpretation": "Diagnostic only; passing a silhouette IoU alone cannot prove anatomical identity or pose",
+        "minimum_iou": 0.82,
+        "passed": false
+      },
+      "segmentation": {
+        "foreground_fraction": 0.376236,
+        "foreground_pixels": 130027,
+        "mask_scope": "estimated subject silhouette in letterboxed reference",
+        "method": "color_seeds_grabcut_largest_component",
+        "reviewed": false,
+        "working_size": [
+          480,
+          720
+        ]
+      },
+      "source_sha256": "c527c381afd102e15b743b5d6206bfe1e2e6d2adc20303e50b57081f96736cbe"
+    }
+  ],
+  "release_note": "Native 3D diagnostic images are not photorealistic outputs. Rejected generations are archived unchanged.",
+  "remote_branch": {
     "branch": "wildlife-bodybuilder-portrait",
-    "git_objects_uploaded": "overview, plan, readme, report",
-    "full_local_source_and_binary_mirror": false,
-    "sync_note": "Remote has verified documentation update, but has not received the local 3D mesh, 14 rejected image files, geometric views, tests, and complete Git history."
+    "repository": "cawolfdev/test",
+    "status": "branch created; not fully synchronized"
   },
-  "next_action": "Fit complete rigged geometry; native independent 0/60 source images; transfer and verify every local blob through GitHub connector",
-  "local_branch": "wildlife-bodybuilder-portrait"
+  "source_references": {
+    "0": "approximate historical photographic reference, replacement not accepted",
+    "60": "approximate historical photographic reference, replacement not accepted"
+  },
+  "version": "v0002",
+  "photographic_attempts_current": {
+    "independent_new_attempts": 3,
+    "accepted_native_1080x1920": 0,
+    "frontal_candidate": "evidence/attempts/attempt_015.png",
+    "nominal_60_candidate": "evidence/attempts/attempt_016.png",
+    "last_attempt": "evidence/attempts/attempt_017.png",
+    "issues": [
+      "native photos are 1024x1536 below required 1080x1920",
+      "60-degree requests did not rotate camera",
+      "not geometrically registered"
+    ]
+  },
+  "github_sync": {
+    "branch": "wildlife-bodybuilder-portrait",
+    "status": "PARTIAL",
+    "method": "SHA-verified Git Data API base64 blob upload",
+    "remote_complete": false,
+    "known_failed_paths": [
+      "assets/geometry/fixed_pose_proxy.glb",
+      "evidence/attempts/attempt_009.png",
+      "outputs/orbit_000_120/075/visibility.npz"
+    ],
+    "failure_reasons": {
+      "assets/geometry/fixed_pose_proxy.glb": "4.83 MB Git blob HTTP/2 upload transport error",
+      "evidence/attempts/attempt_009.png": "safety check blocked GitHub connector upload",
+      "outputs/orbit_000_120/075/visibility.npz": "safety check blocked GitHub connector upload"
+    }
+  }
 }

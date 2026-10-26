@@ -1,0 +1,108 @@
+{
+  "asset": "assets/geometry/fixed_pose_proxy.glb",
+  "checkpoints": [
+    {
+      "angle": 0,
+      "checkpoint": "outputs/orbit_000_120/000/checkpoint.json",
+      "cumulative_visible_vertices": 41551,
+      "newly_visible_vertices": 41551,
+      "photo_status": "NOT_GENERATED",
+      "render_reused": true,
+      "visibility_reused": true,
+      "visible_vertices": 41551
+    },
+    {
+      "angle": 15,
+      "checkpoint": "outputs/orbit_000_120/015/checkpoint.json",
+      "cumulative_visible_vertices": 45805,
+      "newly_visible_vertices": 4254,
+      "photo_status": "NOT_GENERATED",
+      "render_reused": true,
+      "visibility_reused": true,
+      "visible_vertices": 42453
+    },
+    {
+      "angle": 30,
+      "checkpoint": "outputs/orbit_000_120/030/checkpoint.json",
+      "cumulative_visible_vertices": 48445,
+      "newly_visible_vertices": 2640,
+      "photo_status": "NOT_GENERATED",
+      "render_reused": true,
+      "visibility_reused": true,
+      "visible_vertices": 40970
+    },
+    {
+      "angle": 45,
+      "checkpoint": "outputs/orbit_000_120/045/checkpoint.json",
+      "cumulative_visible_vertices": 50434,
+      "newly_visible_vertices": 1989,
+      "photo_status": "NOT_GENERATED",
+      "render_reused": true,
+      "visibility_reused": true,
+      "visible_vertices": 38246
+    },
+    {
+      "angle": 60,
+      "checkpoint": "outputs/orbit_000_120/060/checkpoint.json",
+      "cumulative_visible_vertices": 52449,
+      "newly_visible_vertices": 2015,
+      "photo_status": "NOT_GENERATED",
+      "render_reused": true,
+      "visibility_reused": true,
+      "visible_vertices": 34554
+    },
+    {
+      "angle": 75,
+      "checkpoint": "outputs/orbit_000_120/075/checkpoint.json",
+      "cumulative_visible_vertices": 54586,
+      "newly_visible_vertices": 2137,
+      "photo_status": "NOT_GENERATED",
+      "render_reused": true,
+      "visibility_reused": true,
+      "visible_vertices": 29657
+    },
+    {
+      "angle": 90,
+      "checkpoint": "outputs/orbit_000_120/090/checkpoint.json",
+      "cumulative_visible_vertices": 58250,
+      "newly_visible_vertices": 3664,
+      "photo_status": "NOT_GENERATED",
+      "render_reused": true,
+      "visibility_reused": true,
+      "visible_vertices": 24638
+    },
+    {
+      "angle": 105,
+      "checkpoint": "outputs/orbit_000_120/105/checkpoint.json",
+      "cumulative_visible_vertices": 68024,
+      "newly_visible_vertices": 9774,
+      "photo_status": "NOT_GENERATED",
+      "render_reused": true,
+      "visibility_reused": true,
+      "visible_vertices": 32589
+    },
+    {
+      "angle": 120,
+      "checkpoint": "outputs/orbit_000_120/120/checkpoint.json",
+      "cumulative_visible_vertices": 74898,
+      "newly_visible_vertices": 6874,
+      "photo_status": "NOT_GENERATED",
+      "render_reused": true,
+      "visibility_reused": true,
+      "visible_vertices": 37706
+    }
+  ],
+  "geometry_sha256": "5a92f8d9c2b1654fb8c629bf71de2bfdd9b1fc1d6fd7e190c4eb0fd0bdee80d7",
+  "mesh_asset_sha256": "8381ed04eed4e602f542667882ed28eb7308083a523330de9c31ec9b441bff3e",
+  "note": "Fixed approximate 3D proxy. Native 1080x1920 renders; visibility tested against actual raster depth; photos not generated.",
+  "spec": {
+    "camera_distance": 8.0,
+    "framing_margin": 0.07,
+    "height": 1920,
+    "start": 0,
+    "step": 15,
+    "stop": 120,
+    "subject_center_z": 1.2,
+    "width": 1080
+  }
+}

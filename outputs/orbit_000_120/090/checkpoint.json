@@ -1,0 +1,26 @@
+{
+  "angle": 90,
+  "camera_only": true,
+  "mesh_geometry_sha256": "5a92f8d9c2b1654fb8c629bf71de2bfdd9b1fc1d6fd7e190c4eb0fd0bdee80d7",
+  "occlusion_visibility_verified": true,
+  "photo_prompt": "ONE INDEPENDENT FULL FRAME PHOTOGRAPH at camera azimuth +90 degrees, right side view; use the provided corresponding 3D camera frame as binding pose and silhouette reference, and the original front portrait for identity/appearance only. Fixed skull, neck, shoulders, hands clasped behind head, elbows spread, colossal coherent musculature, pale amber irises when eyes are visible, short-sided forward-spiked brown football-jock hair, dense natural feathered-edge stubble, dark gym shorts, cloudy lakeside overlook. Camera orbits the stationary model without the subject turning toward it. Portrait photographic realism, full frame, native 1080x1920 minimum, single image only, no panel, mosaic, crop, collage, inpainting, or enlargement of an existing image.",
+  "photo_requirement": "Independent single full-resolution native image, provenance documented; cannot import old montage panels",
+  "photo_status": "NOT_GENERATED",
+  "reference": {
+    "height": 1920,
+    "path": "geometry_native_1080x1920.png",
+    "sha256": "a9ec41a5fac0f9e38203b001118e8247d3171ea35b1e7c75a8c6cb93bc4af915",
+    "source_kind": "native_3d_render",
+    "width": 1080
+  },
+  "visibility": {
+    "algorithm_version": 1,
+    "cumulative_visible_vertices": 58250,
+    "mesh_geometry_sha256": "5a92f8d9c2b1654fb8c629bf71de2bfdd9b1fc1d6fd7e190c4eb0fd0bdee80d7",
+    "method": "VTK z-buffer, front-facing normals, orthographic projected vertex depth",
+    "newly_visible_vertices": 3664,
+    "raster_occlusion_checked": true,
+    "vertex_count": 92930,
+    "visible_vertices": 24638
+  }
+}
