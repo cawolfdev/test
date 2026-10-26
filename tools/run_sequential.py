@@ -8,5 +8,4 @@ if __name__=='__main__':
     results=execute(ROOT)
     print('Angles:', [r['degree'] for r in results])
     print('Novel texels:', [r['new_texels'] for r in results])
-    for mode in ('geometry','newly_exposed','renders'):
-        print('Preview:',make_comparison(ROOT,mode))
+    print('Rendered:',make_comparison(ROOT))

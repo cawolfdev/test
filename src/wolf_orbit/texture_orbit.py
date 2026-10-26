@@ -8,12 +8,11 @@ import json
 import hashlib
 from pathlib import Path
 import numpy as np
-from PIL import Image, ImageColor
+from PIL import Image
 from scipy.ndimage import distance_transform_edt
 from .assets import sha256
 from .geometry import ANGLES
 from .surface import View, cast_visible_surface, human_faced_proxy, build_mesh
-from .proxy import MATERIAL
 
 TEXTURE_W=512
 TEXTURE_H=256
@@ -79,39 +78,6 @@ def render_surface(frame,color,observed,background=None):
     return picture
 
 
-
-def render_geometry(frame,parts=None):
-    """Anatomy-color 3D reference with fixed world-space lighting.
-
-    Unlike photograph projections, this independently checks camera visibility
-    and occlusion, without facial duplication or image-background artifacts.
-    """
-    if parts is None: parts=human_faced_proxy()
-    h,w=frame.part_id.shape
-    out=np.full((h,w,3),(220,225,229),np.uint8)
-    light=np.array((.45,.65,.62),dtype=np.float32)
-    light/=np.linalg.norm(light)
-    illumination=np.clip(np.sum(frame.normal_xyz*light,axis=-1),0,1)
-    factor=.62+.35*illumination
-    for i,(_c,_a,kind) in enumerate(parts):
-        mask=frame.part_id==i
-        if mask.any():
-            rgb=np.asarray(ImageColor.getrgb(MATERIAL[kind]),np.float32)
-            out[mask]=np.clip(rgb*factor[mask,None],0,255).astype(np.uint8)
-    return out
-
-
-def paint_novel_pixels_image(frame, old_observed):
-    """Diagnostic: mark the surfaces not present in previous checkpoint state."""
-    out=render_geometry(frame)
-    p,v,u,visible=uv_texel(frame)
-    novel=~old_observed[p,v,u]
-    mask=np.zeros(frame.part_id.shape,dtype=np.bool_)
-    mask[visible]=novel
-    out[mask]=(235,137,61)
-    return out
-
-
 def checkpoint_paths(root,angle):
     folder=Path(root)/'sequential'
     return (folder/'checkpoints'/f'{angle:03d}.npz',folder/'renders'/f'{angle:03d}.png',folder/'checkpoints'/f'{angle:03d}.json')
@@ -137,17 +103,13 @@ def execute(root,view=View(),force=False):
     color,observed=initial_state(parts)
     previous_hash=None
     records=[]
-    geom_dir=root/'sequential'/'geometry'
-    novelty_dir=root/'sequential'/'newly_exposed'
-    geom_dir.mkdir(parents=True,exist_ok=True)
-    novelty_dir.mkdir(parents=True,exist_ok=True)
     for angle in ANGLES:
         state_path,render_path,meta_path=checkpoint_paths(root,angle)
         state_path.parent.mkdir(parents=True,exist_ok=True)
         render_path.parent.mkdir(parents=True,exist_ok=True)
         photo_path=root/'images'/f'{angle:03d}_clockwise.png'
         expected=provenance(root,angle,model_hash,previous_hash)
-        if state_path.exists() and render_path.exists() and meta_path.exists() and (geom_dir/f'{angle:03d}.png').exists() and (novelty_dir/f'{angle:03d}.png').exists() and not force:
+        if state_path.exists() and render_path.exists() and meta_path.exists() and not force:
             metadata=json.loads(meta_path.read_text())
             if all(metadata.get(k)==v for k,v in expected.items()):
                 with np.load(state_path) as arrays:
@@ -158,17 +120,12 @@ def execute(root,view=View(),force=False):
                 continue
         frame=cast_visible_surface(angle,view,parts)
         photo=image_samples(photo_path,view.width,view.height)
-        geo_path=geom_dir/f'{angle:03d}.png'
-        novel_path=novelty_dir/f'{angle:03d}.png'
-        Image.fromarray(render_geometry(frame,parts)).save(geo_path)
-        Image.fromarray(paint_novel_pixels_image(frame,observed)).save(novel_path)
         record=paint_novel_surface(frame,photo,color,observed)
         out=render_surface(frame,color,observed,photo)
         Image.fromarray(out).save(render_path)
         np.savez_compressed(state_path,colors=color,observed=observed)
         metadata={**expected,**record,'state_sha256':sha256(state_path),
-                  'render_sha256':sha256(render_path),'geometry_sha256':sha256(geo_path),
-                  'novelty_sha256':sha256(novel_path),'size':[view.width,view.height]}
+                  'render_sha256':sha256(render_path),'size':[view.width,view.height]}
         meta_path.write_text(json.dumps(metadata,indent=2)+'\n')
         previous_hash=sha256(state_path)
         records.append({**metadata,'cache':'computed'})
@@ -177,15 +134,12 @@ def execute(root,view=View(),force=False):
     return records
 
 
-def make_comparison(root, mode="geometry"):
-    """Reusable contact sheet for geometry, texture projection or newly exposed areas."""
-    if mode not in ("geometry","renders","newly_exposed"):
-        raise ValueError(mode)
-    from PIL import Image, ImageDraw
+def make_comparison(root):
+    from PIL import ImageDraw
     root=Path(root)
     shots=[]
     for angle in ANGLES:
-        with Image.open(root/'sequential'/mode/f'{angle:03d}.png') as img:
+        with Image.open(checkpoint_paths(root,angle)[1]) as img:
             thumb=img.convert('RGB').copy()
         thumb.thumbnail((350,315))
         shots.append((angle,thumb))
@@ -199,7 +153,7 @@ def make_comparison(root, mode="geometry"):
         y=(i//3)*cell_h+26
         sheet.paste(img,(x,y))
         draw.text(((i%3)*cell_w+13,(i//3)*cell_h+7),f'{a:03d} deg | fixed 3D, incremental surface',fill=(24,33,45))
-    dest=root/'sequential'/'previews'/f'{mode}_15deg_sequence.jpg'
+    dest=root/'sequential'/'previews'/'geometry_backed_15deg_sequence.jpg'
     dest.parent.mkdir(parents=True,exist_ok=True)
     sheet.save(dest,quality=94)
     return dest
