@@ -5,6 +5,28 @@
     "registration_diagnostics": 2,
     "visibility_diagnostics": 9
   },
+  "github_sync": {
+    "branch": "wildlife-bodybuilder-portrait",
+    "failure_reasons": {
+      "assets/geometry/fixed_pose_proxy.glb": "4.83 MB Git blob HTTP/2 upload transport error",
+      "evidence/attempts/attempt_009.png": "safety check blocked GitHub connector upload",
+      "evidence/attempts/attempt_017.png": "connector safety checks blocked upload of latest generated 1024x1536 candidate",
+      "outputs/orbit_000_120/075/visibility.npz": "safety check blocked GitHub connector upload"
+    },
+    "git_blob_hash_mismatch_count": 0,
+    "known_failed_paths": [
+      "assets/geometry/fixed_pose_proxy.glb",
+      "evidence/attempts/attempt_009.png",
+      "evidence/attempts/attempt_017.png",
+      "outputs/orbit_000_120/075/visibility.npz"
+    ],
+    "last_verified_remote_tree": "27e2d93860111b27cc1e0ceea415293506d1afe2",
+    "method": "SHA-verified Git Data API base64 blob upload",
+    "remote_complete": false,
+    "status": "PARTIAL",
+    "tracked_local_files": 98,
+    "verified_remote_files": 94
+  },
   "goal": "Geometry-constrained native-HD independent photographs every 15 degrees around one stationary subject",
   "mesh_quality": {
     "anatomical_coverage_review": "upper thighs only; calves, ankles and feet are not modeled",
@@ -132,6 +154,18 @@
       }
     ]
   },
+  "photographic_attempts_current": {
+    "accepted_native_1080x1920": 0,
+    "frontal_candidate": "evidence/attempts/attempt_015.png",
+    "independent_new_attempts": 3,
+    "issues": [
+      "native photos are 1024x1536 below required 1080x1920",
+      "60-degree requests did not rotate camera",
+      "not geometrically registered"
+    ],
+    "last_attempt": "evidence/attempts/attempt_017.png",
+    "nominal_60_candidate": "evidence/attempts/attempt_016.png"
+  },
   "project": "wildlife-bodybuilder",
   "quality_gates": {
     "accepted_native_hd_photographic_checkpoints": 0,
@@ -213,33 +247,5 @@
     "0": "approximate historical photographic reference, replacement not accepted",
     "60": "approximate historical photographic reference, replacement not accepted"
   },
-  "version": "v0002",
-  "photographic_attempts_current": {
-    "independent_new_attempts": 3,
-    "accepted_native_1080x1920": 0,
-    "frontal_candidate": "evidence/attempts/attempt_015.png",
-    "nominal_60_candidate": "evidence/attempts/attempt_016.png",
-    "last_attempt": "evidence/attempts/attempt_017.png",
-    "issues": [
-      "native photos are 1024x1536 below required 1080x1920",
-      "60-degree requests did not rotate camera",
-      "not geometrically registered"
-    ]
-  },
-  "github_sync": {
-    "branch": "wildlife-bodybuilder-portrait",
-    "status": "PARTIAL",
-    "method": "SHA-verified Git Data API base64 blob upload",
-    "remote_complete": false,
-    "known_failed_paths": [
-      "assets/geometry/fixed_pose_proxy.glb",
-      "evidence/attempts/attempt_009.png",
-      "outputs/orbit_000_120/075/visibility.npz"
-    ],
-    "failure_reasons": {
-      "assets/geometry/fixed_pose_proxy.glb": "4.83 MB Git blob HTTP/2 upload transport error",
-      "evidence/attempts/attempt_009.png": "safety check blocked GitHub connector upload",
-      "outputs/orbit_000_120/075/visibility.npz": "safety check blocked GitHub connector upload"
-    }
-  }
+  "version": "v0004"
 }
