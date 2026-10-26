@@ -16,11 +16,11 @@
 | `cli.py` | Thin orbit execution CLI | Yes |
 | `build_release.py` | Thin audited package CLI | Yes |
 | `tests/test_orbit.py` | Regression tests for geometry, visibility, portability, dimensions, naming | Yes |
-| `outputs/orbit_000_120/<angle>/geometry_native_1080x1920.png` | Native HD geometry render, unchanged between runs | Generated |
-| `outputs/orbit_000_120/<angle>/visibility.npz` | Current, new and cumulative exposure masks (packed vertex booleans) | Generated |
-| `outputs/orbit_000_120/<angle>/checkpoint.json` | Per-angle portable provenance and status | Generated |
-| `outputs/orbit_000_120/{015,120}/geometry_exposure_native_1080x1920.png` | Optional native HD visibility diagnostics (not photo) | Generated |
-| `outputs/orbit_000_120/{state,verification}.json` | Whole-orbit state and independent audit | Generated |
+| `output/orbit_000_120/<angle>/geometry_native_1080x1920.png` | Native HD geometry render, unchanged between runs | Generated |
+| `output/orbit_000_120/<angle>/visibility.npz` | Current, new and cumulative exposure masks (packed vertex booleans) | Generated |
+| `output/orbit_000_120/<angle>/checkpoint.json` | Per-angle portable provenance and status | Generated |
+| `output/orbit_000_120/{015,120}/geometry_exposure_native_1080x1920.png` | Optional native HD visibility diagnostics (not photo) | Generated |
+| `output/orbit_000_120/{state,verification}.json` | Whole-orbit state and independent audit | Generated |
 | `.git/` | Prior project commits and continuing incremental refactor | Yes, in project archive |
 
 Excluded: legacy montage extraction/upscaling scripts, photo crops, per-angle mesh duplicates, temporary previews, test caches. Original archives remain outside the active project. All published artifact *basenames* use `wildlife-bodybuilder-<role>-vNNNN.<extension>`.
@@ -36,6 +36,6 @@ Excluded: legacy montage extraction/upscaling scripts, photo crops, per-angle me
 - `docs/OVERVIEW.md`: persistent high-level state, separately exported.
 - `docs/PLAN.md`: goal, phases and quality gates.
 - `reports/current.json`, `reports/report-v0002.json`: in-repository summary and archived version.
-- `evidence/attempts/`: all available rejected image bytes plus manifest.
+- `evidence/rejected/`: all available rejected image bytes plus manifest.
 - `evidence/visibility/`: complete 0–120° 15° diagnostic sequence plus manifest.
-- `outputs/registration/`: two measured silhouette failures with masked source evidence.
+- `output/registration/`: two measured silhouette failures with masked source evidence.

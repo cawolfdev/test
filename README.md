@@ -1,8 +1,10 @@
 # wildlife-bodybuilder
 
+**Start here: [FILESYSTEM.md](FILESYSTEM.md) and [current geometric outputs](output/README.md).**
+
 Geometrically consistent 0°–120° camera orbit, with 15° fixed-mesh checkpoints.
 
-**Current state:** Nine independent, native 1080 × 1920 *3D diagnostic renders* are verified. The 3D model is still an anatomical approximation. There are **zero accepted native-HD photographic generations**. The saved frontal/60° photographic images are references only, not generated checkpoint outputs.
+**Current state:** Nine independent, native 1080 × 1920 *3D diagnostic renders* are verified. The 3D model is still an anatomical approximation. There are **zero geometrically accepted photographic generations**. The saved frontal/60° photographic images are references only, not generated checkpoint outputs.
 
 ## Reproducible workflow
 
@@ -47,10 +49,10 @@ The current versioned evidence archive carries **every available unaccepted hist
 
 ## GitHub target and synchronization status
 
-Target: [cawolfdev/test, wildlife-bodybuilder-portrait](https://github.com/cawolfdev/test/tree/wildlife-bodybuilder-portrait). The GitHub connector created the branch and published commit `17b7684b5d3cff577463b28925c674c80024236f`, containing updated project overview, plan, current report and README. **The remote repository is not yet a complete mirror:** the connector can transfer binary bytes through base64 Git objects, but several specific blob uploads were blocked. The source-of-truth full project and Git history are retained in this downloaded project release. The four newly generated montage attempts were rejected and added to `evidence/attempts/`; neither new 0° nor 60° true native photographic reference is accepted. A mirror is only considered complete when all tracked file digests are verified against remote Git blobs.
+Target: [cawolfdev/test, wildlife-bodybuilder-portrait](https://github.com/cawolfdev/test/tree/wildlife-bodybuilder-portrait). The GitHub connector created the branch and published commit `17b7684b5d3cff577463b28925c674c80024236f`, containing updated project overview, plan, current report and README. **The remote repository is not yet a complete mirror:** the connector can transfer binary bytes through base64 Git objects, but several specific blob uploads were blocked. The source-of-truth full project and Git history are retained in this downloaded project release. The four newly generated montage attempts were rejected and added to `evidence/rejected/`; neither new 0° nor 60° true native photographic reference is accepted. A mirror is only considered complete when all tracked file digests are verified against remote Git blobs.
 
 Use Git history for older versions of mutable documentation; keep `docs/OVERVIEW.md`, `docs/PLAN.md`, `reports/current.json` as the single current copies in each commit. Version suffixes are for **external downloaded release artifacts** only.
 
 ## Exact GitHub binary synchronization
 
-Binary and text files are Git blobs. The transfer bridge (`tools/git_bridge.py`) packages tracked bytes into SHA-verified base64 transfer batches; the connected GitHub Git Data API creates blobs, trees, commits, and a branch update. The transfer is not complete until the remote tree matches the tracked local files. Outputs/ is now tracked, including the full-HD geometry, visibility state and registration diagnostics. Historical failed generations are retained in `evidence/attempts/`. Both new standalone photographs (attempt_015 and attempt_016) are rejected, not geometry-verified native full-HD references.
+Binary and text files are Git blobs. The transfer bridge (`tools/git_bridge.py`) packages tracked bytes into SHA-verified base64 transfer batches; the connected GitHub Git Data API creates blobs, trees, commits, and a branch update. The transfer is not complete until the remote tree matches the tracked local files. Outputs/ is now tracked, including the full-HD geometry, visibility state and registration diagnostics. Historical failed generations are retained in `evidence/rejected/`. Both new standalone photographs (attempt_015 and attempt_016) are rejected, not geometry-verified native full-HD references.

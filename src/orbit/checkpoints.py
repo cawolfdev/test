@@ -66,7 +66,7 @@ def create_or_reuse_checkpoint(renderer: Renderer, *, root: Path, angle: int,
 
 def accept_native_photo(*, root: Path,angle: int,source: Path,
                         generation_id: str,generated_images_in_job: int,
-                        origin: str) -> Path:
+                        origin: str, geometry_alignment_verified: bool=False) -> Path:
     """Accept a provider-origin single photo, never a crop/upscale.
 
     Provenance must come from the generation tool; this function cannot
@@ -77,6 +77,8 @@ def accept_native_photo(*, root: Path,angle: int,source: Path,
         raise ValueError('Geometry checkpoint must exist before the corresponding photograph')
     if not generation_id.strip() or generated_images_in_job!=1 or origin!='direct_native_single_image':
         raise ValueError('Missing or invalid tool provenance: require one directly generated image')
+    if not geometry_alignment_verified:
+        raise ValueError('Photographic checkpoint requires verified fixed-pose geometry alignment')
     evidence=inspect_image(source,source_kind='independent_native_photo')
     errors=validate_deliverable(evidence)
     if errors:

@@ -38,7 +38,7 @@ def generate_report(repository:Path,version:str)->dict:
     orbit=verify_orbit(repository,spec=OrbitSpec())
     evidence=inspect_evidence(repository)
     quality=measure_mesh_quality(repository/'assets/geometry/fixed_pose_proxy.glb')
-    registrations=[read_json(repository/f'outputs/registration/registration_{angle:03d}.json') for angle in (0,60)]
+    registrations=[read_json(repository/f'output/registration/registration_{angle:03d}.json') for angle in (0,60)]
     accepted=orbit['independent_full_hd_photographs']
     report={'project':PROJECT,'version':version,
             'goal':'Geometry-constrained native-HD independent photographs every 15 degrees around one stationary subject',
@@ -72,7 +72,7 @@ def release(repository:Path,output:Path,*,version:str)->dict:
     output.mkdir(parents=True,exist_ok=True)
     report=generate_report(repository,version)
     save_json(repository/'reports/current.json',report)
-    save_json(repository/'outputs/orbit_000_120/verification.json',report['orbit'])
+    save_json(repository/'output/orbit_000_120/verification.json',report['orbit'])
     exported={}
     overview=output/deliverable_name('overview',version,'md')
     copyfile(repository/'docs/OVERVIEW.md',overview)
@@ -81,7 +81,7 @@ def release(repository:Path,output:Path,*,version:str)->dict:
     copyfile(repository/'reports/current.json',report_file)
     exported['report']=report_file
     preview=output/deliverable_name('preview',version,'png')
-    copyfile(repository/'outputs/orbit_000_120/120/geometry_native_1080x1920.png',preview)
+    copyfile(repository/'output/orbit_000_120/120/geometry_native_1080x1920.png',preview)
     exported['preview']=preview
     visibility=output/deliverable_name('visibility',version,'png')
     copyfile(repository/'evidence/visibility/angle_120_1080x1920.png',visibility)
@@ -93,7 +93,7 @@ def release(repository:Path,output:Path,*,version:str)->dict:
         exported['progress']=dest
     # Pack evidence images and registration diagnostics as independent downloadable evidence.
     evidence_paths=[(p,f'{PROJECT}/{p.relative_to(repository).as_posix()}')
-                    for area in (repository/'evidence',repository/'outputs/registration')
+                    for area in (repository/'evidence',repository/'output/registration')
                     for p in area.rglob('*') if p.is_file()]
     ev=output/deliverable_name('evidence',version,'zip')
     _archive(evidence_paths,ev)
@@ -105,7 +105,7 @@ def release(repository:Path,output:Path,*,version:str)->dict:
     _archive(project_paths,project)
     exported['project']=project
     checkpoint_paths=[(p,f'{PROJECT}/{p.relative_to(repository).as_posix()}')
-                      for p in (repository/'outputs/orbit_000_120').rglob('*') if p.is_file()]
+                      for p in (repository/'output/orbit_000_120').rglob('*') if p.is_file()]
     checkpoints=output/deliverable_name('checkpoints',version,'zip')
     _archive(checkpoint_paths,checkpoints)
     exported['checkpoints']=checkpoints

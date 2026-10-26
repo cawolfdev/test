@@ -13,7 +13,7 @@
 - Retained one geometry authority; removed repeated full-mesh snapshots from active representation.
 
 ## Iteration B: Execution status
-- See `outputs/orbit_000_120/state.json` for machine-verifiable checkpoint completion.
+- See `output/orbit_000_120/state.json` for machine-verifiable checkpoint completion.
 - Geometry checkpoints are native high definition; independent HD photographic generation remains unimplemented and is explicitly marked pending.
 
 ## Next iteration acceptance tests
@@ -29,7 +29,7 @@
 - Earlier 3D mesh remains a rough test fixture: face and lower legs visibly unfitted.
 
 ## Iteration D: Final geometry delivery and packaging
-- Nine separate native 1080×1920 VTK camera renders verified on disk, each with exact SHA-256 recorded in `outputs/orbit_000_120/verification.json`.
+- Nine separate native 1080×1920 VTK camera renders verified on disk, each with exact SHA-256 recorded in `output/orbit_000_120/verification.json`.
 - 8 unit tests pass, including geometry-camera convention, framing, resolution, provenance rejection and checkpoint-resume behavior.
 - No legacy cropped/upscaled panel is reused as a deliverable. The independently requested new image test also returned a collage and is rejected.
 - Kept actual photorealistic generation pending. The existing mesh remains an unfitted proxy whose facial geometry and limbs are visibly inaccurate.
@@ -52,7 +52,7 @@
 - Implemented deterministic reference silhouette segmentation, restrained camera-only silhouette registration, overlaid 1080×1920 diagnostic images, and numeric results from both existing photo views.
 - 0° IoU 0.715; 60° IoU 0.760. Both fail the provisional 0.82 gate; model remains unfitted. Reference masks are estimated and need manual verification.
 - Measured model topology and full-body coverage; explicitly blocked ready-for-photo status for incomplete head/legs and open mesh boundaries.
-- Copied **all 10** currently available, non-reference historical unaccepted image generations to `evidence/attempts/` losslessly, SHA-256 recording each original source filename and failure/limitation reason. Both actual primary reference frames remain in `assets/references/`.
+- Copied **all 10** currently available, non-reference historical unaccepted image generations to `evidence/rejected/` losslessly, SHA-256 recording each original source filename and failure/limitation reason. Both actual primary reference frames remain in `assets/references/`.
 - Rendered the **full set of nine** 1080×1920 visibility diagnostics, not just 15° and 120°. Stored source diagnostic masks and numeric alignment failures for 0° and 60°.
 - Duplicated a progress contact sheet into chat and stored it under `evidence/progress/`. Contact sheets are diagnostics only, never passed off as individually generated photos.
 - Added `docs/PLAN.md`, `docs/OVERVIEW.md`, and in-repository versioned/current JSON reports; release assembles a separate evidence archive and preserves consistent project-prefixed versioned filenames.

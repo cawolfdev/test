@@ -9,16 +9,16 @@
     "branch": "wildlife-bodybuilder-portrait",
     "failure_reasons": {
       "assets/geometry/fixed_pose_proxy.glb": "4.83 MB Git blob HTTP/2 upload transport error",
-      "evidence/attempts/attempt_009.png": "safety check blocked GitHub connector upload",
-      "evidence/attempts/attempt_017.png": "connector safety checks blocked upload of latest generated 1024x1536 candidate",
-      "outputs/orbit_000_120/075/visibility.npz": "safety check blocked GitHub connector upload"
+      "evidence/rejected/attempt_009.png": "safety check blocked GitHub connector upload",
+      "evidence/rejected/attempt_017.png": "connector safety checks blocked upload of latest generated 1024x1536 candidate",
+      "output/orbit_000_120/075/visibility.npz": "safety check blocked GitHub connector upload"
     },
     "git_blob_hash_mismatch_count": 0,
     "known_failed_paths": [
       "assets/geometry/fixed_pose_proxy.glb",
-      "evidence/attempts/attempt_009.png",
-      "evidence/attempts/attempt_017.png",
-      "outputs/orbit_000_120/075/visibility.npz"
+      "evidence/rejected/attempt_009.png",
+      "evidence/rejected/attempt_017.png",
+      "output/orbit_000_120/075/visibility.npz"
     ],
     "last_verified_remote_tree": "27e2d93860111b27cc1e0ceea415293506d1afe2",
     "method": "SHA-verified Git Data API base64 blob upload",
@@ -27,7 +27,12 @@
     "tracked_local_files": 98,
     "verified_remote_files": 94
   },
-  "goal": "Geometry-constrained native-HD independent photographs every 15 degrees around one stationary subject",
+  "goal": "Single anatomically consistent subject; photographic views at 0\u00b0,30\u00b0,60\u00b0,90\u00b0,120\u00b0, native dimensions >1000x1000; 15\u00b0 geometric checkpoints preserved",
+  "hd_definition": {
+    "native_height_gt": 1000,
+    "native_width_gt": 1000,
+    "no_crops_or_upscales": true
+  },
   "mesh_quality": {
     "anatomical_coverage_review": "upper thighs only; calves, ankles and feet are not modeled",
     "boundary_edges": 60,
@@ -48,7 +53,7 @@
     "vertices": 92930,
     "watertight": false
   },
-  "next_action": "Fit a complete, rigged 3D body and head against both reference silhouettes; rerun registration before attempting image synthesis",
+  "next_action": "Fit geometry to both original reference views; generate and validate single photo at each target angle.",
   "orbit": {
     "assessment": "Geometric camera and sampled visibility verified; anatomical fit and photorealistic image generation NOT verified.",
     "geometry_checkpoints": 9,
@@ -154,17 +159,24 @@
       }
     ]
   },
+  "photo_orbit_angles": [
+    0,
+    30,
+    60,
+    90,
+    120
+  ],
   "photographic_attempts_current": {
     "accepted_native_1080x1920": 0,
-    "frontal_candidate": "evidence/attempts/attempt_015.png",
+    "frontal_candidate": "evidence/rejected/attempt_015.png",
     "independent_new_attempts": 3,
     "issues": [
       "native photos are 1024x1536 below required 1080x1920",
       "60-degree requests did not rotate camera",
       "not geometrically registered"
     ],
-    "last_attempt": "evidence/attempts/attempt_017.png",
-    "nominal_60_candidate": "evidence/attempts/attempt_016.png"
+    "last_attempt": "evidence/rejected/attempt_017.png",
+    "nominal_60_candidate": "evidence/rejected/attempt_016.png"
   },
   "project": "wildlife-bodybuilder",
   "quality_gates": {

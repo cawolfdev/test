@@ -27,9 +27,9 @@ Secure or construct a geometrically coherent, rigged whole-body mesh with correc
 ## Project structure
 
 - `src/orbit/`: reusable I/O, camera/rendering, mask extraction, alignment, mesh audit, evidence and release modules.
-- `outputs/orbit_000_120/`: native-resolution fixed-mesh camera checkpoints and visibility masks.
-- `outputs/registration/`: source masks, overlaid failures and per-view numerical fit results.
-- `evidence/attempts/`: historical unaccepted generation **original bytes**, with `evidence/attempts.json` reasons and hashes.
+- `output/orbit_000_120/`: native-resolution fixed-mesh camera checkpoints and visibility masks.
+- `output/registration/`: source masks, overlaid failures and per-view numerical fit results.
+- `evidence/rejected/`: historical unaccepted generation **original bytes**, with `evidence/rejected.json` reasons and hashes.
 - `evidence/visibility/`: **all nine** 1080×1920 visibility diagnostics plus manifest.
 - `evidence/progress/`: preview copied to chat for monitoring; a display-only composite, **not** an image-generation checkpoint.
 - `reports/`: machine-readable *in-repository* current and versioned reports.
@@ -52,8 +52,8 @@ The old claim that GitHub cannot transfer binary blobs was incorrect. Binary byt
 
 ## Connector transfer status
 
-Using the supported GitHub Git Data blob API, base64-encoded file bytes were uploaded and validated by exact Git SHA. Three paths have no remotely accepted blobs: `assets/geometry/fixed_pose_proxy.glb` (transport-size failure), `evidence/attempts/attempt_009.png`, and `outputs/orbit_000_120/075/visibility.npz` (safety checks). No proxy or substituted bytes may be used to claim a complete mirror. New 60° attempts also failed orientation; three independent 1024×1536 images are preserved in the rejected evidence, none accepted as native 1080×1920.
+Using the supported GitHub Git Data blob API, base64-encoded file bytes were uploaded and validated by exact Git SHA. Three paths have no remotely accepted blobs: `assets/geometry/fixed_pose_proxy.glb` (transport-size failure), `evidence/rejected/attempt_009.png`, and `output/orbit_000_120/075/visibility.npz` (safety checks). No proxy or substituted bytes may be used to claim a complete mirror. New 60° attempts also failed orientation; three independent 1024×1536 images are preserved in the rejected evidence, none accepted as native 1080×1920.
 
 ## v0004 measured release
 
-The remote GitHub branch was inspected and compared to the local SHA-1 Git blob hashes: **94/98 tracked paths match exactly**, with no mismatches or extra files. The four absent blobs are the prior three paths plus `evidence/attempts/attempt_017.png`, blocked during connector upload. Local ZIP retains all files and full Git history; remote history and files are incomplete. Two new standalone 0-degree-like photographs and another 0-degree result (17 total attempts) are retained without approval; all are native 1024×1536 below project 1080×1920 native photo gate and none constitutes a fixed 60-degree viewpoint.
+The remote GitHub branch was inspected and compared to the local SHA-1 Git blob hashes: **94/98 tracked paths match exactly**, with no mismatches or extra files. The four absent blobs are the prior three paths plus `evidence/rejected/attempt_017.png`, blocked during connector upload. Local ZIP retains all files and full Git history; remote history and files are incomplete. Two new standalone 0-degree-like photographs and another 0-degree result (17 total attempts) are retained without approval; all are native 1024×1536 below project 1080×1920 native photo gate and none constitutes a fixed 60-degree viewpoint.

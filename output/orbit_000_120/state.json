@@ -3,7 +3,7 @@
   "checkpoints": [
     {
       "angle": 0,
-      "checkpoint": "outputs/orbit_000_120/000/checkpoint.json",
+      "checkpoint": "output/orbit_000_120/000/checkpoint.json",
       "cumulative_visible_vertices": 41551,
       "newly_visible_vertices": 41551,
       "photo_status": "NOT_GENERATED",
@@ -13,7 +13,7 @@
     },
     {
       "angle": 15,
-      "checkpoint": "outputs/orbit_000_120/015/checkpoint.json",
+      "checkpoint": "output/orbit_000_120/015/checkpoint.json",
       "cumulative_visible_vertices": 45805,
       "newly_visible_vertices": 4254,
       "photo_status": "NOT_GENERATED",
@@ -23,7 +23,7 @@
     },
     {
       "angle": 30,
-      "checkpoint": "outputs/orbit_000_120/030/checkpoint.json",
+      "checkpoint": "output/orbit_000_120/030/checkpoint.json",
       "cumulative_visible_vertices": 48445,
       "newly_visible_vertices": 2640,
       "photo_status": "NOT_GENERATED",
@@ -33,7 +33,7 @@
     },
     {
       "angle": 45,
-      "checkpoint": "outputs/orbit_000_120/045/checkpoint.json",
+      "checkpoint": "output/orbit_000_120/045/checkpoint.json",
       "cumulative_visible_vertices": 50434,
       "newly_visible_vertices": 1989,
       "photo_status": "NOT_GENERATED",
@@ -43,7 +43,7 @@
     },
     {
       "angle": 60,
-      "checkpoint": "outputs/orbit_000_120/060/checkpoint.json",
+      "checkpoint": "output/orbit_000_120/060/checkpoint.json",
       "cumulative_visible_vertices": 52449,
       "newly_visible_vertices": 2015,
       "photo_status": "NOT_GENERATED",
@@ -53,7 +53,7 @@
     },
     {
       "angle": 75,
-      "checkpoint": "outputs/orbit_000_120/075/checkpoint.json",
+      "checkpoint": "output/orbit_000_120/075/checkpoint.json",
       "cumulative_visible_vertices": 54586,
       "newly_visible_vertices": 2137,
       "photo_status": "NOT_GENERATED",
@@ -63,7 +63,7 @@
     },
     {
       "angle": 90,
-      "checkpoint": "outputs/orbit_000_120/090/checkpoint.json",
+      "checkpoint": "output/orbit_000_120/090/checkpoint.json",
       "cumulative_visible_vertices": 58250,
       "newly_visible_vertices": 3664,
       "photo_status": "NOT_GENERATED",
@@ -73,7 +73,7 @@
     },
     {
       "angle": 105,
-      "checkpoint": "outputs/orbit_000_120/105/checkpoint.json",
+      "checkpoint": "output/orbit_000_120/105/checkpoint.json",
       "cumulative_visible_vertices": 68024,
       "newly_visible_vertices": 9774,
       "photo_status": "NOT_GENERATED",
@@ -83,7 +83,7 @@
     },
     {
       "angle": 120,
-      "checkpoint": "outputs/orbit_000_120/120/checkpoint.json",
+      "checkpoint": "output/orbit_000_120/120/checkpoint.json",
       "cumulative_visible_vertices": 74898,
       "newly_visible_vertices": 6874,
       "photo_status": "NOT_GENERATED",

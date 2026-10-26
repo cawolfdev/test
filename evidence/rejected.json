@@ -1,8 +1,9 @@
 {
   "attempts": [
     {
+      "category": "unverified",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_001.png",
+      "evidence_path": "rejected/unverified/attempt_001.png",
       "height": 1199,
       "id": "attempt_001",
       "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
@@ -11,8 +12,9 @@
       "width": 1312
     },
     {
+      "category": "montage",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_002.png",
+      "evidence_path": "rejected/montage/attempt_002.png",
       "height": 1024,
       "id": "attempt_002",
       "reason": "Multi-view labeled collage rather than independent full-frame image",
@@ -21,8 +23,9 @@
       "width": 1536
     },
     {
+      "category": "unverified",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_003.png",
+      "evidence_path": "rejected/unverified/attempt_003.png",
       "height": 1199,
       "id": "attempt_003",
       "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
@@ -31,8 +34,9 @@
       "width": 1312
     },
     {
+      "category": "unverified",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_004.png",
+      "evidence_path": "rejected/unverified/attempt_004.png",
       "height": 1312,
       "id": "attempt_004",
       "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
@@ -41,8 +45,9 @@
       "width": 1199
     },
     {
+      "category": "unverified",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_005.png",
+      "evidence_path": "rejected/unverified/attempt_005.png",
       "height": 1402,
       "id": "attempt_005",
       "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
@@ -51,8 +56,9 @@
       "width": 1122
     },
     {
+      "category": "viewpoint",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_006.png",
+      "evidence_path": "rejected/viewpoint/attempt_006.png",
       "height": 1536,
       "id": "attempt_006",
       "reason": "Unconstrained rear perspective/head turn; camera-only pose not confirmed",
@@ -61,8 +67,9 @@
       "width": 1024
     },
     {
+      "category": "viewpoint",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_007.png",
+      "evidence_path": "rejected/viewpoint/attempt_007.png",
       "height": 1536,
       "id": "attempt_007",
       "reason": "Unconstrained rear perspective/head turn; camera-only pose not confirmed",
@@ -71,8 +78,9 @@
       "width": 1024
     },
     {
+      "category": "viewpoint",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_008.png",
+      "evidence_path": "rejected/viewpoint/attempt_008.png",
       "height": 1536,
       "id": "attempt_008",
       "reason": "Unconstrained rear perspective/head turn; camera-only pose not confirmed",
@@ -81,8 +89,9 @@
       "width": 1024
     },
     {
+      "category": "unverified",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_009.png",
+      "evidence_path": "rejected/unverified/attempt_009.png",
       "height": 1199,
       "id": "attempt_009",
       "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
@@ -91,8 +100,9 @@
       "width": 1312
     },
     {
+      "category": "unverified",
       "disposition": "NOT_ACCEPTED_AS_ORBIT_CHECKPOINT",
-      "evidence_path": "attempts/attempt_010.png",
+      "evidence_path": "rejected/unverified/attempt_010.png",
       "height": 1199,
       "id": "attempt_010",
       "reason": "Exploratory generation without verified 3D correspondence or native photo provenance",
@@ -101,8 +111,9 @@
       "width": 1312
     },
     {
+      "category": "montage",
       "disposition": "REJECTED_NON_INDEPENDENT",
-      "evidence_path": "attempts/attempt_011.png",
+      "evidence_path": "rejected/montage/attempt_011.png",
       "height": 1024,
       "id": "attempt_011",
       "reason": "0deg/60deg composite, not independent native images",
@@ -111,8 +122,9 @@
       "width": 1536
     },
     {
+      "category": "montage",
       "disposition": "REJECTED_NON_INDEPENDENT",
-      "evidence_path": "attempts/attempt_012.png",
+      "evidence_path": "rejected/montage/attempt_012.png",
       "height": 1024,
       "id": "attempt_012",
       "reason": "0deg/60deg composite, not independent native images",
@@ -121,8 +133,9 @@
       "width": 1536
     },
     {
+      "category": "montage",
       "disposition": "REJECTED_NON_INDEPENDENT",
-      "evidence_path": "attempts/attempt_013.png",
+      "evidence_path": "rejected/montage/attempt_013.png",
       "height": 1024,
       "id": "attempt_013",
       "reason": "0-120deg composite, not independent native images",
@@ -131,8 +144,9 @@
       "width": 1536
     },
     {
+      "category": "montage",
       "disposition": "REJECTED_NON_INDEPENDENT",
-      "evidence_path": "attempts/attempt_014.png",
+      "evidence_path": "rejected/montage/attempt_014.png",
       "height": 1024,
       "id": "attempt_014",
       "reason": "Nine-plus-panel montage including extra 150 degree angle; not a single full-HD photograph",
@@ -141,34 +155,37 @@
       "width": 1536
     },
     {
+      "category": "unverified",
+      "disposition": "REJECTED_PHOTOGRAPHIC_CHECKPOINT",
+      "evidence_path": "rejected/unverified/attempt_015.png",
+      "height": 1536,
       "id": "attempt_015",
-      "source_filename": "outdoor_landscape_portrait_a_hyper_detailed_real.png",
-      "evidence_path": "attempts/attempt_015.png",
+      "reason": "Independent frontal photographic candidate; native 1024x1536 below 1080x1920 full-HD portrait gate; not fitted to the 3D model",
       "sha256": "5e93d75c08514e3b7a46e68862e0b720ef3d80197c1daf3af9dab81b610f83cd",
-      "width": 1024,
-      "height": 1536,
-      "disposition": "REJECTED_PHOTOGRAPHIC_CHECKPOINT",
-      "reason": "Independent frontal photographic candidate; native 1024x1536 below 1080x1920 full-HD portrait gate; not fitted to the 3D model"
+      "source_filename": "outdoor_landscape_portrait_a_hyper_detailed_real.png",
+      "width": 1024
     },
     {
+      "category": "viewpoint",
+      "disposition": "REJECTED_PHOTOGRAPHIC_CHECKPOINT",
+      "evidence_path": "rejected/viewpoint/attempt_016.png",
+      "height": 1536,
       "id": "attempt_016",
-      "source_filename": "outdoor_landscape_portrait_a_highly_detailed_rea.png",
-      "evidence_path": "attempts/attempt_016.png",
+      "reason": "Independent native 1024x1536 image but shows near-frontal not required camera 60 degrees; also below full-HD portrait gate and not geometry-registered",
       "sha256": "bcc8de188eeff5705df3c954815c3ca9b878bc1a0ba5c007d811cbf43e31e462",
-      "width": 1024,
-      "height": 1536,
-      "disposition": "REJECTED_PHOTOGRAPHIC_CHECKPOINT",
-      "reason": "Independent native 1024x1536 image but shows near-frontal not required camera 60 degrees; also below full-HD portrait gate and not geometry-registered"
+      "source_filename": "outdoor_landscape_portrait_a_highly_detailed_rea.png",
+      "width": 1024
     },
     {
-      "id": "attempt_017",
-      "source_filename": "outdoor_landscape_portrait_photo_full_body_shot.png",
-      "evidence_path": "attempts/attempt_017.png",
-      "sha256": "a252fea72b630d3f197ebac9e250876910b45d104d4a9974897683b442642da0",
-      "width": 1024,
-      "height": 1536,
+      "category": "viewpoint",
       "disposition": "REJECTED_PHOTOGRAPHIC_CHECKPOINT",
-      "reason": "New standalone 0-degree image despite requested independent 60-degree view; native dimensions below required 1080x1920 portrait; no fixed-mesh registration"
+      "evidence_path": "rejected/viewpoint/attempt_017.png",
+      "height": 1536,
+      "id": "attempt_017",
+      "reason": "New standalone 0-degree image despite requested independent 60-degree view; native dimensions below required 1080x1920 portrait; no fixed-mesh registration",
+      "sha256": "a252fea72b630d3f197ebac9e250876910b45d104d4a9974897683b442642da0",
+      "source_filename": "outdoor_landscape_portrait_photo_full_body_shot.png",
+      "width": 1024
     }
   ],
   "classification": "unaccepted checkpoint attempts; some useful as visual explorations",

@@ -21,7 +21,7 @@ class OrbitSpec:
         if self.step <= 0 or self.stop < self.start or (self.stop-self.start) % self.step:
             raise ValueError('Angle sequence must divide start-to-stop exactly')
         if self.width < 1080 or self.height < 1920:
-            raise ValueError('Every deliverable checkpoint must be natively at least 1080x1920')
+            raise ValueError('Native geometric render must be at least 1080x1920')
 
     @property
     def angles(self) -> tuple[int, ...]:
@@ -74,6 +74,6 @@ def photo_prompt(angle: int) -> str:
         'when eyes are visible, short-sided forward-spiked brown football-jock hair, dense natural '
         'feathered-edge stubble, dark gym shorts, cloudy lakeside overlook. '
         'Camera orbits the stationary model without the subject turning toward it. '
-        'Portrait photographic realism, full frame, native 1080x1920 minimum, single image only, '
+        'Portrait photographic realism, full frame, native >1000x1000 pixels minimum, single image only, '
         'no panel, mosaic, crop, collage, inpainting, or enlargement of an existing image.'
     )

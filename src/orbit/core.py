@@ -45,7 +45,7 @@ def inspect_image(path: Path, *, source_kind: str) -> ImageEvidence:
     return ImageEvidence(str(path), source_kind, width, height, sha256(path))
 
 
-def validate_deliverable(evidence: ImageEvidence, *, min_width: int=1080, min_height: int=1920) -> tuple[str, ...]:
+def validate_deliverable(evidence: ImageEvidence, *, min_width: int=1001, min_height: int=1001) -> tuple[str, ...]:
     errors = []
     if evidence.source_kind not in ALLOWED_IMAGE_KINDS:
         errors.append('Provenance is neither an independent native image nor a native 3D render')

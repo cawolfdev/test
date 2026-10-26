@@ -35,8 +35,10 @@ def test_rejects_crops_and_upscales_even_when_large():
     b=ImageEvidence('upscaled.png','upscaled',2048,3072,'hash')
     assert validate_deliverable(a)
     assert validate_deliverable(b)
-    assert validate_deliverable(ImageEvidence('native.png','independent_native_photo',1024,1536,'hash'))
+    assert not validate_deliverable(ImageEvidence('native.png','independent_native_photo',1024,1536,'hash'))
     assert validate_deliverable(ImageEvidence('native.png','independent_native_photo',1080,1920,'hash'))==()
+    assert validate_deliverable(ImageEvidence('too_small.png','independent_native_photo',1000,1800,'hash'))
+    assert validate_deliverable(ImageEvidence('too_short.png','independent_native_photo',1800,1000,'hash'))
 
 
 def test_normal_gate_is_an_explicit_approximation():

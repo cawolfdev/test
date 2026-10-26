@@ -7,8 +7,8 @@ def main():
     r=Path(__file__).resolve().parent
     for angle,source in ((0,'front_original.png'),(60,'angle_060_original.png')):
         result=compare_reference(r/'assets/references'/source,
-            r/f'outputs/orbit_000_120/{angle:03d}/geometry_native_1080x1920.png',
-            angle=angle,outdir=r/'outputs/registration')
+            r/f'output/orbit_000_120/{angle:03d}/geometry_native_1080x1920.png',
+            angle=angle,outdir=r/'output/registration')
         print(f'{angle:03d}° IoU={result["alignment"]["iou"]:.3f} '+
               f'gate={"PASS" if result["quality_gate"]["passed"] else "FAIL"}')
 

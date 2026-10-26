@@ -48,7 +48,7 @@ def test_validation_keeps_explicit_unready_mesh_status():
 
 def test_full_evidence_manifest_and_rejected_generation_bytes_exist():
     report=inspect_evidence(REPO)
-    assert report['historical_attempts']==len(__import__('json').loads((REPO/'evidence/attempts.json').read_text())['attempts'])
+    assert report['historical_attempts']==len(__import__('json').loads((REPO/'evidence/rejected.json').read_text())['attempts'])
     assert report['historical_attempts']>=14
     assert report['visibility_diagnostics']==9
     assert report['registration_diagnostics']==2

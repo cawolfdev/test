@@ -11,7 +11,7 @@ from .visibility import VISIBILITY_VERSION, decode_visibility, increment_visibil
 
 def verify_orbit(repository: Path, *, spec: OrbitSpec) -> dict:
     """Fail closed if geometry, visibility history, dimensions or paths disagree."""
-    root=repository/'outputs/orbit_000_120'
+    root=repository/'output/orbit_000_120'
     state=read_json(root/'state.json')
     mesh_path=repository/'assets/geometry/fixed_pose_proxy.glb'
     mesh=load_fixed_mesh(mesh_path)

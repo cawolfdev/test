@@ -25,7 +25,7 @@ class AttemptEvidence:
 def record_rejected_attempts(repository:Path, originals:list[Path]) -> dict:
     """Copy unaccepted image files exactly, deduplicating references and prior copies."""
     reference_hashes={sha256(x) for x in (repository/'assets/references').glob('*.png')}
-    destination=repository/'evidence/attempts'
+    destination=repository/'evidence/rejected/unverified'
     destination.mkdir(parents=True,exist_ok=True)
     seen=set()
     entries=[]
@@ -45,19 +45,19 @@ def record_rejected_attempts(repository:Path, originals:list[Path]) -> dict:
                 if 'outdoor_landscape_' in source.name else
                 'Exploratory generation without verified 3D correspondence or native photo provenance')
         entries.append(asdict(AttemptEvidence(
-            id=ident,source_filename=source.name,evidence_path=f'attempts/{file.name}',
+            id=ident,source_filename=source.name,evidence_path=f'rejected/unverified/{file.name}',
             sha256=digest,width=w,height=h,disposition='NOT_ACCEPTED_AS_ORBIT_CHECKPOINT',reason=reason)))
     manifest={'project':'wildlife-bodybuilder','source':'available historical generation files',
               'classification':'unaccepted checkpoint attempts; some useful as visual explorations',
               'original_bytes_preserved':True,'count':len(entries),'attempts':entries}
-    save_json(repository/'evidence/attempts.json',manifest)
+    save_json(repository/'evidence/rejected.json',manifest)
     return manifest
 
 
 def render_all_visibility_diagnostics(repository:Path, *,spec:OrbitSpec=OrbitSpec()) -> list[dict]:
     mesh=load_fixed_mesh(repository/'assets/geometry/fixed_pose_proxy.glb')
     renderer=Renderer(mesh,spec)
-    root=repository/'outputs/orbit_000_120'
+    root=repository/'output/orbit_000_120'
     output=repository/'evidence/visibility'
     output.mkdir(parents=True,exist_ok=True)
     evidence=[]
@@ -77,7 +77,7 @@ def render_all_visibility_diagnostics(repository:Path, *,spec:OrbitSpec=OrbitSpe
 
 
 def inspect_evidence(repository:Path) -> dict:
-    attempts=read_json(repository/'evidence/attempts.json')
+    attempts=read_json(repository/'evidence/rejected.json')
     visibility=read_json(repository/'evidence/visibility.json')
     if len(visibility['images'])!=9:raise ValueError('Expected nine visibility diagnostic frames')
     for entry in attempts['attempts']:
@@ -89,7 +89,7 @@ def inspect_evidence(repository:Path) -> dict:
     for angle in (0,60):
         for name in (f'registration_{angle:03d}.json',f'registration_{angle:03d}_1080x1920.png',
                      f'reference_mask_{angle:03d}.png'):
-            if not (repository/'outputs/registration'/name).is_file():raise ValueError(f'Missing registration evidence {name}')
+            if not (repository/'output/registration'/name).is_file():raise ValueError(f'Missing registration evidence {name}')
     return {'historical_attempts':len(attempts['attempts']),
             'visibility_diagnostics':len(visibility['images']),
             'registration_diagnostics':2,'all_digests_checked':True}

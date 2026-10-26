@@ -14,7 +14,7 @@ def run_orbit(repository: Path, *, spec: OrbitSpec, stop_after: int | None = Non
     asset = repository/'assets/geometry/fixed_pose_proxy.glb'
     mesh = load_fixed_mesh(asset)
     renderer = Renderer(mesh, spec)
-    target = repository/'outputs/orbit_000_120'
+    target = repository/'output/orbit_000_120'
     target.mkdir(parents=True, exist_ok=True)
     geometry_hash = sha256_of_mesh(mesh)
     origin_hash = sha256(asset)
