@@ -1,0 +1,49 @@
+{
+  "project": "wildlife-bodybuilder",
+  "branch": "wildlife-bodybuilder-portrait",
+  "local_head": "0766257",
+  "remote_sync": "PARTIAL",
+  "publication_verified": false,
+  "geometry": {
+    "checkpoints": 9,
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "mesh_photo_ready": false,
+    "boundary_edges": 60
+  },
+  "registration": {
+    "angles": [
+      0,
+      60
+    ],
+    "silhouette_iou": [
+      0.715,
+      0.76
+    ],
+    "threshold": 0.82,
+    "passed": [
+      false,
+      false
+    ]
+  },
+  "source_photos": {
+    "0": "APPROXIMATE_ONLY",
+    "60": "APPROXIMATE_ONLY",
+    "independently_generated_new_references": 0
+  },
+  "photorealistic": {
+    "accepted_orbit_checkpoints": 0,
+    "rejected_attempts": 14,
+    "latest_failures": 4,
+    "reason": "Montage instead of single independent full-HD image"
+  },
+  "remote": {
+    "repository": "cawolfdev/test",
+    "branch": "wildlife-bodybuilder-portrait",
+    "git_objects_uploaded": "overview, plan, readme, report",
+    "full_local_source_and_binary_mirror": false
+  },
+  "next_action": "Fit complete rigged geometry; native independent 0/60 source images; transfer and verify every local blob through GitHub connector"
+}
