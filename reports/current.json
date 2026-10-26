@@ -1,7 +1,7 @@
 {
   "project": "wildlife-bodybuilder",
   "branch": "wildlife-bodybuilder-portrait",
-  "local_head": "0766257",
+  "local_head": "9d9f321",
   "remote_sync": "PARTIAL",
   "publication_verified": false,
   "geometry": {
@@ -43,7 +43,9 @@
     "repository": "cawolfdev/test",
     "branch": "wildlife-bodybuilder-portrait",
     "git_objects_uploaded": "overview, plan, readme, report",
-    "full_local_source_and_binary_mirror": false
+    "full_local_source_and_binary_mirror": false,
+    "sync_note": "Remote has verified documentation update, but has not received the local 3D mesh, 14 rejected image files, geometric views, tests, and complete Git history."
   },
-  "next_action": "Fit complete rigged geometry; native independent 0/60 source images; transfer and verify every local blob through GitHub connector"
+  "next_action": "Fit complete rigged geometry; native independent 0/60 source images; transfer and verify every local blob through GitHub connector",
+  "local_branch": "wildlife-bodybuilder-portrait"
 }
