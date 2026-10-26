@@ -22,6 +22,7 @@ class OrbitJob:
     target_angle: int = 120
     step_angle: int = 15
     min_edge: int = 1024
+    model: Path | None = None
 
 
 def angles(job: OrbitJob) -> tuple[int, ...]:
@@ -64,6 +65,47 @@ def check_stage(records: tuple[dict, ...], angle: int, metadata: dict, job: Orbi
         raise ValueError('First checkpoint cannot have a predecessor')
 
 
+def task_request(job: OrbitJob, records: tuple[dict, ...], *,
+                 source_digest: str, model_digest: str | None = None) -> dict:
+    """Pure business-case request. Never invent a finished image or skip an angle.
+
+    Rendering is an injected external operation; this task only states the evidence
+    required for the next native-resolution image. The immutable previous frame is
+    referenced by content digest, not mutable filename or atlas index.
+    """
+    schedule = angles(job)
+    if len(records) >= len(schedule):
+        raise ValueError('All checkpoints are already registered')
+    if records and records[-1]['visual_review'] not in ('accepted', 'anchor'):
+        raise ValueError('Previous frame lacks positive visual review')
+    if any(record.get('source_sha256') not in (None, source_digest) or
+           record.get('model_sha256') not in (None, model_digest) for record in records):
+        raise ValueError('Immutable source/model changed during this orbit')
+    angle = schedule[len(records)]
+    return {'angle': angle, 'step': job.step_angle,
+            'previous_angle': schedule[len(records)-1] if records else None,
+            'previous_sha256': records[-1]['sha256'] if records else None,
+            'source_sha256': source_digest, 'model_sha256': model_digest,
+            'min_native_edge': job.min_edge, 'required_origin':
+            'anchor' if not records else 'independent_generation',
+            'geometry_guide': f'hd/guides/{angle:03d}.png',
+            'candidate_state': 'awaiting_independent_render'}
+
+
+def dependencies(job: OrbitJob) -> dict:
+    """Read hashes only at I/O boundary and pass immutable values to domain logic."""
+    return {'source_sha256': sha256(job.source),
+            'model_sha256': sha256(job.model) if job.model is not None else None}
+
+
+def verify_dependencies(records: tuple[dict, ...], deps: dict) -> None:
+    """Keep the whole sequence on the original scene and model revision."""
+    for r in records:
+        for key, value in deps.items():
+            if r.get(key) != value:
+                raise ValueError(f'Run dependency mismatch for {key}; create a new version')
+
+
 def load_records(root: Path) -> tuple[dict, ...]:
     index = root / 'hd' / 'sequence.json'
     return tuple(json.loads(index.read_text())) if index.exists() else ()
@@ -80,12 +122,14 @@ def register_frame(root: Path, job: OrbitJob, angle: int, image: Path,
     root, image = Path(root), Path(image)
     current = load_records(root)
     frame = frame_requirements(image, job.min_edge)
+    deps = dependencies(job)
+    verify_dependencies(current, deps)
     metadata = {
         'angle': angle, 'provenance': provenance,
         'previous_sha256': current[-1]['sha256'] if current else None,
         'derived_from_crop': derived_from_crop,
-        'visual_review': 'accepted' if reviewed else 'unverified',
-        **frame,
+        'visual_review': 'anchor' if angle == 0 else ('accepted' if reviewed else 'unverified'),
+        **deps, **frame,
     }
     check_stage(current, angle, metadata, job)
     dest = root/'hd'/'frames'/f'{angle:03d}.png'
@@ -122,7 +166,12 @@ def status(root: Path, job: OrbitJob) -> dict:
     """Pure task-level progress summary: missing steps never implicitly pass."""
     current=load_records(root)
     schedule=angles(job)
-    return {'requested_angles':schedule,'accepted':tuple(r['angle'] for r in current),
+    deps=dependencies(job)
+    verify_dependencies(current, deps)
+    ready=not current or current[-1]['visual_review'] in ('accepted', 'anchor')
+    return {'requested_angles':schedule,
+            'registered':tuple(r['angle'] for r in current),
             'next_angle':schedule[len(current)] if len(current)<len(schedule) else None,
-            'complete':len(current)==len(schedule),
+            'ready_to_generate':ready,
+            'complete':len(current)==len(schedule) and all(r['visual_review'] in ('accepted','anchor') for r in current),
             'reviewed_count':sum(r['visual_review']=='accepted' for r in current)}

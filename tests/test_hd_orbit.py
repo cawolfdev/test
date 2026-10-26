@@ -45,3 +45,45 @@ class OrbitHDTests(unittest.TestCase):
         with self.assertRaises(ValueError):register_frame(self.root,self.job,15,self.source,'independent_generation')
 
 if __name__=='__main__':unittest.main()
+
+class PipelineEvidenceTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp=tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root=Path(self.tmp.name)
+        self.source=self.root/'source.png'
+        self.model=self.root/'model.glb'
+        self.source.write_bytes(b'original image evidence')
+        self.model.write_bytes(b'locked model revision')
+        self.job=OrbitJob(self.source, model=self.model)
+
+    def test_pure_next_task_is_model_and_parent_locked(self):
+        from wolf_orbit.hd_orbit import task_request,dependencies
+        deps=dependencies(self.job)
+        first=task_request(self.job,(),**{'source_digest':deps['source_sha256'],'model_digest':deps['model_sha256']})
+        self.assertEqual(first['angle'],0)
+        self.assertEqual(first['required_origin'],'anchor')
+        anchor={**deps,'sha256':'abc','angle':0,'visual_review':'anchor'}
+        second=task_request(self.job,(anchor,),source_digest=deps['source_sha256'],model_digest=deps['model_sha256'])
+        self.assertEqual(second['angle'],15)
+        self.assertEqual(second['previous_sha256'],'abc')
+        with self.assertRaises(ValueError):
+            task_request(self.job,(anchor,),source_digest='modified',model_digest=deps['model_sha256'])
+        with self.assertRaises(ValueError):
+            task_request(self.job,({**anchor,'visual_review':'unverified'},),source_digest=deps['source_sha256'],model_digest=deps['model_sha256'])
+
+    def test_change_of_fixed_model_rejected_at_registration(self):
+        from wolf_orbit.hd_orbit import verify_dependencies,dependencies
+        deps=dependencies(self.job)
+        records=({'angle':0,**deps},)
+        verify_dependencies(records,deps)
+        self.model.write_bytes(b'secret model change')
+        with self.assertRaisesRegex(ValueError,'model_sha256'):
+            verify_dependencies(records,dependencies(self.job))
+
+    def test_unreviewed_end_does_not_count_complete(self):
+        from wolf_orbit.hd_orbit import task_request,dependencies
+        deps=dependencies(self.job)
+        states=tuple({**deps,'sha256':str(a),'visual_review':'anchor' if a==0 else 'unverified'}
+                     for a in range(0,121,15))
+        with self.assertRaises(ValueError):task_request(self.job,states[:-1],source_digest=deps['source_sha256'],model_digest=deps['model_sha256'])
