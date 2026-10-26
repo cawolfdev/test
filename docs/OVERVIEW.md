@@ -65,3 +65,7 @@ The latest 0°/30°/60°/90°/120° generation returned a single composite and w
 ## Verified GitHub synchronization after filesystem refactor
 
 Verified commit `492371b14c3e2bb1c7555fe5b577ac1355f91a21` at the designated remote branch. Exactly **101/105** tracked local paths have identical Git blob hashes remotely; no different or extra remote files. Four historical binary objects remain blocked, listed in `reports/current.json`. The categorized rejected-montage evidence, the current filesystem guide, five native geometric views, and current execution log have been committed and pushed. Distribution ZIPs should remain external artifacts: checking in a ZIP of Git history and repository bytes duplicates the entire project and contradicts the repository simplification goal.
+
+## Latest binary synchronization audit
+
+104/105 tracked project files have matching SHA-1 Git object identifiers remotely, and zero mismatches. A remaining 4,833,024-byte `assets/geometry/fixed_pose_proxy.glb` is in the full project archive locally, but the connector returned HTTP/2 upload failure when sending its 6.4MB base64 payload. Uploads of the previously blocked 75° visibility data and two rejected PNG assets **did** succeed and were each committed/pushed immediately. Do not claim complete remote synchronization before that exact GLB blob SHA can be verified.

@@ -3,3 +3,5 @@ Command: python -m pytest -q
 27 passed in 2.79s
 
 Remote content audit: 101/105 identical Git blobs; four missing previously blocked binaries.
+
+Final remote byte audit: 104/105 identical tracked Git blobs; only fixed_pose_proxy.glb missing (transport limit).

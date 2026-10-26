@@ -9,25 +9,19 @@
   "github_sync": {
     "branch": "wildlife-bodybuilder-portrait",
     "failure_reasons": {
-      "assets/geometry/fixed_pose_proxy.glb": "4.83 MB Git blob HTTP/2 upload transport error",
-      "evidence/rejected/attempt_009.png": "safety check blocked GitHub connector upload",
-      "evidence/rejected/attempt_017.png": "connector safety checks blocked upload of latest generated 1024x1536 candidate",
-      "output/orbit_000_120/075/visibility.npz": "safety check blocked GitHub connector upload"
+      "assets/geometry/fixed_pose_proxy.glb": "GitHub connector HTTP/2 upload stream failed for 4,833,024-byte exact GLB blob; not uploaded."
     },
     "git_blob_hash_mismatch_count": 0,
     "known_failed_paths": [
-      "assets/geometry/fixed_pose_proxy.glb",
-      "evidence/rejected/unverified/attempt_009.png",
-      "evidence/rejected/viewpoint/attempt_017.png",
-      "output/orbit_000_120/075/visibility.npz"
+      "assets/geometry/fixed_pose_proxy.glb"
     ],
-    "last_verified_remote_head": "492371b14c3e2bb1c7555fe5b577ac1355f91a21",
-    "last_verified_remote_tree": "079c666e7dfdd621fa45e41e3e7c419f3a6ea473",
+    "last_verified_remote_head": "98e6e46e2059a8790907232a3ba8998665f14a4e",
+    "last_verified_remote_tree": "d934860950d62d4e8e84cbd09a780b3bbc829d77",
     "method": "SHA-verified Git Data API base64 blob upload",
     "remote_complete": false,
     "status": "PARTIAL",
     "tracked_local_files": 105,
-    "verified_remote_files": 101
+    "verified_remote_files": 104
   },
   "goal": "Single anatomically consistent subject; photographic views at 0\u00b0,30\u00b0,60\u00b0,90\u00b0,120\u00b0, native dimensions >1000x1000; 15\u00b0 geometric checkpoints preserved",
   "hd_definition": {

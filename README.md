@@ -56,3 +56,5 @@ Use Git history for older versions of mutable documentation; keep `docs/OVERVIEW
 ## Exact GitHub binary synchronization
 
 Binary and text files are Git blobs. The transfer bridge (`tools/git_bridge.py`) packages tracked bytes into SHA-verified base64 transfer batches; the connected GitHub Git Data API creates blobs, trees, commits, and a branch update. The transfer is not complete until the remote tree matches the tracked local files. Outputs/ is now tracked, including the full-HD geometry, visibility state and registration diagnostics. Historical failed generations are retained in `evidence/rejected/`. Both new standalone photographs (attempt_015 and attempt_016) are rejected, not geometry-verified native full-HD references.
+
+**Latest remote verification:** 104/105 tracked files match GitHub exactly. Only the original 4.8MB GLB mesh remains absent remotely due to HTTP/2 payload transport failure. See `reports/current.json`. All five 30°-spaced *geometric* outputs exist at native 1080×1920; none is an accepted geometric-locked photograph.
