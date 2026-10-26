@@ -61,3 +61,7 @@ The remote GitHub branch was inspected and compared to the local SHA-1 Git blob 
 ## Current five-angle image-generation outcome
 
 The latest 0°/30°/60°/90°/120° generation returned a single composite and was rejected. Its exact bytes and SHA-256 are saved under `evidence/rejected/montage/current.png` and documented by `evidence/rejected/current.json`. Individual photographs are still missing. Native 1024×1536 source pictures satisfy the user’s new **strictly >1000×1000** resolution criterion, but have not passed geometric alignment. Current five independently rendered 1080×1920 geometries are linked from `output/README.md`.
+
+## Verified GitHub synchronization after filesystem refactor
+
+Verified commit `492371b14c3e2bb1c7555fe5b577ac1355f91a21` at the designated remote branch. Exactly **101/105** tracked local paths have identical Git blob hashes remotely; no different or extra remote files. Four historical binary objects remain blocked, listed in `reports/current.json`. The categorized rejected-montage evidence, the current filesystem guide, five native geometric views, and current execution log have been committed and pushed. Distribution ZIPs should remain external artifacts: checking in a ZIP of Git history and repository bytes duplicates the entire project and contradicts the repository simplification goal.
