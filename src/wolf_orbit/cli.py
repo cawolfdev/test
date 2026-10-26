@@ -25,7 +25,7 @@ def main():
         print('VALIDATION', 'PASS' if report['passed'] else 'FAIL')
     if args.action=='archive':
         from .archive import package_workspace
-        print('ARCHIVE',package_workspace(args.root,args.root.parent/'wolf_camera_orbit_workspace.zip'))
+        print('ARCHIVE',package_workspace(args.root,args.root.resolve().parent/'wolf_camera_orbit_workspace.zip'))
     if args.action=='validate':
         print(json.dumps(validate(args.root),indent=2))
 if __name__=='__main__':main()

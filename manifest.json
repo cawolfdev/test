@@ -371,8 +371,8 @@
     },
     {
       "path": "src/wolf_orbit/cli.py",
-      "size_bytes": 1567,
-      "sha256": "3916b400f50555822feb9e448e87f00b2922b65253f397beccf09b2d6b70c0cf"
+      "size_bytes": 1577,
+      "sha256": "901f557b79974f199a827d8128d1bb560c1e83a3cb6a923bf50f0516bfb6d604"
     },
     {
       "path": "src/wolf_orbit/geometry.py",

@@ -1,0 +1,6 @@
+{
+  "original_sha": "de4037a7b378aaf8a74407251db4d267b337993c",
+  "original_message": "fix: write portable archive outside versioned workspace",
+  "original_position": 5,
+  "excluded_asset_changes": []
+}
